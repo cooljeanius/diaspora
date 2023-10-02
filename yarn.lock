@@ -78,11 +78,6 @@ highlightjs@9.16.2:
   resolved "https://registry.yarnpkg.com/highlightjs/-/highlightjs-9.16.2.tgz#07ea6cc7c93340fc440734fb7abf28558f1f0fe1"
   integrity sha512-FK1vmMj8BbEipEy8DLIvp71t5UsC7n2D6En/UfM/91PCwmOpj6f2iu0Y0coRC62KSRHHC+dquM2xMULV/X7NFg==
 
-inherits@^2.0.3:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
-  integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
-
 jasmine-ajax@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/jasmine-ajax/-/jasmine-ajax-4.0.0.tgz#7d8ba7e47e3f7e780e155fe9aa563faafa7e1a26"
@@ -203,10 +198,10 @@ mimoza@~1.0.0:
   dependencies:
     mime-db "^1.6.0"
 
-multimath@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/multimath/-/multimath-1.0.3.tgz#eadee6fb9d727d329d64d60bba247af42334451d"
-  integrity sha512-Pfkai+VVbWSBL2XyzKIisZ2HFJ4a6lTWoyfjUUMu34bFkewmmYuG9/mB6l8/7O/Zs2Ap3u81ueKxTHoOmkZp4Q==
+multimath@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/multimath/-/multimath-2.0.0.tgz#0d37acf67c328f30e3d8c6b0d3209e6082710302"
+  integrity sha512-toRx66cAMJ+Ccz7pMIg38xSIrtnbozk0dchXezwQDMgQmbGpfxjtv68H+L00iFL8hxDaVjrmwAFSb3I6bg8Q2g==
   dependencies:
     glur "^1.1.2"
     object-assign "^4.1.1"
@@ -221,13 +216,13 @@ perfect-scrollbar@1.4.0:
   resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.4.0.tgz#5d014ef9775e1f43058a1dbae9ed1daf0e7091f1"
   integrity sha512-/2Sk/khljhdrsamjJYS5NjrH+GKEHEwh7zFSiYyxROyYKagkE4kSn2zDQDRTOMo8mpT2jikxx6yI1dG7lNP/hw==
 
-pica@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/pica/-/pica-5.0.0.tgz#c01ca5bce8ba07c0e7fd4d0c408199e8ad0a2f86"
-  integrity sha512-g+Ik3Co+2ybRYOrh77xUz+BsFF+anyAdqX+XRGTWbEW6u7CbNA6/m2wKAiloZPFngmomh6HOKcY9AperpV5Zzg==
+pica@9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/pica/-/pica-9.0.1.tgz#9ba5a5e81fc09dca9800abef9fb8388434b18b2f"
+  integrity sha512-v0U4vY6Z3ztz9b4jBIhCD3WYoecGXCQeCsYep+sXRefViL+mVVoTL+wqzdPeE+GpBFsRUtQZb6dltvAt2UkMtQ==
   dependencies:
-    inherits "^2.0.3"
-    multimath "^1.0.3"
+    glur "^1.1.2"
+    multimath "^2.0.0"
     object-assign "^4.1.1"
     webworkify "^1.5.0"
 
