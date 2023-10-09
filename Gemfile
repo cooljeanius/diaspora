@@ -270,3 +270,5 @@ gem "jquery-ui-rails-test", "~> 6.0"
 gem "sassc", "~> 2.4"
 
 gem "jquery-ui-rails-engine", "~> 1.10"
+
+gem "compass-jquery-ui", "~> 0.1.0"
