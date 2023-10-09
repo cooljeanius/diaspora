@@ -1,4 +1,6 @@
 {
+  "name": "diaspora",
+  "description": "A privacy-aware, distributed, open source social network.",
   "repository": "git@github.com:diaspora/diaspora.git",
   "author": "diaspora* team",
   "license": "AGPL-3.0",
