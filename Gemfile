@@ -272,3 +272,5 @@ gem "sassc", "~> 2.4"
 gem "jquery-ui-rails-engine", "~> 1.10"
 
 gem "compass-jquery-ui", "~> 0.1.0"
+
+gem "jquery-ui-bootstrap-rails", "~> 0.0.2"
