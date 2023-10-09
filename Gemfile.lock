@@ -837,7 +837,7 @@ DEPENDENCIES
   jasmine-jquery-rails (= 2.0.3)
   jquery-rails (= 4.5.0)
   jquery-ui-rails (= 6.0.1)
-  jquery-ui-rails-test
+  jquery-ui-rails-test (~> 6.0)
   js-routes (= 2.2.5)
   js_image_paths (= 0.2.0)
   json (= 2.6.3)
@@ -912,4 +912,4 @@ DEPENDENCIES
   yajl-ruby (= 1.4.3)
 
 BUNDLED WITH
-   2.3.18
+   2.4.19
