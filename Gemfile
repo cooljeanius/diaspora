@@ -279,4 +279,4 @@ gem "jquery-ui-bootstrap-rails-asset", "~> 0.0.3"
 
 gem "jquery-ui-middleman", "~> 4.1"
 
-gem "jquery-ui-rails-cdn", "~> 0.1.4"
+gem "jquery-ui-rails-google-cdn", "~> 0.0.2"
