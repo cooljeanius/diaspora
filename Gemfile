@@ -274,3 +274,5 @@ gem "jquery-ui-rails-engine", "~> 1.10"
 gem "compass-jquery-ui", "~> 0.1.0"
 
 gem "jquery-ui-bootstrap-rails", "~> 0.0.2"
+
+gem "jquery-ui-bootstrap-rails-asset", "~> 0.0.3"
