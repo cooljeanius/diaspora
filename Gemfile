@@ -282,3 +282,5 @@ gem "jquery-ui-middleman", "~> 4.1"
 gem "jquery-ui-rails-google-cdn", "~> 0.0.2"
 
 gem "jquery-ui-rails-patch-1131", "~> 7.0"
+
+gem "jquery-ui-redmond", "~> 0.0.1"
