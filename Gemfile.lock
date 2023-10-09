@@ -371,6 +371,7 @@ GEM
     jquery-ui-bootstrap-rails-asset (0.0.3)
       bootstrap-sass-rails
       railties (>= 3.1.0)
+    jquery-ui-middleman (4.1.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
     jquery-ui-rails-engine (1.10.3.0)
@@ -857,6 +858,7 @@ DEPENDENCIES
   jquery-rails (= 4.5.0)
   jquery-ui-bootstrap-rails (~> 0.0.2)
   jquery-ui-bootstrap-rails-asset (~> 0.0.3)
+  jquery-ui-middleman (~> 4.1)
   jquery-ui-rails (= 6.0.1)
   jquery-ui-rails-engine (~> 1.10)
   jquery-ui-rails-test (~> 6.0)
