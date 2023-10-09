@@ -53,11 +53,13 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+      - name: bundle install
+        run: if test -x "$(which bundle)"; then bundle install; fi
       - name: Prepare
         run: script/ci/prepare.sh
       - name: Run tests
         run: bin/rake --trace ci:${{ matrix.kind }}
       - name: Run Jasmine
         run: bin/rake jasmine:ci
-        timeout-minutes: 2
+        timeout-minutes: 3
         if: matrix.kind == 'other'
