@@ -177,7 +177,7 @@ gem "minitest", "5.20.0"
 
 gem "versionist", "2.0.1"
 
-group :production do # we don"t install these on travis to speed up test runs
+group :production do # we skip installing these on travis to speed up test runs
   # Analytics
 
   gem "rack-google-analytics", "1.2.0"
