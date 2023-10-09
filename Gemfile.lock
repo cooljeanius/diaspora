@@ -382,6 +382,8 @@ GEM
     jquery-ui-rails-test (6.0.4)
       railties (>= 3.2.16)
     jquery-ui-redmond (0.0.1)
+    jquery-ui-themes (0.0.12)
+      httparty
     js-routes (2.2.5)
       railties (>= 4)
     js_image_paths (0.2.0)
@@ -869,6 +871,7 @@ DEPENDENCIES
   jquery-ui-rails-patch-1131 (~> 7.0)
   jquery-ui-rails-test (~> 6.0)
   jquery-ui-redmond (~> 0.0.1)
+  jquery-ui-themes (~> 0.0.12)
   js-routes (= 2.2.5)
   js_image_paths (= 0.2.0)
   json (= 2.6.3)
