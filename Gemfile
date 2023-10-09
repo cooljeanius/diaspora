@@ -266,3 +266,5 @@ end
 
 # Anything after here has been automatically added by bundler:
 gem "jquery-ui-rails-test", "~> 6.0"
+
+gem "sassc", "~> 2.4"

@@ -54,7 +54,7 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
       - name: bundle install
-        run: if test -x "$(which bundle)"; then bundle config set --local with 'development' && bundle install; fi
+        run: if test -x "$(which bundle)"; then bundle install; fi
       - name: Prepare
         run: script/ci/prepare.sh
       - name: Run tests
