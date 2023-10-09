@@ -96,7 +96,6 @@ gem "babel-transpiler",  "0.7.0"
 gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.5.0"
 gem "jquery-ui-rails",   "6.0.1"
-gem "jquery-ui-rails-test", "6.0.4"
 gem "js_image_paths",    "0.2.0"
 gem "js-routes",         "2.2.5"
 
@@ -264,3 +263,6 @@ group :development, :test do
   # For `assigns` in controller specs
   gem "rails-controller-testing", "1.0.5"
 end
+
+# Anything after here has been automatically added by bundler:
+gem "jquery-ui-rails-test", "~> 6.0"
