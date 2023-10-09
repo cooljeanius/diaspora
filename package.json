@@ -20,7 +20,7 @@
     "markdown-it-footnote": "3.0.3",
     "markdown-it-for-inline": "0.1.1",
     "markdown-it-hashtag": "0.4.0",
-    "markdown-it-html5-embed": "^1.0.0",
+    "markdown-it-html5-embed": "^0.3.3",
     "markdown-it-sanitizer": "0.4.3",
     "markdown-it-sub": "1.0.0",
     "markdown-it-sup": "1.0.0",
@@ -28,6 +28,7 @@
     "pica": "9.0.1"
   },
   "devDependencies": {
+    "jasmine": "^5.1.0",
     "jasmine-ajax": "4.0.0"
   }
 }
