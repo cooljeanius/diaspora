@@ -286,3 +286,7 @@ gem "jquery-ui-rails-patch-1131", "~> 7.0"
 gem "jquery-ui-redmond", "~> 0.0.1"
 
 gem "jquery-ui-themes", "~> 0.0.12"
+
+gem "rails-jquery-ui-sortable", "~> 1.11"
+
+gem "sn-jquery-ui-rails", "~> 6.0"
