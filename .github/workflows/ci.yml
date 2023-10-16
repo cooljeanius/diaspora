@@ -58,7 +58,7 @@ jobs:
       - name: Prepare
         run: script/ci/prepare.sh
       - name: Run tests
-        run: bin/rake --trace ci:${{ matrix.kind }}
+        run: bin/rake --verbose --backtrace --job-stats --rules --trace ci:${{ matrix.kind }}
       - name: Run Jasmine
         run: bin/rake jasmine:ci
         timeout-minutes: 3
