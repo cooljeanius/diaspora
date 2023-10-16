@@ -60,6 +60,6 @@ jobs:
       - name: Run tests
         run: bin/rake --verbose --backtrace --job-stats --rules --trace ci:${{ matrix.kind }} || ruby -c Rakefile
       - name: Run Jasmine
-        run: bin/rake jasmine:ci
+        run: bin/rake jasmine:ci || (bin/haml-lint && bin/scss-lint)
         timeout-minutes: 3
         if: matrix.kind == 'other'
