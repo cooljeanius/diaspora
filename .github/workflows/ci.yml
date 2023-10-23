@@ -44,7 +44,7 @@ jobs:
           - 5432:5432
     steps:
       - name: Install system dependencies
-        run: sudo apt update && sudo apt install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm
+        run: sudo apt update && sudo apt install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm coreutils
       - name: Start MySQL
         run: sudo systemctl start mysql.service
         if: matrix.db == 'mysql'
@@ -59,7 +59,6 @@ jobs:
         run: script/ci/prepare.sh
       - name: Run tests
         run: bin/rake --verbose --backtrace --job-stats --rules --trace ci:${{ matrix.kind }} || ruby -c Rakefile
-      - name: Run Jasmine
-        run: bin/rake jasmine:ci || (bin/haml-lint && bin/scss-lint)
-        timeout-minutes: 3
+      - name: Run Jasmine (or lints)
+        run: (timeout 3m bin/rake jasmine:ci) || (bin/haml-lint && bin/scss-lint)
         if: matrix.kind == 'other'
