@@ -58,9 +58,9 @@ jobs:
           if test -x "$(which bundle)"; then \
             bundle config set --local with 'development'; \
             if test ${{ matrix.db }} == 'mysql'; then \
-              bundle config set --local with 'mysql'; \
+              bundle config set --local with 'development mysql'; \
             elif test ${{ matrix.db }} == 'postgresql'; then \
-              bundle config set --local with 'postgresql'; \
+              bundle config set --local with 'development postgresql'; \
             fi; \
             bundle install; \
           else \
@@ -71,5 +71,5 @@ jobs:
       - name: Run tests
         run: bin/rake --verbose --backtrace --job-stats --rules --trace ci:${{ matrix.kind }} || ruby -c Rakefile
       - name: Run Jasmine (or lints)
-        run: (timeout 3m bin/rake jasmine:ci) || (bin/haml-lint && bin/scss-lint)
+        run: (timeout 3m bin/rake --trace jasmine:ci) || bin/haml-lint || bin/scss-lint
         if: matrix.kind == 'other'
