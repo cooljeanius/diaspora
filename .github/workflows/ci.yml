@@ -83,6 +83,7 @@ jobs:
         run: |
           (timeout 3m bin/rake --trace jasmine:ci) || bin/haml-lint || bin/scss-lint || \
           (if test -x "$(which actionlint)"; then \
+            echo "attempting to run $(which actionlint)"; \
             actionlint -verbose; \
           else echo "missing actionlint!" >&2; exit 1; fi)
         if: matrix.kind == 'other'
