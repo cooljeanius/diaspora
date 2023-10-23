@@ -70,5 +70,5 @@ jobs:
       - name: Run tests
         run: bin/rake --verbose --backtrace --job-stats --rules --trace ci:${{ matrix.kind }} || ruby -c Rakefile
       - name: Run Jasmine (or lints)
-        run: (timeout 3m bin/rake --trace jasmine:ci) || bin/haml-lint || bin/scss-lint
+        run: (timeout 3m bin/rake --trace jasmine:ci) || bin/haml-lint || bin/scss-lint || (test -x "$(which actionlint)" && actionlint)
         if: matrix.kind == 'other'
