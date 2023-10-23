@@ -48,7 +48,7 @@ jobs:
           sudo apt install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm coreutils
           if test -x "$(which snap)"; then \
             echo "attempting to use $(which snap) to install go"; \
-            sudo snap install go; \
+            sudo snap install --classic go; \
           fi
           if test -x "$(which go)"; then \
             echo "attempting to use $(which go) to install actionlint"; \
