@@ -57,6 +57,11 @@ jobs:
         run: |
           if test -x "$(which bundle)"; then \
             bundle config set --local with 'development'; \
+            if test ${{ matrix.db }} == 'mysql'; then \
+              bundle config set --local with 'mysql'; \
+            elif test ${{ matrix.db }} == 'postgresql'; then \
+              bundle config set --local with 'postgresql'; \
+            fi; \
             bundle install; \
           else \
             echo "missing bundler!"; \
