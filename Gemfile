@@ -256,7 +256,7 @@ group :development, :test do
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"
-  gem "jasmine",                   "3.10.0"
+  gem "jasmine",                   "3.99.0"
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "sinon-rails",               "1.15.0"
 
