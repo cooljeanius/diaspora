@@ -26,8 +26,7 @@ jobs:
     env:
       DB: ${{ matrix.db }}
       RAILS_ENV: test
-      BUNDLE_WITH: ${{ matrix.db }}
-      BUNDLE_WITHOUT: development
+      BUNDLE_WITH: ${{ matrix.db }} development
       BUNDLE_FROZEN: true
       BUNDLE_DISABLE_SHARED_GEMS: true
     services:
