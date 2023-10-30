@@ -106,6 +106,8 @@ jobs:
                 bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest /usr/bin; \
               elif test -w /usr/local/bin; then \
                 bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest /usr/local/bin; \
+              elif test -n "${HOME}" && test -w "${HOME}/.local/bin"; then \
+                bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest "${HOME}/.local/bin"; \
               fi; \
             fi; \
           fi
@@ -150,5 +152,4 @@ jobs:
               sleep 1; \
             fi; \
           done
-
         if: matrix.kind == 'other'
