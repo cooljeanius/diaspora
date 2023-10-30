@@ -97,6 +97,14 @@ jobs:
           if test -x "$(which bash)" && test -x "$(which curl)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)"); then \
             echo "attempting to use $(which bash) and $(which curl) to install actionlint"; \
             bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash); \
+            if test -z "$(which actionlint)" || test ! -x "$(which actionlint)"; then \
+              echo "one more try..."
+              if test -w /usr/bin; then \
+                bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest /usr/bin; \
+              elif test -w /usr/local/bin; then \
+                bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest /usr/local/bin; \
+              fi; \
+            fi; \
           fi
       - name: Start MySQL
         run: sudo systemctl start mysql.service
@@ -127,7 +135,7 @@ jobs:
         run: |
           (timeout 3m bin/rake --trace jasmine:ci) || bin/haml-lint || bin/scss-lint || \
           (npx eslint .) || \
-          (timeout 3m npx prettier . >prettier.out) || \
+          (timeout 3m npx prettier . >prettier.out 2>prettier.err) || \
           (if test -x "$(which actionlint)"; then \
             echo "attempting to run $(which actionlint)"; \
             actionlint -verbose; \
