@@ -54,6 +54,35 @@ jobs:
             echo "attempting to use $(which go) to install actionlint"; \
             go install github.com/rhysd/actionlint/cmd/actionlint@latest; \
           fi
+          # shellcheck disable=SC2235
+          if test -x "$(which paru)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)"); then \
+            echo "attempting to use $(which paru) to install actionlint"; \
+            paru -S actionlint; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which nix-env)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)"); then \
+            echo "attempting to use $(which nix-env) to install actionlint"; \
+            nix-env -iA nixpkgs.actionlint; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which brew)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)"); then \
+            echo "attempting to use $(which brew) to install actionlint"; \
+            (brew tap "rhysd/actionlint" "https://github.com/rhysd/actionlint") || echo "tapping repo failed; falling back to existing actionlint formula"; \
+            brew install actionlint; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which asdf)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)"); then \
+            echo "attempting to use $(which asdf) to install actionlint"; \
+            asdf plugin add actionlint; \
+            asdf list-all actionlint; \
+            asdf install actionlint latest; \
+            asdf global actionlint latest; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which bash)" && test -x "$(which curl)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)"); then \
+            echo "attempting to use $(which bash) and $(which curl) to install actionlint"; \
+            bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash); \
+          fi
       - name: Start MySQL
         run: sudo systemctl start mysql.service
         if: matrix.db == 'mysql'
