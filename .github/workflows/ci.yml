@@ -79,6 +79,21 @@ jobs:
             asdf global actionlint latest; \
           fi
           # shellcheck disable=SC2235
+          if test -x "$(which choco)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)"); then \
+            echo "attempting to use $(which choco) to install actionlint"; \
+            choco install actionlint; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which scoop)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)"); then \
+            echo "attempting to use $(which scoop) to install actionlint"; \
+            scoop install actionlint; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which winget)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)"); then \
+            echo "attempting to use $(which winget) to install actionlint"; \
+            winget install actionlint; \
+          fi
+          # shellcheck disable=SC2235
           if test -x "$(which bash)" && test -x "$(which curl)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)"); then \
             echo "attempting to use $(which bash) and $(which curl) to install actionlint"; \
             bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash); \
@@ -112,7 +127,7 @@ jobs:
         run: |
           (timeout 3m bin/rake --trace jasmine:ci) || bin/haml-lint || bin/scss-lint || \
           (npx eslint .) || \
-          (npx prettier .) || \
+          (timeout 3m npx prettier . >prettier.out) || \
           (if test -x "$(which actionlint)"; then \
             echo "attempting to run $(which actionlint)"; \
             actionlint -verbose; \

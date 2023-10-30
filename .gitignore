@@ -23,6 +23,7 @@ xml_locales/
 public/404.html
 public/422.html
 public/500.html
+prettier.out
 
 # the db/schema.rb. Although this is contrary to rails best-practises, we
 # cannot provide a schema.rb that works for both MySQL and PostgreSQL, so we
