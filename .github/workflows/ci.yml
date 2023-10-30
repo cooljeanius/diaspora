@@ -83,6 +83,7 @@ jobs:
         run: |
           (timeout 3m bin/rake --trace jasmine:ci) || bin/haml-lint || bin/scss-lint || \
           (npx eslint .) || \
+          (npx prettier .) || \
           (if test -x "$(which actionlint)"; then \
             echo "attempting to run $(which actionlint)"; \
             actionlint -verbose; \
