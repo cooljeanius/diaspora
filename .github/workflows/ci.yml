@@ -98,7 +98,10 @@ jobs:
             echo "attempting to use $(which bash) and $(which curl) to install actionlint"; \
             bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash); \
             if test -z "$(which actionlint)" || test ! -x "$(which actionlint)"; then \
-              echo "one more try..."
+              echo "one more try..."; \
+              if test ".:${PATH}" != ".:"; then \
+                test -n "${PATH}" && echo "possible places to try: ${PATH}"; \
+              fi; \
               if test -w /usr/bin; then \
                 bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest /usr/bin; \
               elif test -w /usr/local/bin; then \
@@ -140,4 +143,12 @@ jobs:
             echo "attempting to run $(which actionlint)"; \
             actionlint -verbose; \
           else echo "missing actionlint!" >&2; exit 1; fi)
+          for prettierfile in prettier.out prettier.err .prettierrc; do \
+            if test -e "${prettierfile}"; then \
+              stat "${prettierfile}" && wc -l "${prettierfile}"; \
+            else \
+              sleep 1; \
+            fi; \
+          done
+
         if: matrix.kind == 'other'
