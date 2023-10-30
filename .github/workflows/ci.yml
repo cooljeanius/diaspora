@@ -82,6 +82,7 @@ jobs:
       - name: Run Jasmine (or lints)
         run: |
           (timeout 3m bin/rake --trace jasmine:ci) || bin/haml-lint || bin/scss-lint || \
+          (npx eslint .) || \
           (if test -x "$(which actionlint)"; then \
             echo "attempting to run $(which actionlint)"; \
             actionlint -verbose; \
