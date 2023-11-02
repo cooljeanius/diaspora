@@ -47,7 +47,14 @@ jobs:
           sudo apt update
           sudo apt install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm coreutils
           if test -x "$(which pip)"; then \
+            echo "attempting to use $(which pip) to install pyflakes"; \
             pip install pyflakes; \
+          elif test -x "$(which pip3)"; then \
+            echo "attempting to use $(which pip3) to install pyflakes"; \
+            pip3 install pyflakes; \
+          elif test -x "$(which pipx)"; then \
+            echo "attempting to use $(which pipx) to install pyflakes"; \
+            pipx install pyflakes; \
           fi
           if test -x "$(which snap)"; then \
             echo "attempting to use $(which snap) to install go"; \
@@ -100,19 +107,19 @@ jobs:
             winget install actionlint; \
           fi
           # shellcheck disable=SC2235
-          if test -x "$(which bash)" && test -x "$(which curl)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)"); then \
+          if test -x "$(which bash)" && test -x "$(which curl)" && (test ! -e actionlint || test ! -x actionlint); then \
             echo "attempting to use $(which bash) and $(which curl) to install actionlint"; \
             bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash); \
-            if test -z "$(which actionlint)" || test ! -x "$(which actionlint)"; then \
+            if test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e /usr/bin/actionlint || test ! -e /usr/local/bin/actionlint || (test -n "${HOME}" && test ! -e "${HOME}/.local/bin/actionlint"); then \
               echo "one more try..."; \
               if test ".:${PATH}" != ".:"; then \
                 test -n "${PATH}" && echo "possible places to try: ${PATH}"; \
               fi; \
-              if test -w /usr/bin; then \
+              if test -w /usr/bin && test ! -e /usr/bin/actionlint; then \
                 bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest /usr/bin; \
-              elif test -w /usr/local/bin; then \
+              elif test -w /usr/local/bin && test ! -e /usr/local/bin/actionlint; then \
                 bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest /usr/local/bin; \
-              elif test -n "${HOME}" && test -w "${HOME}/.local/bin"; then \
+              elif test -n "${HOME}" && test -w "${HOME}/.local/bin" && test ! -e "${HOME}/.local/bin/actionlint"; then \
                 bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest "${HOME}/.local/bin"; \
               fi; \
             fi; \
@@ -149,6 +156,9 @@ jobs:
           (timeout 3m npx prettier . >prettier.out 2>prettier.err) || \
           (if test -x "$(which actionlint)"; then \
             echo "attempting to run $(which actionlint)"; \
+            actionlint -verbose; \
+          elif test -x actionlint; then \
+            echo "attempting to run actionlint"; \
             actionlint -verbose; \
           else echo "missing actionlint!" >&2; exit 1; fi)
           for prettierfile in prettier.out prettier.err .prettierrc; do \
