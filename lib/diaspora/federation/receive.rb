@@ -9,6 +9,15 @@ module Diaspora
         public_send(Mappings.receiver_for(entity), entity)
       end
 
+      def self.handle_closed_recipient(sender, recipient)
+        return unless recipient.closed_account?
+
+        entity = recipient.person.account_migration || recipient.person.account_deletion
+        Diaspora::Federation::Dispatcher.build(recipient, entity, subscribers: [sender]).dispatch if entity.present?
+
+        raise Diaspora::Federation::RecipientClosed
+      end
+
       def self.account_deletion(entity)
         person = author_of(entity)
         AccountDeletion.create!(person: person) unless AccountDeletion.where(person: person).exists?
@@ -20,10 +29,19 @@ module Diaspora
       def self.account_migration(entity)
         old_person = author_of(entity)
         profile = profile(entity.profile)
-        return if AccountMigration.where(old_person: old_person, new_person: profile.person).exists?
-        AccountMigration.create!(old_person: old_person, new_person: profile.person)
-      rescue => e # rubocop:disable Lint/RescueWithoutErrorClass
-        raise e unless AccountMigration.where(old_person: old_person, new_person: profile.person).exists?
+        return if AccountMigration.exists?(old_person: old_person, new_person: profile.person)
+
+        AccountMigration.create!(
+          old_person:        old_person,
+          new_person:        profile.person,
+          remote_photo_path: entity.remote_photo_path
+        ).tap do |migration|
+          migration.signature = entity.signature if old_person.local?
+          migration.save!
+        end
+      rescue StandardError => e
+        raise e unless AccountMigration.exists?(old_person: old_person, new_person: profile.person)
+
         logger.warn "ignoring error on receive #{entity}: #{e.class}: #{e.message}"
         nil
       end
@@ -98,7 +116,7 @@ module Diaspora
 
         if persisted_photo
           persisted_photo.tap do |photo|
-            photo.update_attributes(
+            photo.update(
               text:                entity.text,
               public:              entity.public,
               created_at:          entity.created_at,
@@ -127,7 +145,7 @@ module Diaspora
 
       def self.profile(entity)
         author_of(entity).profile.tap do |profile|
-          profile.update_attributes(
+          profile.update(
             first_name:       entity.first_name,
             last_name:        entity.last_name,
             image_url:        entity.image_url,

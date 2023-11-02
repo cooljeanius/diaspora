@@ -92,8 +92,7 @@ end
 
 When /^(?:|I )attach the file "([^"]*)" to (?:hidden )?"([^"]*)"(?: within "([^"]*)")?$/ do |path, field, selector|
   with_scope(selector) do
-    page.execute_script("$(\"input[name='#{field}']\").css('opacity', '1');")
-    attach_file(field, Rails.root.join(path).to_s)
+    attach_file(field, Rails.root.join(path).to_s, make_visible: true)
   end
   # wait for the image to be ready
   page.assert_selector(".loading", count: 0)
@@ -171,8 +170,8 @@ Then /^the "([^"]*)" bootstrap-switch should be (on|off)$/ do |label, state|
   end
 end
 
-Then /^I toggle the "([^"]*)" bootstrap-switch$/ do |label|
-  page.execute_script("return $('#{label}').bootstrapSwitch('toggleState')")
+Then /^I toggle the "#([^"]*)" bootstrap-switch$/ do |id|
+  find(".bootstrap-switch-id-#{id}").click
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
@@ -195,4 +194,9 @@ Then /^I wait until ajax requests finished$/ do
   Timeout.timeout(Capybara.default_max_wait_time) do
     loop until page.evaluate_script("jQuery.active") == 0
   end
+end
+
+When /^I scroll to "([^"]*)"$/ do |element_id|
+  element = find_by_id(element_id) # rubocop:disable Rails/DynamicFindBy
+  page.scroll_to(element, align: :bottom)
 end

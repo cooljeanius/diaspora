@@ -15,8 +15,7 @@ class PeopleController < ApplicationController
   respond_to :json, :only => [:index, :show]
 
   rescue_from ActiveRecord::RecordNotFound do
-    render :file => Rails.root.join('public', '404').to_s,
-           :format => :html, :layout => false, :status => 404
+    render file: Rails.root.join("public/404.html").to_s, format: :html, layout: false, status: :not_found
   end
 
   rescue_from Diaspora::AccountClosed do
@@ -110,15 +109,6 @@ class PeopleController < ApplicationController
       format.json do
         render json: PersonPresenter.new(@person, current_user).hovercard
       end
-    end
-  end
-
-  def retrieve_remote
-    if params[:diaspora_handle]
-      Workers::FetchWebfinger.perform_async(params[:diaspora_handle])
-      head :ok
-    else
-      head :unprocessable_entity
     end
   end
 

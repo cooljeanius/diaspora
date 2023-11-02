@@ -4,6 +4,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require "attr_encrypted"
+
 class User < ApplicationRecord
   include AuthenticationToken
   include Connecting
@@ -34,10 +36,8 @@ class User < ApplicationRecord
   before_validation :set_current_language, :on => :create
   before_validation :set_default_color_theme, on: :create
 
-  validates :username, :presence => true, :uniqueness => true
-  validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
-  validates_length_of :username, :maximum => 32
-  validates_exclusion_of :username, :in => AppConfig.settings.username_blacklist
+  validates :username, presence: true, uniqueness: true, format: {with: /\A[A-Za-z0-9_.\-]+\z/},
+                       length: {maximum: 32}, exclusion: {in: AppConfig.settings.username_blacklist}
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
   validates :color_theme, inclusion: {in: AVAILABLE_COLOR_THEMES}, allow_blank: true
   validates_format_of :unconfirmed_email, :with  => Devise.email_regexp, :allow_blank => true
@@ -250,7 +250,7 @@ class User < ApplicationRecord
 
   def update_post(post, post_hash={})
     if self.owns? post
-      post.update_attributes(post_hash)
+      post.update(post_hash)
       self.dispatch_post(post)
     end
   end
@@ -375,7 +375,7 @@ class User < ApplicationRecord
   ########### Profile ######################
   def update_profile(params)
     if photo = params.delete(:photo)
-      photo.update_attributes(:pending => false) if photo.pending
+      photo.update(pending: false) if photo.pending
       params[:image_url] = photo.url(:thumb_large)
       params[:image_url_medium] = photo.url(:thumb_medium)
       params[:image_url_small] = photo.url(:thumb_small)
@@ -383,7 +383,7 @@ class User < ApplicationRecord
 
     params.stringify_keys!
     params.slice!(*(Profile.column_names+['tag_string', 'date']))
-    if self.profile.update_attributes(params)
+    if profile.update(params)
       deliver_profile_update
       true
     else
@@ -442,8 +442,13 @@ class User < ApplicationRecord
     aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
 
     if AppConfig.settings.autofollow_on_join?
-      default_account = Person.find_or_fetch_by_identifier(AppConfig.settings.autofollow_on_join_user)
-      self.share_with(default_account, aq) if default_account
+      begin
+        default_account = Person.find_or_fetch_by_identifier(AppConfig.settings.autofollow_on_join_user)
+        share_with(default_account, aq)
+      rescue DiasporaFederation::Discovery::DiscoveryError
+        logger.warn "Error auto-sharing with #{AppConfig.settings.autofollow_on_join_user}
+                     fix autofollow_on_join_user in configuration."
+      end
     end
     aq
   end
@@ -530,10 +535,10 @@ class User < ApplicationRecord
   end
 
   def no_person_with_same_username
-    diaspora_id = "#{self.username}#{User.diaspora_id_host}"
-    if self.username_changed? && Person.exists?(:diaspora_handle => diaspora_id)
-      errors[:base] << 'That username has already been taken'
-    end
+    diaspora_id = "#{username}#{User.diaspora_id_host}"
+    return unless username_changed? && Person.exists?(diaspora_handle: diaspora_id)
+
+    errors.add(:base, "That username has already been taken")
   end
 
   def close_account!

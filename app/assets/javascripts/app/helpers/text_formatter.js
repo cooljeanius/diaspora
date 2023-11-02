@@ -16,6 +16,9 @@
       typographer: true
     });
 
+    var footnote = window.markdownitFootnote;
+    md.use(footnote);
+
     var inlinePlugin = window.markdownitForInline;
     md.use(inlinePlugin, "utf8_symbols", "text", function (tokens, idx) {
       tokens[idx].content = tokens[idx].content.replace(/<->/g, "↔")
@@ -40,7 +43,7 @@
 
     var hashtagPlugin = window.markdownitHashtag;
     md.use(hashtagPlugin, {
-      // compare tag_text_regexp in app/models/acts_as_taggable_on-tag.rb
+      // compare tag_text_regexp in config/initializers/acts_as_taggable_on.rb
       hashtagRegExp: "[" + PosixBracketExpressions.word +
                            "\\u055b" + // Armenian emphasis mark
                            "\\u055c" + // Armenian exclamation mark

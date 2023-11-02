@@ -16,7 +16,8 @@ describe Diaspora::Exporter do
         %i[generic_user_data activity status_messages_flavours work_aspect]
       )
 
-      expect(JSON.parse(json)).to match_json_schema(:archive_schema)
+      errors = JSON::Validator.fully_validate("lib/schemas/archive-format.json", JSON.parse(json))
+      expect(errors).to be_empty
     end
 
     it "contains basic user data" do
@@ -46,12 +47,10 @@ describe Diaspora::Exporter do
         user: {
           "contact_groups": [
             {
-              "name":             "generic",
-              "chat_enabled":     false
+              "name": "generic"
             },
             {
-              "name":             "Work",
-              "chat_enabled":     false
+              "name": "Work"
             }
           ]
         }

@@ -1,3 +1,95 @@
+# 0.7.18.2
+
+To avoid potential security issues, diaspora\* now makes sure that ImageMagick image processing always runs with a restricted `policy.xml`, regardless of the global system settings.
+
+# 0.7.18.1
+
+## Bug fixes
+* Update binstubs to fix diaspora\* being unable to start when multiple bundler versions were available [#8392](https://github.com/diaspora/diaspora/pull/8392/commits/bfd42a1914a99ac9c71ecb16bbf6fa5bb118148a)
+
+# 0.7.18.0
+
+## Refactor
+* Fix order-dependent jasmine test failures and switch to random order [#8333](https://github.com/diaspora/diaspora/pull/8333)
+* Get rid of some uses of "execute\_script" in feature specs [#8331](https://github.com/diaspora/diaspora/pull/8331)
+* Fix deprecation warnings for sidekiq 7.0 [#8359](https://github.com/diaspora/diaspora/pull/8359)
+* Remove entypo-rails dependency to prepare for rails 6 [#8361](https://github.com/diaspora/diaspora/pull/8361)
+* Remove compass-rails dependency which is not supported anymore [#8362](https://github.com/diaspora/diaspora/pull/8362)
+* Switch to sassc-rails which speeds up `assets:precompile` a lot [#8362](https://github.com/diaspora/diaspora/pull/8362)
+* Remove markerb dependency which doesn't exist anymore [#8365](https://github.com/diaspora/diaspora/pull/8365)
+* Upgrade to rails 6.1 [#8366](https://github.com/diaspora/diaspora/pull/8366)
+* Update the suggested Ruby version to 2.7. If you run into trouble during the update and you followed our installation guides, run `rvm install 2.7`. [#8366](https://github.com/diaspora/diaspora/pull/8366)
+* Upgrade to bundler 2 [#8366](https://github.com/diaspora/diaspora/pull/8366)
+* Stop checking `/.well-known/host-meta`, check for `/.well-known/nodeinfo` instead [#8377](https://github.com/diaspora/diaspora/pull/8377)
+* Handle NodeInfo timeouts gracefully [#8380](https://github.com/diaspora/diaspora/pull/8380)
+
+## Bug fixes
+* Fix that no mails were sent after photo export [#8365](https://github.com/diaspora/diaspora/pull/8365)
+* Fix people with quotes in the name causing issues with mail sender [#8365](https://github.com/diaspora/diaspora/pull/8365)
+
+## Features
+* Render posts and comments as HTML in HTML mails [#8365](https://github.com/diaspora/diaspora/pull/8365)
+* Add NodeInfo 2.1 support and also read newer versions of NodeInfo [#8379](https://github.com/diaspora/diaspora/pull/8379)
+
+# 0.7.17.0
+
+## Security
+* Bump Rails to 5.2.7 to address [CVE-2022-22577](https://discuss.rubyonrails.org/t/cve-2022-22577-possible-xss-vulnerability-in-action-pack/80533) and [CVE-2022-27777](https://discuss.rubyonrails.org/t/cve-2022-27777-possible-xss-vulnerability-in-action-view-tag-helpers/80534) [#8350](https://github.com/diaspora/diaspora/pull/8350)
+* Do not allow the user to mass assign their own password and 2fa settings alongside other parameters. Reported by Breno Vitório (@brenu) - thank you! [#8351](https://github.com/diaspora/diaspora/pull/8351)
+
+## Bug fixes
+* Don't suggest to retry exports on failure [#8343](https://github.com/diaspora/diaspora/pull/8343)
+
+# 0.7.16.0
+
+## Security
+
+* Update rails to fix [CVE-2022-23633](https://github.com/advisories/GHSA-wh98-p28r-vrc9) [#8336](https://github.com/diaspora/diaspora/pull/8336)
+
+## Refactor
+* Cache local posts/comments count for statistics [#8241](https://github.com/diaspora/diaspora/pull/8241)
+* Fix html-syntax in some handlebars templates [#8251](https://github.com/diaspora/diaspora/pull/8251)
+* Remove `chat_enabled` flag from archive export [#8265](https://github.com/diaspora/diaspora/pull/8265)
+* Change thumbnails in image slideshow to squares [#8275](https://github.com/diaspora/diaspora/pull/8275)
+* Replace uglifier with terser for JS compression [#8268](https://github.com/diaspora/diaspora/pull/8268)
+
+## Bug fixes
+* Ensure the log folder exists [#8287](https://github.com/diaspora/diaspora/pull/8287)
+* Limit name length in header [#8313](https://github.com/diaspora/diaspora/pull/8313)
+* Fix fallback avatar in hovercards [#8316](https://github.com/diaspora/diaspora/pull/8316)
+* Use old person private key for export if relayable author migrated away [#8310](https://github.com/diaspora/diaspora/pull/8310)
+
+## Features
+* Add tags to tumblr posts [#8244](https://github.com/diaspora/diaspora/pull/8244)
+* Add blocks to the archive export [#8263](https://github.com/diaspora/diaspora/pull/8263)
+* Allow points and dashes in the username [#8266](https://github.com/diaspora/diaspora/pull/8266)
+* Add support for footnotes in markdown [#8277](https://github.com/diaspora/diaspora/pull/8277)
+* Send `AccountMigration` if receiving message to a migrated account [#8288](https://github.com/diaspora/diaspora/pull/8288)
+* Add podmin mail address to the footer [#8242](https://github.com/diaspora/diaspora/pull/8242)
+* Add username to password-reset mail [#8037](https://github.com/diaspora/diaspora/pull/8037)
+* Resend account migration and deletion for closed recipients [#8309](https://github.com/diaspora/diaspora/pull/8309)
+* Add sharing status to hovercards [#8317](https://github.com/diaspora/diaspora/pull/8317)
+* Migrate photo URLs and cleanup old uploaded photos [#8314](https://github.com/diaspora/diaspora/pull/8314)
+
+# 0.7.15.0
+
+## Refactor
+* Replaced some `http://` links in the UI with their `https://` counterparts [#8207](https://github.com/diaspora/diaspora/pull/8207)
+* Testing: Replaced phantomjs with headless Chrome/Chromium [#8234](https://github.com/diaspora/diaspora/pull/8234)
+
+## Bug fixes
+* Update comment counter when weleting a comment in the Single Post View [#7938](https://github.com/diaspora/diaspora/pull/7938)
+* Link diaspora only poduptime list [#8174](https://github.com/diaspora/diaspora/pull/8174)
+* Delete a user's invitation code during account deletion [#8202](https://github.com/diaspora/diaspora/pull/8202)
+* Bump mimemagic [#8231](https://github.com/diaspora/diaspora/pull/8231)
+* Removed support for defunct Uni Heidelberg OSM tile server, Mapbox is now required if you want to show maps [#8215](https://github.com/diaspora/diaspora/pull/8215)
+* Render only two fractional digits in the posts per user/day admin statistics [#8227](https://github.com/diaspora/diaspora/pull/8227)
+* Make aspect dropdowns scrollable [#8213](https://github.com/diaspora/diaspora/pull/8213)
+* Fix `Photo#ownserhip_of_status_message` validation [#8214](https://github.com/diaspora/diaspora/pull/8214)
+
+## Features
+* Support and recommend TOML as configuration format [#8132](https://github.com/diaspora/diaspora/pull/8132)
+
 # 0.7.14.0
 
 ## Refactor

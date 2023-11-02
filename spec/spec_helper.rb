@@ -6,9 +6,6 @@
 
 ENV["RAILS_ENV"] ||= "test"
 
-require 'coveralls'
-Coveralls.wear!('rails')
-
 require File.join(File.dirname(__FILE__), "..", "config", "environment")
 require Rails.root.join("spec", "helper_methods")
 require "rspec/rails"
@@ -135,9 +132,6 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
-
-  config.include JSON::SchemaMatchers
-  config.json_schemas[:archive_schema] = "lib/schemas/archive-format.json"
 
   JSON::Validator.add_schema(
     JSON::Schema.new(

@@ -16,7 +16,7 @@ class BookmarkletRenderer
     end
 
     def source
-      @source ||= Rails.application.assets["bookmarklet.js"].pathname.to_s
+      @source ||= Rails.application.assets["bookmarklet.js"].filename
     end
 
     def body
@@ -30,7 +30,7 @@ class BookmarkletRenderer
 
     def compile
       src = File.read(source)
-      @body = Uglifier.compile(src)
+      @body = Terser.compile(src)
       FileUtils.mkdir_p cached_path.dirname
       File.open(cached_path, "w") {|f| f.write(@body) }
     end
