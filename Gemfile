@@ -31,7 +31,7 @@ gem "yajl-ruby",   "1.4.3"
 
 # Authentication
 
-gem "devise", "4.9.2"
+gem "devise", "4.9.3"
 gem "devise_lastseenable", "0.0.6"
 gem "devise-two-factor", "4.1.0"
 gem "rqrcode", "2.2.0"
@@ -150,7 +150,7 @@ gem "faraday",                  "2.7.11"
 gem "faraday-cookie_jar",       "0.0.7"
 gem "faraday-follow_redirects", "0.3.0"
 gem "faraday-typhoeus",         "1.0.0", require: false
-gem "typhoeus",                 "1.4.0"
+gem "typhoeus",                 "1.4.1"
 
 # Views
 
