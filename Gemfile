@@ -97,7 +97,7 @@ gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.0"
 gem "jquery-ui-rails",   "6.0.1"
 gem "js_image_paths",    "0.2.0"
-gem "js-routes",         "2.2.5"
+gem "js-routes",         "2.2.8"
 
 # Localization
 
