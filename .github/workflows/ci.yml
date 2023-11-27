@@ -140,6 +140,8 @@ jobs:
               bundle config set --local with 'development mysql'; \
             elif test ${{ matrix.db }} == 'postgresql'; then \
               bundle config set --local with 'development postgresql'; \
+            else \
+              echo "unrecognized matrix.db kind"; \
             fi; \
             bundle install; \
           else \
@@ -148,12 +150,12 @@ jobs:
       - name: Prepare
         run: script/ci/prepare.sh
       - name: Run tests
-        run: bin/rake --verbose --backtrace --job-stats --rules --trace ci:${{ matrix.kind }} || ruby -c Rakefile
+        run: bin/rake --verbose --backtrace --job-stats --rules --trace ci:${{ matrix.kind }} || ruby -cwv Rakefile || ruby -c Rakefile
       - name: Run Jasmine (or lints)
         run: |
-          (timeout 3m bin/rake --trace jasmine:ci) || bin/haml-lint || bin/scss-lint || \
+          (timeout -v 3m bin/rake --trace jasmine:ci) || bin/haml-lint || bin/scss-lint || \
           (npx eslint .) || \
-          (timeout 3m npx prettier . >prettier.out 2>prettier.err) || \
+          (timeout -v 3m npx prettier . >prettier.out 2>prettier.err) || \
           (if test -x "$(which actionlint)"; then \
             echo "attempting to run $(which actionlint)"; \
             actionlint -verbose; \
@@ -165,7 +167,7 @@ jobs:
             if test -e "${prettierfile}"; then \
               stat "${prettierfile}" && wc -l "${prettierfile}"; \
             else \
-              sleep 1; \
+              echo "${prettierfile} is missing"; \
             fi; \
           done
         if: matrix.kind == 'other'
