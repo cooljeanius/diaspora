@@ -1779,10 +1779,10 @@ markdown-it-footnote@3.0.3:
   resolved "https://registry.npmjs.org/markdown-it-footnote/-/markdown-it-footnote-3.0.3.tgz"
   integrity sha512-YZMSuCGVZAjzKMn+xqIco9d1cLGxbELHZ9do/TSYVzraooV8ypsppKNmUJ0fVH5ljkCInQAtFpm8Rb3eXSrt5w==
 
-markdown-it-for-inline@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.npmjs.org/markdown-it-for-inline/-/markdown-it-for-inline-0.1.1.tgz"
-  integrity sha512-lLQuczOg90a9q9anIUbmq+M+FFrIYNN5TfpccLDRchQic8nj/uTqaJKoYr73FF2tR4O8mFfh2ZzCDAAB2MZJgA==
+markdown-it-for-inline@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-for-inline/-/markdown-it-for-inline-2.0.0.tgz#3f89eaaa6afef72983100faa9ff9db69e25383a6"
+  integrity sha512-mHypGpZfhlhT9PE36vkXqJdheJveeSKbFrpgC31dPcT4IvJOG7DL5hSHfWtS6vqvYjX+f6YQWGSGn4GC5crnZw==
 
 markdown-it-hashtag@0.4.0:
   version "0.4.0"
