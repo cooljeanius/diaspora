@@ -21,7 +21,7 @@
     "jquery.are-you-sure": "1.9.0",
     "markdown-it": "13.0.2",
     "markdown-it-diaspora-mention": "^1.2.0",
-    "markdown-it-footnote": "3.0.3",
+    "markdown-it-footnote": "4.0.0",
     "markdown-it-for-inline": "2.0.1",
     "markdown-it-hashtag": "0.4.0",
     "markdown-it-html5-embed": "^1.0.0",
