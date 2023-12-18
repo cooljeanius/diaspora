@@ -42,7 +42,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 
 # Background processing
 
-gem "redis", "5.0.7"
+gem "redis", "5.0.8"
 gem "sidekiq", "7.2.0"
 
 # Scheduled processing
