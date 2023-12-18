@@ -47,7 +47,7 @@ gem "sidekiq", "7.2.0"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "1.11.0"
+gem "sidekiq-cron", "1.12.0"
 
 # Compression
 
