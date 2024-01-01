@@ -258,9 +258,9 @@ GEM
       state_machines
       thor
     fabrication (2.30.0)
-    factory_bot (6.4.2)
+    factory_bot (6.4.5)
       activesupport (>= 5.0.0)
-    factory_bot_rails (6.4.2)
+    factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
     faraday (2.8.1)
@@ -855,7 +855,7 @@ DEPENDENCIES
   diaspora_federation-rails (= 1.1.0)
   diaspora_federation-test (= 1.1.0)
   eye (= 0.10.0)
-  factory_bot_rails (= 6.4.2)
+  factory_bot_rails (= 6.4.3)
   faraday (= 2.8.1)
   faraday-cookie_jar (= 0.0.7)
   faraday-follow_redirects (= 0.3.0)
