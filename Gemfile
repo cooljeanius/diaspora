@@ -249,7 +249,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "6.1.0"
+  gem "rspec-rails", "6.1.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "3.0.0", require: false
