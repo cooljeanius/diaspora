@@ -337,7 +337,7 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
-    haml_lint (0.55.0)
+    haml_lint (0.56.0)
       haml (>= 5.0)
       parallel (~> 1.10)
       rainbow
@@ -895,7 +895,7 @@ DEPENDENCIES
   fog-aws (= 3.21.0)
   fuubar (= 2.5.1)
   gon (= 6.4.0)
-  haml_lint (= 0.55.0)
+  haml_lint (= 0.56.0)
   hamlit (= 3.0.3)
   handlebars_assets (= 0.23.9)
   http_accept_language (= 2.1.1)
