@@ -656,7 +656,7 @@ GEM
     rdoc (6.6.2)
       psych (>= 4.0.0)
     redcarpet (3.6.0)
-    redis (5.0.8)
+    redis (5.1.0)
       redis-client (>= 0.17.0)
     redis-client (0.19.1)
       connection_pool
@@ -954,7 +954,7 @@ DEPENDENCIES
   rails-jquery-ui-sortable (~> 1.11)
   rails-timeago (= 2.20.0)
   redcarpet (= 3.6.0)
-  redis (= 5.0.8)
+  redis (= 5.1.0)
   responders (= 3.1.1)
   rqrcode (= 2.2.0)
   rspec-json_expectations (~> 2.1)
