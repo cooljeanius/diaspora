@@ -107,7 +107,7 @@ GEM
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.1.6)
-    bindata (2.4.15)
+    bindata (2.5.0)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
@@ -410,7 +410,7 @@ GEM
       rails (>= 4.0, < 8.0)
       sprockets (>= 3.0.0)
     json (2.7.1)
-    json-jwt (1.16.5)
+    json-jwt (1.16.6)
       activesupport (>= 4.2)
       aes_key_wrap
       base64
