@@ -392,7 +392,7 @@ GEM
       bootstrap-sass-rails
       railties (>= 3.1.0)
     jquery-ui-middleman (4.1.0)
-    jquery-ui-rails (6.0.1)
+    jquery-ui-rails (7.0.0)
       railties (>= 3.2.16)
     jquery-ui-rails-engine (1.10.3.0)
       jquery-rails
@@ -904,7 +904,7 @@ DEPENDENCIES
   jquery-ui-bootstrap-rails (~> 0.0.2)
   jquery-ui-bootstrap-rails-asset (~> 0.0.3)
   jquery-ui-middleman (~> 4.1)
-  jquery-ui-rails (= 6.0.1)
+  jquery-ui-rails (= 7.0.0)
   jquery-ui-rails-engine (~> 1.10)
   jquery-ui-rails-google-cdn (~> 0.0.2)
   jquery-ui-rails-patch-1131 (~> 7.0)
