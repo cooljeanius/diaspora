@@ -31,7 +31,7 @@ gem "yajl-ruby",   "1.4.3"
 
 # Authentication
 
-gem "devise", "4.9.3"
+gem "devise", "4.9.4"
 gem "devise_lastseenable", "0.0.6"
 gem "devise-two-factor", "5.0.0"
 gem "rqrcode", "2.2.0"
