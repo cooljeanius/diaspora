@@ -206,7 +206,7 @@ group :development do
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
   gem "rubocop",        "1.63.5", require: false
-  gem "rubocop-rails",  "2.24.1", require: false
+  gem "rubocop-rails",  "2.25.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
