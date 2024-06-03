@@ -45,7 +45,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get -qq update
-          sudo apt-get install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm coreutils python3-flake8 python3-pyflakes pyflakes3 flake8 python-pip pipx golang golang-go libssh2-1-dev idn libjs-es5-shim coffeescript python3-pycurl cl-asdf asdftool python3-asdf dh-golang
+          sudo apt-get install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm coreutils python3-flake8 python3-pyflakes pyflakes3 flake8 python-pip pipx golang golang-go libssh2-1-dev idn libjs-es5-shim coffeescript python3-pycurl cl-asdf asdftool python3-asdf dh-golang python2-dev libjs-coffeescript dh-make pipsi pipenv rake ruby-bundler bundler rubygems-integration
           if test -x "$(which pip)"; then \
             echo "attempting to use $(which pip) to install pyflakes"; \
             pip install pyflakes; \
@@ -146,6 +146,7 @@ jobs:
               else \
                 echo "actually never mind"; \
               fi; \
+              sync && echo "done with final try at installing actionlint"; \
             else \
               echo "actionlint should be OK now"; \
             fi; \
@@ -169,9 +170,9 @@ jobs:
             elif test ${{ matrix.db }} == 'postgresql'; then \
               bundle config set --local with 'development postgresql'; \
             else \
-              echo "unrecognized matrix.db kind"; \
+              sync && echo "unrecognized matrix.db kind"; \
             fi; \
-            bundle install; \
+            sync && bundle install && sync; \
           else \
             sync && echo "missing bundler!"; \
           fi
