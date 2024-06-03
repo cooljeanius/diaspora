@@ -45,7 +45,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get -qq update
-          sudo apt-get install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm coreutils python3-flake8 python3-pyflakes pyflakes3 flake8 pipx golang golang-go
+          sudo apt-get install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm coreutils python3-flake8 python3-pyflakes pyflakes3 flake8 python-pip pipx golang golang-go libssh2-1-dev idn libjs-es5-shim coffeescript python3-pycurl cl-asdf asdftool python3-asdf dh-golang gccgo-go
           if test -x "$(which pip)"; then \
             echo "attempting to use $(which pip) to install pyflakes"; \
             pip install pyflakes; \
@@ -173,10 +173,10 @@ jobs:
             fi; \
             bundle install; \
           else \
-            echo "missing bundler!"; \
+            sync && echo "missing bundler!"; \
           fi
       - name: Prepare
-        run: script/ci/prepare.sh
+        run: sync && sh ./script/ci/prepare.sh && sync
       - name: Run tests
         run: bin/rake --verbose --backtrace --job-stats --rules --trace ci:${{ matrix.kind }} || ruby -cwv Rakefile || ruby -c Rakefile
       - name: Run Jasmine (or lints)
