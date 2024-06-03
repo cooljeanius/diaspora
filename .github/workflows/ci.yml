@@ -44,8 +44,8 @@ jobs:
     steps:
       - name: Install system dependencies
         run: |
-          sudo apt update
-          sudo apt install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm coreutils
+          sudo apt-get -qq update
+          sudo apt-get install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm coreutils python3-flake8 python3-pyflakes pyflakes3 flake8 pipx golang golang-go
           if test -x "$(which pip)"; then \
             echo "attempting to use $(which pip) to install pyflakes"; \
             pip install pyflakes; \
@@ -55,33 +55,47 @@ jobs:
           elif test -x "$(which pipx)"; then \
             echo "attempting to use $(which pipx) to install pyflakes"; \
             pipx install pyflakes; \
+          else \
+            echo "unsure how to install pyflakes"; \
           fi
           if test -x "$(which snap)"; then \
             echo "attempting to use $(which snap) to install go"; \
             sudo snap install --classic go; \
+          else \
+            echo "skipping attempting using snap to install go"; \
           fi
           if test -x "$(which go)"; then \
             echo "attempting to use $(which go) to install actionlint"; \
             go install github.com/rhysd/actionlint/cmd/actionlint@latest; \
+          else \
+            echo "skipping attempting to use go to install actionlint"; \
           fi
           # shellcheck disable=SC2235
           if test -x "$(which paru)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
             echo "attempting to use $(which paru) to install actionlint"; \
             paru -S actionlint; \
+          else \
+            echo "skipping attempting to use paru to install actionlint"; \
           fi
           # shellcheck disable=SC2235
           if test -x "$(which nix-env)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
             echo "attempting to use $(which nix-env) to install actionlint"; \
             nix-env -iA nixpkgs.actionlint; \
+          else \
+            echo "skipping attempting to use nix-env to install actionlint"; \
           fi
           if test -x /home/linuxbrew/.linuxbrew/bin/brew; then \
             eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"; \
+          else \
+            echo "linuxbrew not found in its usual location"; \
           fi
           # shellcheck disable=SC2235
           if test -x "$(which brew)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
             echo "attempting to use $(which brew) to install actionlint"; \
             (brew tap "rhysd/actionlint" "https://github.com/rhysd/actionlint") || echo "tapping repo failed; falling back to existing actionlint formula"; \
-            brew install actionlint; \
+            brew install actionlint || echo "failed to install actionlint with $(which brew)"; \
+          else \
+            echo "skipping attempting to use Homebrew to install actionlint"; \
           fi
           # shellcheck disable=SC2235
           if test -x "$(which asdf)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
@@ -90,21 +104,29 @@ jobs:
             asdf list-all actionlint; \
             asdf install actionlint latest; \
             asdf global actionlint latest; \
+          else \
+            echo "skipping attempting to use asdf to install actionlint"; \
           fi
           # shellcheck disable=SC2235
           if test -x "$(which choco)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
             echo "attempting to use $(which choco) to install actionlint"; \
             choco install actionlint; \
+          else \
+            echo "skipping attempting to use chocolatey to install actionlint"; \
           fi
           # shellcheck disable=SC2235
           if test -x "$(which scoop)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
             echo "attempting to use $(which scoop) to install actionlint"; \
             scoop install actionlint; \
+          else \
+            echo "skipping attempting to use scoop to install actionlint"; \
           fi
           # shellcheck disable=SC2235
           if test -x "$(which winget)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
             echo "attempting to use $(which winget) to install actionlint"; \
             winget install actionlint; \
+          else \
+            echo "skipping attempting to use winget to install actionlint"; \
           fi
           # shellcheck disable=SC2235
           if test -x "$(which bash)" && test -x "$(which curl)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
@@ -121,8 +143,14 @@ jobs:
                 bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest /usr/local/bin; \
               elif test -n "${HOME}" && test -w "${HOME}/.local/bin" && test ! -e "${HOME}/.local/bin/actionlint"; then \
                 bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest "${HOME}/.local/bin"; \
+              else \
+                echo "actually never mind"; \
               fi; \
+            else \
+              echo "actionlint should be OK now"; \
             fi; \
+          else \
+            echo "skipping last-ditch actionlint installation attempt"; \
           fi
       - name: Start MySQL
         run: sudo systemctl start mysql.service
