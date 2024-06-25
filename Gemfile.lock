@@ -220,7 +220,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-two-factor (5.0.0)
+    devise-two-factor (5.1.0)
       activesupport (~> 7.0)
       devise (~> 4.0)
       railties (~> 7.0)
@@ -881,7 +881,7 @@ DEPENDENCIES
   cuprite (= 0.15.1)
   database_cleaner-active_record (= 2.1.0)
   devise (= 4.9.4)
-  devise-two-factor (= 5.0.0)
+  devise-two-factor (= 5.1.0)
   devise_lastseenable (= 0.0.6)
   diaspora_federation-json_schema (= 1.1.0)
   diaspora_federation-rails (= 1.1.0)
