@@ -56,14 +56,14 @@ jobs:
             rubygems-integration shellcheck yamllint
           sudo apt-get -qq install -y python-pip || sudo apt-get install -y python3-pip || sudo apt-get install -y python2-pip-whl || sudo apt-get install -y python3-pip-whl || sudo apt-get install -y pip-check-reqs || sudo apt-get install -y virtualenv || sudo apt-get install -y python3-wheel || sudo apt-get install -y python3-virtualenv
           if test -x "$(which pip)"; then \
-            echo "attempting to use $(which pip) to install a few things"; \
-            pip install pyflakes yamllint; \
+            echo "attempting to use $(which pip) to install pyflakes"; \
+            pip install pyflakes; \
           elif test -x "$(which pip3)"; then \
-            echo "attempting to use $(which pip3) to install a few things"; \
-            pip3 install pyflakes yamllint; \
+            echo "attempting to use $(which pip3) to install pyflakes"; \
+            pip3 install pyflakes; \
           elif test -x "$(which pipx)"; then \
-            echo "attempting to use $(which pipx) to install a few things"; \
-            pipx install pyflakes yamllint; \
+            echo "attempting to use $(which pipx) to install pyflakes"; \
+            pipx install pyflakes; \
           else \
             echo "unsure how to install pyflakes"; \
           fi
@@ -206,7 +206,19 @@ jobs:
           elif test -x actionlint; then \
             echo "attempting to run actionlint"; \
             actionlint -verbose; \
-          else echo "missing actionlint!" >&2; exit 1; fi)
+          elif test -x "$(which yamllint)"; then \
+            echo "attempting to run $(which yamllint)"; \
+            yamllint .pronto.yml .haml-lint.yml .rubocopy.yml .codeclimate.yml \
+              .scss-lint.yml .github/dependabot.yml; \
+            pushd config; \
+            yamllint defaults.yml database.yml database.yml.example \
+              color_themes.yml oembed_providers.yml open_graph_providers.yml \
+              locale_settings.yml; \
+            popd; \
+            yamllint docker/develop/docker-compose.yml; \
+            yamllint features/step_definitions/.rubocop.yml; \
+            yamllint spec/javascripts/support/jasmine.yml; \
+          else echo "missing actionlint and yamllint!" >&2; exit 1; fi)
           for prettierfile in prettier.out prettier.err .prettierrc; do \
             if test -e "${prettierfile}"; then \
               stat "${prettierfile}" && wc -l "${prettierfile}"; \
