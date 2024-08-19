@@ -1,3 +1,4 @@
+---
 # SECURITY NOTICE! CROSS-SITE SCRIPTING!
 # these endpoints may inject html code into our page
 # note that 'endpoint' is the only information

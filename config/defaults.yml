@@ -1,10 +1,11 @@
+---
 #######################################################################
 ############### DO NOT TOUCH ANYTHING BELOW THIS ######################
 #######################################################################
 
 defaults:
   version:
-    number: "1.0.0-dev" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "1.0.0-dev"  # Do not touch unless doing a release, do not backport
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -16,7 +17,7 @@ defaults:
       retry: 10
       backtrace: 15
       dead_jobs_limit: 5000
-      dead_jobs_timeout: 3628800 # 6 weeks
+      dead_jobs_timeout: 3628800  # 6 weeks
       log: 'log/sidekiq.log'
     s3:
       enable: false
@@ -88,7 +89,7 @@ defaults:
       paypal_unhosted_button_encrypted:
     liberapay_username:
     bitcoin_address:
-    bitcoin_wallet_id: # DEPRECATED: Remove with 0.6
+    bitcoin_wallet_id:  # DEPRECATED: Remove with 0.6
     community_spotlight:
       enable: false
       suggest_email:
@@ -131,7 +132,7 @@ defaults:
     default_color_theme: "original"
     default_metas:
       title: 'diaspora* social network'
-      description: 'diaspora* is the online social world where you are in control.'
+      description: 'diaspora* is an online social world that gives you control.'
     csp:
       report_only: false
       report_uri:
