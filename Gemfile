@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "7.1.3.4"
+gem "rails", "7.1.4"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -42,7 +42,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 
 # Background processing
 
-gem "redis", "5.2.0"
+gem "redis", "5.3.0"
 gem "sidekiq", "7.3.1"
 
 # Scheduled processing
@@ -79,7 +79,7 @@ group :postgresql, optional: true do
   gem "pg",     "1.5.7"
 end
 
-gem "activerecord-import", "1.7.0"
+gem "activerecord-import", "1.8.0"
 
 # File uploading
 
@@ -141,7 +141,7 @@ gem "active_model_serializers", "0.10.14"
 
 # Tags
 
-gem "acts-as-taggable-on", "10.0.0"
+gem "acts-as-taggable-on", "11.0.0"
 
 # URIs and HTTP
 
@@ -206,7 +206,7 @@ group :development do
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
   gem "rubocop",        "1.65.1", require: false
-  gem "rubocop-rails",  "2.25.1", require: false
+  gem "rubocop-rails",  "2.26.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
