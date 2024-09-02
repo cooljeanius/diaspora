@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "7.1.4"
+gem "rails", "7.2.1"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -84,7 +84,7 @@ gem "activerecord-import", "1.8.0"
 # File uploading
 
 gem "carrierwave", "3.0.7"
-gem "fog-aws",     "3.24.0"
+gem "fog-aws",     "3.25.0"
 gem "mini_magick", "4.13.2"
 
 # GUID generation
@@ -112,7 +112,7 @@ gem "leaflet-rails", "1.9.5"
 gem "nokogiri",          "1.16.7"
 gem "open_graph_reader", "0.7.2" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.6.0"
-gem "ruby-oembed",       "0.17.0"
+gem "ruby-oembed",       "0.18.0"
 gem "twitter-text",      "3.1.0"
 
 # RTL support
@@ -146,7 +146,7 @@ gem "acts-as-taggable-on", "11.0.0"
 # URIs and HTTP
 
 gem "addressable",              "2.8.7", require: "addressable/uri"
-gem "faraday",                  "2.10.1"
+gem "faraday",                  "2.11.0"
 gem "faraday-cookie_jar",       "0.0.7"
 gem "faraday-follow_redirects", "0.3.0"
 gem "faraday-typhoeus",         "1.1.0", require: false
@@ -194,7 +194,7 @@ group :production do # we skip installing these on travis to speed up test runs
 
   # Third party asset hosting
 
-  gem "asset_sync", "2.19.1", require: false
+  gem "asset_sync", "2.19.2", require: false
 end
 
 group :development do
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.65.1", require: false
+  gem "rubocop",        "1.66.0", require: false
   gem "rubocop-rails",  "2.26.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
