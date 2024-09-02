@@ -22,6 +22,8 @@ updates:
       interval: "weekly"
     labels:
       - enhancement
+    ignore:
+      - dependency-name: "activesupport"
     groups:
       bundler:
         patterns:
