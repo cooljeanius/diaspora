@@ -43,7 +43,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 # Background processing
 
 gem "redis", "5.3.0"
-gem "sidekiq", "7.3.1"
+gem "sidekiq", "7.3.2"
 
 # Scheduled processing
 
@@ -76,10 +76,10 @@ group :mysql, optional: true do
   gem "mysql2", "0.5.6"
 end
 group :postgresql, optional: true do
-  gem "pg",     "1.5.7"
+  gem "pg",     "1.5.8"
 end
 
-gem "activerecord-import", "1.8.0"
+gem "activerecord-import", "1.8.1"
 
 # File uploading
 
@@ -205,8 +205,8 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.66.0", require: false
-  gem "rubocop-rails",  "2.26.0", require: false
+  gem "rubocop",        "1.66.1", require: false
+  gem "rubocop-rails",  "2.26.1", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
@@ -249,7 +249,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "6.1.4"
+  gem "rspec-rails", "7.0.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "3.0.0", require: false
