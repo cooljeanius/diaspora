@@ -128,10 +128,10 @@ class ConnectionTester
       raise NodeInfoFailure, "No supported NodeInfo version found" if ni_urls.empty?
 
       version, url = ni_urls.max
-      if valid_url?(url)
+      if valid_url?(url) && trusted_domain?(url)
         find_software_version(version, http.get(url).body)
       else
-        raise NodeInfoFailure, "Invalid URL: #{url}"
+        raise NodeInfoFailure, "Invalid or untrusted URL: #{url}"
       end
     end
   rescue Faraday::ClientError => e
@@ -145,6 +145,8 @@ class ConnectionTester
   rescue StandardError => e
     unexpected_error(e)
   end
+
+  TRUSTED_DOMAINS = ["example.com", "trusted.com"].freeze
 
   private
 
@@ -164,6 +166,13 @@ class ConnectionTester
 
   def http_uri?(uri)
     uri.is_a?(URI::HTTP) || uri.is_a?(URI::HTTPS)
+  end
+
+  def trusted_domain?(url)
+    uri = URI.parse(url)
+    TRUSTED_DOMAINS.include?(uri.host)
+  rescue URI::InvalidURIError
+    false
   end
 
   # request root path, measure response time
