@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'uri'
 
 class ConnectionTester
   include Diaspora::Logging
@@ -127,7 +128,11 @@ class ConnectionTester
       raise NodeInfoFailure, "No supported NodeInfo version found" if ni_urls.empty?
 
       version, url = ni_urls.max
-      find_software_version(version, http.get(url).body)
+      if valid_url?(url)
+        find_software_version(version, http.get(url).body)
+      else
+        raise NodeInfoFailure, "Invalid URL: #{url}"
+      end
     end
   rescue Faraday::ClientError => e
     raise HTTPFailure, "#{e.class}: #{e.message}"
@@ -269,5 +274,13 @@ class ConnectionTester
     def failure_message
       "#{error.class.name}: #{error.message}" if error?
     end
+  end
+  # Validate the URL against a whitelist or specific pattern
+  def valid_url?(url)
+    uri = URI.parse(url)
+    # Example validation: ensure the URL is HTTPS and belongs to a trusted domain
+    uri.is_a?(URI::HTTPS) && uri.host == "trusted.domain.com"
+  rescue URI::InvalidURIError
+    false
   end
 end
