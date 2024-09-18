@@ -128,7 +128,8 @@ class ConnectionTester
       raise NodeInfoFailure, "No supported NodeInfo version found" if ni_urls.empty?
 
       version, url = ni_urls.max
-      if valid_url?(url) && trusted_domain?(url) && http_uri?(URI.parse(url))
+      uri = URI.parse(url)
+      if valid_url?(url) && trusted_domain?(url) && http_uri?(uri) && AUTHORIZED_PATHS.include?(uri.path)
         find_software_version(version, http.get(url).body)
       else
         raise NodeInfoFailure, "Invalid or untrusted URL: #{url}"
@@ -147,6 +148,7 @@ class ConnectionTester
   end
 
   TRUSTED_DOMAINS = ["example.com", "trusted.com"].freeze
+  AUTHORIZED_PATHS = ["/nodeinfo/2.0", "/nodeinfo/2.1"].freeze
 
   private
 
