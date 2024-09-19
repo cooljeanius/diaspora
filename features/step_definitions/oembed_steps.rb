@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'openssl'
+require 'base64'
 
 Given /^I have several oEmbed data in cache$/ do
   scenarios = {
@@ -117,12 +119,14 @@ Given /^I have several oEmbed data in cache$/ do
     unless type=='unsupported'
       url = data['oembed_get_request'].split('?')[0]
       store_data = data['oembed_data'].merge('trusted_endpoint_url' => url)
+      encrypted_data = encrypt_data(store_data.to_json)
       oembed = OEmbedCache.new(:url => data['link_url']);
-      oembed.data = store_data
+      oembed.data = encrypted_data
       oembed.save!
     end
   end
 end
+
 
 Then /^I should see a video player$/ do
   visit aspects_path
