@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'uri'
+
+require "uri"
 
 class ConnectionTester
   include Diaspora::Logging
