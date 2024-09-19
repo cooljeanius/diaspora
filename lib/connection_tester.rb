@@ -6,6 +6,7 @@ class ConnectionTester
 
   NODEINFO_FRAGMENT = "/.well-known/nodeinfo"
   AUTHORIZED_DOMAINS = ["trusted-domain1.com", "trusted-domain2.com"]
+  AUTHORIZED_URLS = ["https://trusted-domain1.com/.well-known/nodeinfo", "https://trusted-domain2.com/.well-known/nodeinfo"]
 
   class << self
     # Test the reachability of a server by the given HTTP/S URL.
@@ -130,7 +131,7 @@ class ConnectionTester
 
       version, url = ni_urls.max
       uri = URI.parse(url)
-      if valid_url?(url) && trusted_domain?(url) && http_uri?(uri) && AUTHORIZED_PATHS.include?(uri.path) && AUTHORIZED_DOMAINS.include?(uri.host)
+      if valid_url?(url) && trusted_domain?(url) && http_uri?(uri) && AUTHORIZED_PATHS.include?(uri.path) && AUTHORIZED_DOMAINS.include?(uri.host) && AUTHORIZED_URLS.include?(url)
         find_software_version(version, http.get(url).body)
       else
         raise NodeInfoFailure, "Invalid or untrusted URL: #{url}"
