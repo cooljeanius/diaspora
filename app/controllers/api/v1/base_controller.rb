@@ -5,7 +5,7 @@ module Api
     class BaseController < ApplicationController
       include Api::OpenidConnect::ProtectedResourceEndpoint
 
-      protect_from_forgery unless: -> { request.format.json? }
+      protect_from_forgery with: :exception
 
       protected
 
