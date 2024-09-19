@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'cgi'
 
 module Api
   module OpenidConnect
@@ -214,10 +215,10 @@ module Api
 
       def redirect_prompt_error_display(error, error_description)
         redirect_params_hash = {error: error, error_description: error_description, state: params[:state]}
-        redirect_fragment = redirect_params_hash.compact.map {|key, value| key.to_s + "=" + value }.join("&")
+        redirect_fragment = redirect_params_hash.compact.map {|key, value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}" }.join("&")
         target_uri = params[:redirect_uri]
-        if valid_redirect_uri?(target_uri) && VALID_REDIRECT_URIS.include?(target_uri)
-          redirect_to target_uri + "?" + redirect_fragment
+        if valid_redirect_uri?(target_uri)
+          redirect_to "#{target_uri}?#{redirect_fragment}"
         else
           redirect_to "/error.html"
         end
