@@ -45,7 +45,7 @@ describe("app.helpers.textFormatter", function(){
       var self = this;
       this.badTags.forEach(function(tag) {
         var formattedText = self.formatter("#newhashtag #" + tag + " test");
-        var link = "<a href=\"/tags/" + tag.toLowerCase() + "\" class=\"tag\">#" + tag.replace("<", "&lt;") + "</a>";
+        var link = "<a href=\"/tags/" + tag.toLowerCase() + "\" class=\"tag\">#" + tag.replace(/</g, "&lt;") + "</a>";
         expect(formattedText).not.toContain(link);
       });
     });
