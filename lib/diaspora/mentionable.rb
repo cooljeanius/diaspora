@@ -77,7 +77,7 @@ module Diaspora::Mentionable
   # @return [String] escaped message
   def self.escape_for_markdown(msg_text)
     msg_text.to_s.gsub(REGEX) {|match_str|
-      match_str.gsub("_", "\\_")
+      match_str.gsub("\\", "\\\\").gsub("_", "\\_")
     }
   end
 
