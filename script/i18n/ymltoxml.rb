@@ -30,7 +30,7 @@ data = { "config/locales/diaspora/#{locale}.yml" => "xml_locales/#{locale}.xml",
 data.each do |sourcefile, destfile|
   if File.exists?(sourcefile)
     source = YAML.load open(sourcefile)
-    dest = open(destfile, 'w')
+    dest = File.open(destfile, "w")
     dest.write source.to_xml
     dest.close
     puts "Generated #{destfile}"
