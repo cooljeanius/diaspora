@@ -37,7 +37,7 @@ copyright = "#   Copyright (c) 2010-2011, Diaspora Inc.  This file is\n#   licen
 data.each do |destfile, sourcefile|
   if File.exists?(sourcefile)
     source = open(sourcefile)
-    dest = open(destfile, 'w')
+    dest = File.open(destfile, 'w')
     dest.write Hash.from_xml(source)['hash'].to_yaml.gsub('---', copyright)
     dest.close
   else
