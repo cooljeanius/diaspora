@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-require 'openssl'
-require 'base64'
+
+require "openssl"
+require "base64"
 
 Given /^I have several oEmbed data in cache$/ do
   scenarios = {
@@ -126,7 +127,6 @@ Given /^I have several oEmbed data in cache$/ do
     end
   end
 end
-
 
 Then /^I should see a video player$/ do
   visit aspects_path
