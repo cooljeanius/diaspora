@@ -216,7 +216,7 @@ module Api
         redirect_params_hash = {error: error, error_description: error_description, state: params[:state]}
         redirect_fragment = redirect_params_hash.compact.map {|key, value| key.to_s + "=" + value }.join("&")
         target_uri = params[:redirect_uri]
-        if VALID_REDIRECT_URIS.include?(target_uri) || valid_redirect_uri?(target_uri)
+        if valid_redirect_uri?(target_uri) && VALID_REDIRECT_URIS.include?(target_uri)
           redirect_to target_uri + "?" + redirect_fragment
         else
           redirect_to "/error.html"
