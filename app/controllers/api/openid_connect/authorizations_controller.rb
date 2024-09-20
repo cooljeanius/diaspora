@@ -209,7 +209,7 @@ module Api
       def valid_redirect_uri?(uri)
         parsed_uri = URI.parse(uri)
         # Check if the URI is in the list of valid URIs or if it is a relative URI or belongs to the known host
-        VALID_REDIRECT_URIS.include?(parsed_uri.to_s) || (!parsed_uri.host && !parsed_uri.scheme) || parsed_uri.host == KNOWN_HOST
+        VALID_REDIRECT_URIS.include?(parsed_uri.to_s) || (!parsed_uri.host && !parsed_uri.scheme) || (parsed_uri.host == KNOWN_HOST && parsed_uri.scheme == 'https')
       rescue URI::InvalidURIError
         false
       end
@@ -219,7 +219,8 @@ module Api
         redirect_fragment = redirect_params_hash.compact.map {|key, value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}" }.join("&")
         target_uri = params[:redirect_uri]
         if valid_redirect_uri?(target_uri)
-          redirect_to "#{target_uri}?#{redirect_fragment}"
+          validated_uri = URI.parse(target_uri)
+          redirect_to "#{validated_uri}?#{redirect_fragment}"
         else
           redirect_to "/error.html"
         end
