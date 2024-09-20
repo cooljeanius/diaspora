@@ -290,3 +290,5 @@ gem "jquery-ui-themes", "~> 0.0.12"
 gem "rails-jquery-ui-sortable", "~> 1.11"
 
 gem "sn-jquery-ui-rails", "~> 6.0"
+
+gem "uri", "~> 0.13.1"
