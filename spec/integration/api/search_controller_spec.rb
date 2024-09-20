@@ -461,7 +461,7 @@ describe Api::V1::SearchController do
       expect(response.status).to eq(401)
     end
 
-    context 'when the author is blocked' do
+    context "when the author is blocked" do
       before do
         FactoryBot.create(
           :block,
