@@ -208,7 +208,7 @@ module Api
 
       def valid_redirect_uri?(uri)
         parsed_uri = URI.parse(uri)
-        (!parsed_uri.host || parsed_uri.host == KNOWN_HOST) && VALID_REDIRECT_URIS.include?(uri)
+        VALID_REDIRECT_URIS.include?(parsed_uri.to_s)
       rescue URI::InvalidURIError
         false
       end
