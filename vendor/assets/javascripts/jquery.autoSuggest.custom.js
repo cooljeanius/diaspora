@@ -18,6 +18,7 @@
  *   http://www.opensource.org/licenses/mit-license.php
  *   http://www.gnu.org/licenses/gpl.html
  */
+const striptags = require('striptags');
 
 (function($){
 	$.fn.autoSuggest = function(data, options) {
@@ -320,7 +321,7 @@
 					}
 					selections_holder.removeClass("loading");
 					if(matchCount <= 0){
-						results_ul.html('<li class="as-message">'+opts.emptyText+'</li>');
+						results_ul.html('<li class="as-message">'+striptags(opts.emptyText)+'</li>');
 					}
 					results_ul.css("width", selections_holder.outerWidth());
 					results_holder.show();
