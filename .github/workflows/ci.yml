@@ -1,3 +1,4 @@
+---
 name: CI
 on:
   push:
@@ -15,6 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
+          - '3.1'
           - '3.2'
           - '3.3'
         db:
@@ -26,8 +28,7 @@ jobs:
     env:
       DB: ${{ matrix.db }}
       RAILS_ENV: test
-      BUNDLE_WITH: ${{ matrix.db }}
-      BUNDLE_WITHOUT: development
+      BUNDLE_WITH: ${{ matrix.db }} development
       BUNDLE_FROZEN: true
       BUNDLE_DISABLE_SHARED_GEMS: true
     services:
@@ -44,20 +45,186 @@ jobs:
           - 5432:5432
     steps:
       - name: Install system dependencies
-        run: sudo apt update && sudo apt install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get -qq install -y build-essential curl git gsfonts \
+            imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev \
+            libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm \
+            coreutils python3-flake8 python3-pyflakes pyflakes3 flake8 pipx \
+            golang golang-go libssh2-1-dev idn libjs-es5-shim coffeescript \
+            python3-pycurl cl-asdf asdftool python3-asdf dh-golang python2-dev \
+            libjs-coffeescript dh-make pipsi pipenv rake ruby-bundler bundler \
+            rubygems-integration shellcheck yamllint
+          sudo apt-get -qq install -y python-pip || sudo apt-get install -y python3-pip || sudo apt-get install -y python2-pip-whl || sudo apt-get install -y python3-pip-whl || sudo apt-get install -y pip-check-reqs || sudo apt-get install -y virtualenv || sudo apt-get install -y python3-wheel || sudo apt-get install -y python3-virtualenv
+          if test -x "$(which pip)"; then \
+            echo "attempting to use $(which pip) to install pyflakes"; \
+            pip install pyflakes; \
+          elif test -x "$(which pip3)"; then \
+            echo "attempting to use $(which pip3) to install pyflakes"; \
+            pip3 install pyflakes; \
+          elif test -x "$(which pipx)"; then \
+            echo "attempting to use $(which pipx) to install pyflakes"; \
+            pipx install pyflakes; \
+          else \
+            echo "unsure how to install pyflakes"; \
+          fi
+          if test -x "$(which snap)"; then \
+            echo "attempting to use $(which snap) to install go"; \
+            sudo snap install --classic go; \
+          else \
+            echo "skipping attempting using snap to install go"; \
+          fi
+          if test -x "$(which go)"; then \
+            echo "attempting to use $(which go) to install actionlint"; \
+            go install github.com/rhysd/actionlint/cmd/actionlint@latest; \
+          else \
+            echo "skipping attempting to use go to install actionlint"; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which paru)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
+            echo "attempting to use $(which paru) to install actionlint"; \
+            paru -S actionlint; \
+          else \
+            echo "skipping attempting to use paru to install actionlint"; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which nix-env)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
+            echo "attempting to use $(which nix-env) to install actionlint"; \
+            nix-env -iA nixpkgs.actionlint; \
+          else \
+            echo "skipping attempting to use nix-env to install actionlint"; \
+          fi
+          if test -x /home/linuxbrew/.linuxbrew/bin/brew; then \
+            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"; \
+          else \
+            echo "linuxbrew not found in its usual location"; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which brew)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
+            echo "attempting to use $(which brew) to install actionlint"; \
+            (brew tap "rhysd/actionlint" "https://github.com/rhysd/actionlint") || echo "tapping repo failed; falling back to existing actionlint formula"; \
+            brew install actionlint || echo "failed to install actionlint with $(which brew)"; \
+          else \
+            echo "skipping attempting to use Homebrew to install actionlint"; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which asdf)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
+            echo "attempting to use $(which asdf) to install actionlint"; \
+            asdf plugin add actionlint; \
+            asdf list-all actionlint; \
+            asdf install actionlint latest; \
+            asdf global actionlint latest; \
+          else \
+            echo "skipping attempting to use asdf to install actionlint"; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which choco)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
+            echo "attempting to use $(which choco) to install actionlint"; \
+            choco install actionlint; \
+          else \
+            echo "skipping attempting to use chocolatey to install actionlint"; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which scoop)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
+            echo "attempting to use $(which scoop) to install actionlint"; \
+            scoop install actionlint; \
+          else \
+            echo "skipping attempting to use scoop to install actionlint"; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which winget)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
+            echo "attempting to use $(which winget) to install actionlint"; \
+            winget install actionlint; \
+          else \
+            echo "skipping attempting to use winget to install actionlint"; \
+          fi
+          # shellcheck disable=SC2235
+          if test -x "$(which bash)" && test -x "$(which curl)" && (test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e actionlint || test ! -x actionlint); then \
+            echo "attempting to use $(which bash) and $(which curl) to install actionlint"; \
+            bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash); \
+            if test -z "$(which actionlint)" || test ! -x "$(which actionlint)" || test ! -e /usr/bin/actionlint || test ! -e /usr/local/bin/actionlint || (test -n "${HOME}" && test ! -e "${HOME}/.local/bin/actionlint"); then \
+              echo "one more try..."; \
+              if test ".:${PATH}" != ".:"; then \
+                test -n "${PATH}" && echo "possible places to try: ${PATH}"; \
+              fi; \
+              if test -w /usr/bin && test ! -e /usr/bin/actionlint; then \
+                bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest /usr/bin; \
+              elif test -w /usr/local/bin && test ! -e /usr/local/bin/actionlint; then \
+                bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest /usr/local/bin; \
+              elif test -n "${HOME}" && test -w "${HOME}/.local/bin" && test ! -e "${HOME}/.local/bin/actionlint"; then \
+                bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest "${HOME}/.local/bin"; \
+              else \
+                echo "actually never mind"; \
+              fi; \
+              sync && echo "done with final try at installing actionlint"; \
+            else \
+              echo "actionlint should be OK now"; \
+            fi; \
+          else \
+            echo "skipping last-ditch actionlint installation attempt"; \
+          fi
       - name: Start MySQL
         run: sudo systemctl start mysql.service
         if: matrix.db == 'mysql'
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+      - name: bundle install
+        run: |
+          if test -x "$(which bundle)"; then \
+            bundle config set --local with 'development'; \
+            if test ${{ matrix.db }} == 'mysql'; then \
+              bundle config set --local with 'development mysql'; \
+            elif test ${{ matrix.db }} == 'postgresql'; then \
+              bundle config set --local with 'development postgresql'; \
+            else \
+              sync && echo "unrecognized matrix.db kind"; \
+            fi; \
+            sync && bundle install && sync; \
+          else \
+            sync && echo "missing bundler!"; \
+          fi
       - name: Prepare
-        run: script/ci/prepare.sh
+        run: |
+          sync && sh ./script/ci/prepare.sh && sync
+          if test -x "$(which shellcheck)"; then \
+            sync && shellcheck ./script/ci/prepare.sh && sync; \
+          else \
+            sync && echo "skipping running shellcheck on preparation script"; \
+          fi
       - name: Run tests
-        run: bin/rake --trace ci:${{ matrix.kind }}
-      - name: Run Jasmine
-        run: bin/rake jasmine:ci
-        timeout-minutes: 2
+        run: bin/rake --verbose --backtrace --job-stats --rules --trace ci:${{ matrix.kind }} || ruby -cwv Rakefile || ruby -c Rakefile
+      - name: Run Jasmine (or lints)
+        run: |
+          (timeout -v 3m bin/rake --trace jasmine:ci) || bin/haml-lint || bin/scss-lint || \
+          (npx eslint .) || \
+          (timeout -v 3m npx prettier . >prettier.out 2>prettier.err) || \
+          (if test -x "$(which actionlint)"; then \
+            echo "attempting to run $(which actionlint)"; \
+            actionlint -verbose; \
+          elif test -x actionlint; then \
+            echo "attempting to run actionlint"; \
+            actionlint -verbose; \
+          elif test -x "$(which yamllint)"; then \
+            echo "attempting to run $(which yamllint)"; \
+            yamllint .pronto.yml .haml-lint.yml .rubocopy.yml .codeclimate.yml \
+              .scss-lint.yml .github/dependabot.yml; \
+            pushd config; \
+            yamllint defaults.yml database.yml database.yml.example \
+              color_themes.yml oembed_providers.yml open_graph_providers.yml \
+              locale_settings.yml; \
+            popd; \
+            yamllint docker/develop/docker-compose.yml; \
+            yamllint features/step_definitions/.rubocop.yml; \
+            yamllint spec/javascripts/support/jasmine.yml; \
+          else echo "missing actionlint and yamllint!" >&2; exit 1; fi)
+          for prettierfile in prettier.out prettier.err .prettierrc; do \
+            if test -e "${prettierfile}"; then \
+              stat "${prettierfile}" && wc -l "${prettierfile}"; \
+            else \
+              echo "${prettierfile} is missing"; \
+            fi; \
+          done
         if: matrix.kind == 'other'

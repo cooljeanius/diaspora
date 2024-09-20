@@ -1,3 +1,4 @@
+---
 ## SECURITY WARNING:
 ##
 ## Do not change this job unless you know what you're doing.
@@ -35,9 +36,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install system dependencies
-        run: sudo apt update && sudo apt install -y build-essential curl git gsfonts imagemagick libcurl4-openssl-dev libidn11-dev libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg
+        run: |
+          sudo apt update && sudo apt install -y build-essential curl git \
+            gsfonts imagemagick libcurl4-openssl-dev libidn11-dev \
+            libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg
       - name: Checkout Target branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.base_ref }}
           fetch-depth: 0
@@ -47,7 +51,8 @@ jobs:
           bundler-cache: true
       - name: Checkout PR HEAD
         run: |
-          git fetch -q origin +refs/pull/${{ github.event.pull_request.number }}/head:
+          git fetch -q origin \
+            +refs/pull/${{ github.event.pull_request.number }}/head:
           git checkout -qf FETCH_HEAD
       - name: Restore the bundle binstub and Gemfiles from the target branch
         run: |
@@ -55,8 +60,9 @@ jobs:
           git restore -s ${{ github.base_ref }} -- Gemfile
           git restore -s ${{ github.base_ref }} -- Gemfile.lock
       - name: Run Pronto
-        run: bin/bundle exec pronto run -f github_status github_pr_review -c ${{ github.base_ref }}
+        run: |
+          bin/bundle exec pronto run -f github_status github_pr_review -c \
+            ${{ github.base_ref }}
         env:
           PRONTO_PULL_REQUEST_ID: ${{ github.event.pull_request.number }}
           PRONTO_GITHUB_ACCESS_TOKEN: ${{ github.token }}
-

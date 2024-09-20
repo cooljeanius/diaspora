@@ -1,4 +1,6 @@
 {
+  "name": "diaspora",
+  "description": "A privacy-aware, distributed, open source social network.",
   "repository": "git@github.com:diaspora/diaspora.git",
   "author": "diaspora* team",
   "license": "AGPL-3.0",
@@ -14,11 +16,12 @@
     "highlightjs": "9.16.2",
     "jquery": "3.7.0",
     "jquery-placeholder": "2.3.1",
+    "jquery-ui": "^1.14.0",
     "jquery.are-you-sure": "1.9.0",
-    "markdown-it": "8.4.2",
+    "markdown-it": "14.1.0",
     "markdown-it-diaspora-mention": "^1.2.0",
-    "markdown-it-footnote": "3.0.3",
-    "markdown-it-for-inline": "0.1.1",
+    "markdown-it-footnote": "4.0.0",
+    "markdown-it-for-inline": "2.0.1",
     "markdown-it-hashtag": "0.4.0",
     "markdown-it-html5-embed": "^1.0.0",
     "markdown-it-sanitizer": "0.4.3",
@@ -28,6 +31,12 @@
     "pica": "5.0.0"
   },
   "devDependencies": {
-    "jasmine-ajax": "4.0.0"
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "eslint": "^9.10.0",
+    "jasmine": "^5.3.0",
+    "jasmine-ajax": "4.0.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^7.0.1"
   }
 }

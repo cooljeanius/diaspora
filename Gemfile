@@ -33,7 +33,7 @@ gem "yajl-ruby",   "1.4.3"
 
 gem "devise", "4.9.4"
 gem "devise_lastseenable", "0.0.6"
-gem "devise-two-factor", "4.1.0"
+gem "devise-two-factor", "6.0.0"
 gem "rqrcode", "2.2.0"
 
 # Captcha
@@ -66,9 +66,9 @@ gem "rack-cors", "2.0.2", require: "rack/cors"
 
 gem "autoprefixer-rails",     "10.4.16.0"
 gem "bootstrap-sass",         "3.4.1"
-gem "bootstrap-switch-rails", "3.3.3" # 3.3.4 and 3.3.5 is broken, see https://github.com/Bttstrp/bootstrap-switch/issues/691
+gem "bootstrap-switch-rails", "3.3.5" # 3.3.4 and 3.3.5 is broken, see https://github.com/Bttstrp/bootstrap-switch/issues/691
 gem "sassc-rails",            "2.1.2"
-gem "sprockets-rails",        "3.4.2"
+gem "sprockets-rails",        "3.5.2"
 
 # Database
 
@@ -125,7 +125,7 @@ gem "string-direction", "1.2.2"
 
 # Security Headers
 
-gem "secure_headers", "6.5.0"
+gem "secure_headers", "6.7.0"
 
 # Services
 
@@ -134,7 +134,7 @@ gem "omniauth-rails_csrf_protection", "1.0.2"
 gem "omniauth-tumblr",                "1.2"
 gem "omniauth-twitter",               "1.4.0"
 gem "omniauth-wordpress",             "0.2.2"
-gem "twitter",                        "8.0.0"
+gem "twitter",                        "8.0.1"
 
 # OpenID Connect
 gem "openid_connect", "2.3.0"
@@ -162,7 +162,7 @@ gem "gon",                     "6.4.0"
 gem "hamlit",                  "3.0.3"
 gem "mobile-fu",               "1.4.0"
 gem "rails-timeago",           "2.20.0"
-gem "will_paginate",           "4.0.0"
+gem "will_paginate",           "4.0.1"
 
 # Logging
 
@@ -181,7 +181,7 @@ gem "minitest", "5.23.1"
 
 gem "versionist", "2.0.1"
 
-group :production do # we don"t install these on travis to speed up test runs
+group :production do # we skip installing these on travis to speed up test runs
   # Analytics
 
   gem "rack-google-analytics", "1.2.0"
@@ -260,10 +260,37 @@ group :development, :test do
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"
-  gem "jasmine",                   "3.10.0"
+  gem "jasmine",                   "3.99.0"
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "sinon-rails",               "1.15.0"
 
   # For `assigns` in controller specs
   gem "rails-controller-testing", "1.0.5"
 end
+
+# Anything after here has been automatically added by bundler:
+gem "jquery-ui-rails-test", "~> 6.0"
+
+gem "sassc", "~> 2.4"
+
+gem "jquery-ui-rails-engine", "~> 1.10"
+
+gem "compass-jquery-ui", "~> 0.1.0"
+
+gem "jquery-ui-bootstrap-rails", "~> 0.0.2"
+
+gem "jquery-ui-bootstrap-rails-asset", "~> 0.0.3"
+
+gem "jquery-ui-middleman", "~> 4.1"
+
+gem "jquery-ui-rails-google-cdn", "~> 0.0.2"
+
+gem "jquery-ui-rails-patch-1131", "~> 7.0"
+
+gem "jquery-ui-redmond", "~> 0.0.1"
+
+gem "jquery-ui-themes", "~> 0.0.12"
+
+gem "rails-jquery-ui-sortable", "~> 1.11"
+
+gem "sn-jquery-ui-rails", "~> 6.0"

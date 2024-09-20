@@ -10,8 +10,8 @@ engines:
     enabled: true
     config:
       languages:
-      - ruby
-      - javascript
+        - ruby
+        - javascript
   eslint:
     enabled: true
     channel: "eslint-2"
@@ -21,16 +21,16 @@ engines:
     enabled: true
 ratings:
   paths:
-  - Gemfile.lock
-  - "**.erb"
-  - "**.haml"
-  - "**.rb"
-  - "**.css"
-  - "**.js"
+    - Gemfile.lock
+    - "**.erb"
+    - "**.haml"
+    - "**.rb"
+    - "**.css"
+    - "**.js"
 exclude_paths:
-- config/
-- db/
-- features/
-- script/
-- spec/
-- vendor/
+  - config/
+  - db/
+  - features/
+  - script/
+  - spec/
+  - vendor/

@@ -1,3 +1,4 @@
+---
 <%
 rerun  = File.file?('rerun.txt') ? IO.read('rerun.txt') : ""
 format = ENV['CUCUMBER_FORMAT'] || 'pretty'

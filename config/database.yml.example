@@ -1,3 +1,4 @@
+---
 postgresql: &postgresql
   adapter: postgresql
   host: "localhost"
@@ -12,7 +13,7 @@ mysql: &mysql
   port: 3306
   username: "root"
   password: "root"
-#  socket: /tmp/mysql.sock
+  # socket: /tmp/mysql.sock
   encoding: utf8mb4
   collation: utf8mb4_bin
 
@@ -22,10 +23,10 @@ mysql: &mysql
 common: &common
   # Choose one of the following
   <<: *postgresql
-  #<<: *mysql
+  # <<: *mysql
 
   # Should match environment.sidekiq.concurrency
-  #pool: 25
+  # pool: 25
 
 ##################################################
 #### CONFIGURE ABOVE #############################
