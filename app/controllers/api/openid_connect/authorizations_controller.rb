@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'cgi'
+
+require "cgi"
 
 module Api
   module OpenidConnect
@@ -200,7 +201,7 @@ module Api
       end
 
       VALID_REDIRECT_URIS = [
-        "https://example.com/callback",
+        "://example.com/callback",
         "https://example.org/return"
       ].freeze
 
@@ -209,7 +210,7 @@ module Api
       def valid_redirect_uri?(uri)
         parsed_uri = URI.parse(uri)
         # Check if the URI is in the list of valid URIs or if it is a relative URI or belongs to the known host
-        VALID_REDIRECT_URIS.include?(parsed_uri.to_s) || (!parsed_uri.host && !parsed_uri.scheme) || (parsed_uri.host == KNOWN_HOST && parsed_uri.scheme == 'https')
+        VALID_REDIRECT_URIS.include?(parsed_uri.to_s) || (!parsed_uri.host && !parsed_uri.scheme) || (parsed_uri.host == KNOWN_HOST && parsed_uri.scheme == "https")
       rescue URI::InvalidURIError
         false
       end
