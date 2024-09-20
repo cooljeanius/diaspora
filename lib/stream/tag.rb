@@ -5,7 +5,7 @@
 #   the COPYRIGHT file.
 
 class Stream::Tag < Stream::Base
-  attr_accessor :tag_name, :people_page , :people_per_page, :public_only
+  attr_accessor :tag_name, :people_page, :people_per_page, :public_only
 
   def initialize(user, tag_name, opts={})
     self.tag_name = tag_name
