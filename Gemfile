@@ -84,7 +84,7 @@ gem "activerecord-import", "1.8.1"
 # File uploading
 
 gem "carrierwave", "3.0.7"
-gem "fog-aws",     "3.26.0"
+gem "fog-aws",     "3.27.0"
 gem "mini_magick", "4.13.2"
 
 # GUID generation
@@ -146,7 +146,7 @@ gem "acts-as-taggable-on", "11.0.0"
 # URIs and HTTP
 
 gem "addressable",              "2.8.7", require: "addressable/uri"
-gem "faraday",                  "2.11.0"
+gem "faraday",                  "2.12.0"
 gem "faraday-cookie_jar",       "0.0.7"
 gem "faraday-follow_redirects", "0.3.0"
 gem "faraday-typhoeus",         "1.1.0", require: false
@@ -206,7 +206,7 @@ group :development do
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
   gem "rubocop",        "1.66.1", require: false
-  gem "rubocop-rails",  "2.26.1", require: false
+  gem "rubocop-rails",  "2.26.2", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
