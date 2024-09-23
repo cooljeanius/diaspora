@@ -320,7 +320,10 @@
 					}
 					selections_holder.removeClass("loading");
 					if(matchCount <= 0){
-						results_ul.html('<li class="as-message">'+opts.emptyText+'</li>');
+						var messageElement = document.createElement('li');
+						messageElement.className = 'as-message';
+						messageElement.textContent = opts.emptyText;
+						results_ul.html('').append(messageElement);
 					}
 					results_ul.css("width", selections_holder.outerWidth());
 					results_holder.show();
