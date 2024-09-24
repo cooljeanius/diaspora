@@ -19,6 +19,7 @@
  *   http://www.gnu.org/licenses/gpl.html
  */
 
+const DOMPurify = require('dompurify');
 (function($){
 	$.fn.autoSuggest = function(data, options) {
 		var defaults = {
@@ -211,7 +212,7 @@
 						default:
 							if(opts.showResultList){
 								if(opts.selectionLimit && $("li.as-selection-item", selections_holder).length >= opts.selectionLimit){
-									resultsUL.html('<li class="as-message">'+opts.limitText+'</li>');
+									resultsUL.html('<li class="as-message">'+DOMPurify.sanitize(opts.limitText)+'</li>');
 									results_holder.show();
 								} else {
 									if (timeout){ clearTimeout(timeout); }
