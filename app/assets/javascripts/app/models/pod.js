@@ -4,7 +4,7 @@ app.models.Pod = Backbone.Model.extend({
 
   recheck: function() {
     var self = this,
-        url  = Routes.adminPodRecheck(this.id).toString();
+        url = Routes.adminPodRecheck(this.id).toString();
 
     return $.ajax({url: url, method: "POST", dataType: "json"})
       .done(function(newAttributes) {

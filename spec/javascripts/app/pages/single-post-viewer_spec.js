@@ -1,4 +1,4 @@
-describe("app.pages.SinglePostViewer", function(){
+describe("app.pages.SinglePostViewer", function() {
   beforeEach(function() {
     window.gon = {};
     gon.post = $.parseJSON(spec.readFixture("post_json"));

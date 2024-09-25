@@ -1,3 +1,3 @@
-describe("app.views.Post", function(){
+describe("app.views.Post", function() {
   // see: StreamPost
 });

@@ -1,5 +1,4 @@
 describe("app.views.Hovercard", function() {
-
   afterEach(function() {
     $("body #hovercard_container").remove();
   });

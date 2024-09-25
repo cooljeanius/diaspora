@@ -8,7 +8,7 @@ app.models.Comment = Backbone.Model.extend({
     this.post = model.post || options.post || this.collection.post;
     this.interactions = new app.models.LikeInteractions(
       _.extend({comment: this, post: this.post}, this.get("interactions"))
-      );
+    );
     this.likes = this.interactions.likes;
     this.likesCount = this.attributes.likes_count;
     this.userLike = this.interactions.userLike();

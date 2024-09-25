@@ -66,7 +66,7 @@ describe("app", function() {
       expect($.fn.placeholder.calls.mostRecent().object.is($("textarea"))).toBe(true);
     });
 
-    it("initializes autosize for textareas", function(){
+    it("initializes autosize for textareas", function() {
       spyOn(window, "autosize");
       app.setupForms();
       expect(window.autosize).toHaveBeenCalled();

@@ -13,6 +13,6 @@
   };
 })();
 
-$(function(){
+$(function() {
   Diaspora.Mobile.Drawer.initialize();
 });

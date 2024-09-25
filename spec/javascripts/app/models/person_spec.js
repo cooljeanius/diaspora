@@ -67,7 +67,7 @@ describe("app.models.Person", function() {
   });
 
   context("#unblock", function() {
-    it("DELETEs a block from the server", function(){
+    it("DELETEs a block from the server", function() {
       this.blockedContact.unblock();
       var request = jasmine.Ajax.requests.mostRecent();
 
