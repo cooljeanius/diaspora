@@ -78,9 +78,9 @@ const striptags = require("striptags");
 
         // Setup basic elements and render them to the DOM
         input.wrap('<ul class="as-selections" id="as-selections-' + x + '"></ul>').wrap('<li class="as-original" id="as-original-' + x + '"></li>');
-        var selections_holder = $("#as-selections-" + x);
+        var selectionsHolder = $("#as-selections-" + x);
         var org_li = $("#as-original-" + x);
-        var results_holder = $('<div class="as-results" id="as-results-' + x + '"></div>').hide();
+        var resultsHolder = $('<div class="as-results" id="as-results-' + x + '"></div>').hide();
         var resultsUL = $('<ul class="as-list"></ul>');
         var values_input = $('<input type="hidden" class="as-values" name="' + x + '" id="as-values-' + x + '" />');
         var prefill_value = "";
@@ -114,13 +114,13 @@ const striptags = require("striptags");
           var lastChar = prefill_value.substring(prefill_value.length - 1);
           if (lastChar != ",") { prefill_value = prefill_value + ","; }
           values_input.val("," + prefill_value);
-          $("li.as-selection-item", selections_holder).addClass("blur").removeClass("selected");
+          $("li.as-selection-item", selectionsHolder).addClass("blur").removeClass("selected");
         }
         input.after(values_input);
-        selections_holder.click(function() {
+        selectionsHolder.click(function() {
           input_focus = true;
           input.focus();
-        }).mousedown(function() { input_focus = false; }).after(results_holder);
+        }).mousedown(function() { input_focus = false; }).after(resultsHolder);
 
         var timeout = null;
         var prev = "";
@@ -132,10 +132,10 @@ const striptags = require("striptags");
           if ($(this).val() == opts.startText && values_input.val() == "") {
             $(this).val("");
           } else if (input_focus) {
-            $("li.as-selection-item", selections_holder).removeClass("blur");
+            $("li.as-selection-item", selectionsHolder).removeClass("blur");
             if ($(this).val() != "") {
-              resultsUL.css("width", selections_holder.outerWidth());
-              results_holder.show();
+              resultsUL.css("width", selectionsHolder.outerWidth());
+              resultsHolder.show();
             }
           }
           input_focus = true;
@@ -144,8 +144,8 @@ const striptags = require("striptags");
           if ($(this).val() == "" && values_input.val() == "" && prefill_value == "") {
             $(this).val(opts.startText);
           } else if (input_focus) {
-            $("li.as-selection-item", selections_holder).addClass("blur").removeClass("selected");
-            results_holder.hide();
+            $("li.as-selection-item", selectionsHolder).addClass("blur").removeClass("selected");
+            resultsHolder.hide();
           }
         }).keydown(function(e) {
           // track last key pressed
@@ -164,7 +164,7 @@ const striptags = require("striptags");
               if (input.val() == "") {
                 var last = values_input.val().split(",");
                 last = last[last.length - 2];
-                selections_holder.children().not(org_li.prev()).removeClass("selected");
+                selectionsHolder.children().not(org_li.prev()).removeClass("selected");
                 if (org_li.prev().hasClass("selected")) {
                   values_input.val(values_input.val().replace("," + last + ",", ","));
                   opts.selectionRemoved.call(this, org_li.prev());
@@ -174,10 +174,10 @@ const striptags = require("striptags");
                 }
               }
               if (input.val().length == 1) {
-                results_holder.hide();
+                resultsHolder.hide();
 								 prev = "";
               }
-              if ($(":visible", results_holder).length > 0) {
+              if ($(":visible", resultsHolder).length > 0) {
                 if (timeout) { clearTimeout(timeout); }
                 timeout = setTimeout(function() { keyChange(); }, opts.keyDelay);
               }
@@ -190,7 +190,7 @@ const striptags = require("striptags");
 								var n_data = {};
 								n_data[opts.selectedItemProp] = i_input;
 								n_data[opts.selectedValuesProp] = i_input;
-								var lis = $("li", selections_holder).length;
+								var lis = $("li", selectionsHolder).length;
 								add_selected_item(n_data, "00"+(lis+1));
 								input.val("");
 							}*/
@@ -200,10 +200,10 @@ const striptags = require("striptags");
               }
             case 13: case 188: // return, comma
               tab_press = false;
-              var active = $("li.active:first", results_holder);
+              var active = $("li.active:first", resultsHolder);
               if (active.length > 0) {
                 active.click();
-                results_holder.hide();
+                resultsHolder.hide();
               }
               if (opts.neverSubmit || active.length > 0) {
                 e.preventDefault();
@@ -211,9 +211,9 @@ const striptags = require("striptags");
               break;
             default:
               if (opts.showResultList) {
-                if (opts.selectionLimit && $("li.as-selection-item", selections_holder).length >= opts.selectionLimit) {
+                if (opts.selectionLimit && $("li.as-selection-item", selectionsHolder).length >= opts.selectionLimit) {
                   resultsUL.html('<li class="as-message">' + striptags(opts.limitText) + "</li>");
-                  results_holder.show();
+                  resultsHolder.show();
                 } else {
                   if (timeout) { clearTimeout(timeout); }
                   timeout = setTimeout(function() { keyChange(); }, opts.keyDelay);
@@ -225,12 +225,12 @@ const striptags = require("striptags");
 
         function keyChange() {
           // ignore if the following keys are pressed: [del] [shift] [capslock]
-          if (lastKeyPressCode == 46 || (lastKeyPressCode > 8 && lastKeyPressCode < 32)) { return results_holder.hide(); }
+          if (lastKeyPressCode == 46 || (lastKeyPressCode > 8 && lastKeyPressCode < 32)) { return resultsHolder.hide(); }
           var string = input.val().replace(/[\\]+|[\/]+/g, "");
           if (string == prev) { return; }
           prev = string;
           if (string.length >= opts.minChars) {
-            selections_holder.addClass("loading");
+            selectionsHolder.addClass("loading");
             if (d_type == "string") {
               var limit = "";
               if (opts.retrieveLimit) {
@@ -252,15 +252,15 @@ const striptags = require("striptags");
               processData(org_data, string);
             }
           } else {
-            selections_holder.removeClass("loading");
-            results_holder.hide();
+            selectionsHolder.removeClass("loading");
+            resultsHolder.hide();
           }
         }
         var num_count = 0;
         function processData(data, query) {
           if (!opts.matchCase) { query = query.toLowerCase(); }
           var matchCount = 0;
-          results_holder.html(resultsUL.html("")).hide();
+          resultsHolder.html(resultsUL.html("")).hide();
           for (var i = 0; i < d_count; i++) {
             var num = i;
             num_count++;
@@ -285,13 +285,13 @@ const striptags = require("striptags");
               var formatted = $('<li class="as-result-item" id="as-result-item-' + num + '"></li>').click(function() {
                 var raw_data = $(this).data("data");
                 var number = raw_data.num;
-                if ($("#as-selection-" + number, selections_holder).length <= 0 && !tab_press) {
+                if ($("#as-selection-" + number, selectionsHolder).length <= 0 && !tab_press) {
                   var data = raw_data.attributes;
                   input.val("").focus();
                   prev = "";
                   add_selected_item(data, number);
                   opts.resultClick.call(this, raw_data);
-                  results_holder.hide();
+                  resultsHolder.hide();
                 }
                 tab_press = false;
               }).mousedown(function() { input_focus = false; }).mouseover(function() {
@@ -319,12 +319,12 @@ const striptags = require("striptags");
               if (opts.retrieveLimit && opts.retrieveLimit == matchCount) { break; }
             }
           }
-          selections_holder.removeClass("loading");
+          selectionsHolder.removeClass("loading");
           if (matchCount <= 0) {
             resultsUL.html('<li class="as-message">' + striptags(opts.emptyText) + "</li>");
           }
-          resultsUL.css("width", selections_holder.outerWidth());
-          results_holder.show();
+          resultsUL.css("width", selectionsHolder.outerWidth());
+          resultsHolder.show();
           opts.resultsComplete.call(this);
         }
 
@@ -332,7 +332,7 @@ const striptags = require("striptags");
           values_input.val(values_input.val() + data[opts.selectedValuesProp] + ",");
           var item = $('<li class="as-selection-item" id="as-selection-' + num + '"></li>').click(function() {
             opts.selectionClick.call(this, $(this));
-            selections_holder.children().removeClass("selected");
+            selectionsHolder.children().removeClass("selected");
             $(this).addClass("selected");
           }).mousedown(function() { input_focus = false; });
           var close = $('<a class="as-close">&times;</a>').click(function() {
@@ -347,14 +347,14 @@ const striptags = require("striptags");
         }
 
         function moveSelection(direction) {
-          if ($(":visible", results_holder).length > 0) {
-            var lis = $("li", results_holder);
+          if ($(":visible", resultsHolder).length > 0) {
+            var lis = $("li", resultsHolder);
             if (direction == "down") {
               var start = lis.eq(0);
             } else {
               var start = lis.filter(":last");
             }
-            var active = $("li.active:first", results_holder);
+            var active = $("li.active:first", resultsHolder);
             if (active.length > 0) {
               if (direction == "down") {
                 start = active.next();
