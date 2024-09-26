@@ -1,6 +1,6 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
-(function(){
+(function() {
   app.helpers.allowedEmbedsMime = function(mimetype) {
     var v = document.createElement(mimetype[1]);
     return v.canPlayType && v.canPlayType(mimetype[0]) !== "";
@@ -10,9 +10,9 @@
     mentions = mentions ? mentions : [];
 
     var md = window.markdownit({
-      breaks:      true,
-      html:        true,
-      linkify:     true,
+      breaks: true,
+      html: true,
+      linkify: true,
       typographer: true
     });
 
@@ -20,16 +20,16 @@
     md.use(footnote);
 
     var inlinePlugin = window.markdownitForInline;
-    md.use(inlinePlugin, "utf8_symbols", "text", function (tokens, idx) {
+    md.use(inlinePlugin, "utf8_symbols", "text", function(tokens, idx) {
       tokens[idx].content = tokens[idx].content.replace(/<->/g, "↔")
-                                               .replace(/<-/g,  "←")
-                                               .replace(/->/g,  "→")
-                                               .replace(/<3/g,  "♥");
+        .replace(/<-/g, "←")
+        .replace(/->/g, "→")
+        .replace(/<3/g, "♥");
     });
 
-    md.use(inlinePlugin, "link_new_window_and_missing_http", "link_open", function (tokens, idx) {
+    md.use(inlinePlugin, "link_new_window_and_missing_http", "link_open", function(tokens, idx) {
       tokens[idx].attrs.forEach(function(attribute, index, array) {
-        if( attribute[0] === "href" ) {
+        if (attribute[0] === "href") {
           array[index][1] = attribute[1].replace(/^www\./, "http://www.");
         }
       });
@@ -37,7 +37,7 @@
       tokens[idx].attrPush(["rel", "noopener noreferrer"]);
     });
 
-    md.use(inlinePlugin, "responsive_images", "image", function (tokens, idx) {
+    md.use(inlinePlugin, "responsive_images", "image", function(tokens, idx) {
       tokens[idx].attrPush(["class", "img-responsive"]);
     });
 
@@ -84,13 +84,13 @@
     });
 
     // xmpp: should behave like mailto:
-    md.linkify.add("xmpp:","mailto:");
+    md.linkify.add("xmpp:", "mailto:");
     // mumble:// should behave like http://:
-    md.linkify.add("mumble:","http:");
-    md.linkify.set({ fuzzyLink: false });
+    md.linkify.add("mumble:", "http:");
+    md.linkify.set({fuzzyLink: false});
 
     // Bootstrap table markup
-    md.renderer.rules.table_open = function () { return "<table class=\"table table-striped\">\n"; };
+    md.renderer.rules.table_open = function() { return "<table class=\"table table-striped\">\n"; };
 
     var html5medialPlugin = window.markdownitHTML5Embed;
     md.use(html5medialPlugin, {html5embed: {
