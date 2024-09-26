@@ -14,24 +14,24 @@
 
 app.views.Publisher = Backbone.View.extend({
 
-  el : "#publisher",
+  el: "#publisher",
 
-  events : {
+  events: {
     "keydown #status_message_text": "keyDown",
-    "focus textarea" : "open",
-    "submit form" : "createStatusMessage",
-    "click #submit" : "createStatusMessage",
+    "focus textarea": "open",
+    "submit form": "createStatusMessage",
+    "click #submit": "createStatusMessage",
     "input #status_message_text": "checkSubmitAvailability",
-    "click #locator" : "showLocation",
-    "click #poll_creator" : "togglePollCreator",
-    "click #hide_location" : "destroyLocation",
-    "keypress #location_address" : "avoidEnter"
+    "click #locator": "showLocation",
+    "click #poll_creator": "togglePollCreator",
+    "click #hide_location": "destroyLocation",
+    "keypress #location_address": "avoidEnter"
   },
 
-  initialize : function(opts){
+  initialize: function(opts) {
     this.standalone = opts ? opts.standalone : false;
     this.prefillMention = opts && opts.prefillMention ? opts.prefillMention : undefined;
-    this.disabled   = false;
+    this.disabled = false;
 
     // init shortcut references to the various elements
     this.inputEl = this.$("#status_message_text");
@@ -47,7 +47,7 @@ app.views.Publisher = Backbone.View.extend({
     // hide close and preview buttons and manage services link
     // in case publisher is standalone
     // (e.g. bookmarklet, mentions popup)
-    if( this.standalone ) {
+    if (this.standalone) {
       this.$(".question_mark").hide();
     }
 
@@ -82,17 +82,17 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   initSubviews: function() {
-    this.mention = new app.views.PublisherMention({ el: this.$("#publisher-textarea-wrapper") });
-    if(this.prefillMention) {
+    this.mention = new app.views.PublisherMention({el: this.$("#publisher-textarea-wrapper")});
+    if (this.prefillMention) {
       this.mention.prefillMention([this.prefillMention]);
     }
 
     var form = this.$(".content_creation form");
 
     this.view_services = new app.views.PublisherServices({
-      el:    this.$("#publisher-service-icons"),
+      el: this.$("#publisher-service-icons"),
       input: this.inputEl,
-      form:  form
+      form: form
     });
 
     this.viewAspectSelector = new app.views.PublisherAspectSelector({
@@ -101,9 +101,9 @@ app.views.Publisher = Backbone.View.extend({
     });
 
     this.viewGettingStarted = new app.views.PublisherGettingStarted({
-      firstMessageEl:  this.inputEl,
+      firstMessageEl: this.inputEl,
       visibilityEl: this.$(".public_toggle .aspect-dropdown > .dropdown-toggle"),
-      streamEl:     $("#main-stream")
+      streamEl: $("#main-stream")
     });
 
     this.viewUploader = new app.views.PublisherUploader({
@@ -176,11 +176,11 @@ app.views.Publisher = Backbone.View.extend({
     }
   },
 
-  createStatusMessage : function(evt) {
+  createStatusMessage: function(evt) {
     this.setButtonsEnabled(false);
     var self = this;
 
-    if(evt){ evt.preventDefault(); }
+    if (evt) { evt.preventDefault(); }
 
     // Auto-adding a poll answer always leaves an empty box when the user starts
     // typing in the last box. We'll delete the last one to avoid submitting an
@@ -194,31 +194,31 @@ app.views.Publisher = Backbone.View.extend({
 
     // lulz this code should be killed.
     var statusMessage = new app.models.Post();
-    if( app.publisher ) {
+    if (app.publisher) {
       app.publisher.trigger("publisher:add");
     }
 
     statusMessage.save({
-      "status_message" : {
-        "text" : serializedForm["status_message[text]"]
+      "status_message": {
+        "text": serializedForm["status_message[text]"]
       },
-      "aspect_ids" : serializedForm["aspect_ids[]"],
-      "photos" : serializedForm["photos[]"],
-      "services" : serializedForm["services[]"],
-      "location_address" : $("#location_address").val(),
-      "location_coords" : serializedForm["location[coords]"],
-      "poll_question" : serializedForm["poll_question"],
-      "poll_answers" : serializedForm["poll_answers[]"]
+      "aspect_ids": serializedForm["aspect_ids[]"],
+      "photos": serializedForm["photos[]"],
+      "services": serializedForm["services[]"],
+      "location_address": $("#location_address").val(),
+      "location_coords": serializedForm["location[coords]"],
+      "poll_question": serializedForm.poll_question,
+      "poll_answers": serializedForm["poll_answers[]"]
     }, {
-      url : "/status_messages",
-      success : function() {
-        if( app.publisher ) {
+      url: "/status_messages",
+      success: function() {
+        if (app.publisher) {
           app.publisher.$el.trigger("ajax:success");
           app.publisher.trigger("publisher:sync");
           self.viewPollCreator.trigger("publisher:sync");
         }
 
-        if(app.stream && !self.standalone){
+        if (app.stream && !self.standalone) {
           app.stream.addNow(statusMessage.toJSON());
         }
 
@@ -226,10 +226,10 @@ app.views.Publisher = Backbone.View.extend({
         self.clear();
 
         // standalone means single-shot posting (until further notice)
-        if( self.standalone ) self.setEnabled(false);
+        if (self.standalone) { self.setEnabled(false); }
       },
       error: function(model, resp) {
-        if( app.publisher ) {
+        if (app.publisher) {
           app.publisher.trigger("publisher:error");
         }
         self.setInputEnabled(true);
@@ -244,8 +244,8 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   // creates the location
-  showLocation: function(){
-    if($("#location").length === 0){
+  showLocation: function() {
+    if ($("#location").length === 0) {
       this.$(".location-container").append("<div id=\"location\"></div>");
       this.wrapperEl.addClass("with-location");
       this.view_locator = new app.views.Location();
@@ -253,22 +253,22 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   // destroys the location
-  destroyLocation: function(){
-    if(this.view_locator){
+  destroyLocation: function() {
+    if (this.view_locator) {
       this.view_locator.remove();
       this.wrapperEl.removeClass("with-location");
       delete this.view_locator;
     }
   },
 
-  togglePollCreator: function(){
+  togglePollCreator: function() {
     this.wrapperEl.toggleClass("with-poll");
     this.inputEl.focus();
   },
 
   // avoid submitting form when pressing Enter key
-  avoidEnter: function(evt){
-    if(evt.which === Keycodes.ENTER) {
+  avoidEnter: function(evt) {
+    if (evt.which === Keycodes.ENTER) {
       return false;
     }
   },
@@ -294,14 +294,14 @@ app.views.Publisher = Backbone.View.extend({
     var poll;
     var pollQuestion = serializedForm.poll_question;
     var pollAnswersArray = _.flatten([serializedForm["poll_answers[]"]]);
-    var pollAnswers = _.map(pollAnswersArray, function(answer){
+    var pollAnswers = _.map(pollAnswersArray, function(answer) {
       if (answer) {
         return {"answer": answer, "vote_count": 0};
       }
     });
     pollAnswers = _.without(pollAnswers, undefined);
 
-    if(pollQuestion && pollAnswers.length) {
+    if (pollQuestion && pollAnswers.length) {
       poll = {
         "question": pollQuestion,
         "poll_answers": pollAnswers,
@@ -316,7 +316,7 @@ app.views.Publisher = Backbone.View.extend({
     var photos = this.getUploadedPhotos();
     var poll = this.getPollData(serializedForm);
     var locationCoords = serializedForm["location[coords]"];
-    if(!locationCoords || locationCoords === "") {
+    if (!locationCoords || locationCoords === "") {
       locationCoords = ["", ""];
     } else {
       locationCoords = locationCoords.split(",");
@@ -346,7 +346,7 @@ app.views.Publisher = Backbone.View.extend({
     return $("<div></div>").append(previewPost).html();
   },
 
-  keyDown : function(evt) {
+  keyDown: function(evt) {
     if (evt.which === Keycodes.ENTER && (evt.metaKey || evt.ctrlKey)) {
       this.$("form").submit();
       this.open();
@@ -354,7 +354,7 @@ app.views.Publisher = Backbone.View.extend({
     }
   },
 
-  clear : function() {
+  clear: function() {
     // remove mentions
     this.mention.reset();
 
@@ -397,15 +397,15 @@ app.views.Publisher = Backbone.View.extend({
     return this;
   },
 
-  tryClose : function(){
+  tryClose: function() {
     // if it is not submittable and not in preview mode, close it.
     if (!this._submittable() && !this.markdownEditor.isPreviewMode()) {
       this.close();
     }
   },
 
-  open : function() {
-    if( this.disabled ) return;
+  open: function() {
+    if (this.disabled) { return; }
 
     // visually 'open' the publisher
     this.$el.removeClass("closed");
@@ -414,7 +414,7 @@ app.views.Publisher = Backbone.View.extend({
     return this;
   },
 
-  close : function() {
+  close: function() {
     $(this.el).addClass("closed");
     this.wrapperEl.removeClass("active");
     this.inputEl.css("height", "");
@@ -426,8 +426,7 @@ app.views.Publisher = Backbone.View.extend({
   showSpinner: function(bool) {
     if (bool) {
       this.$("#publisher_spinner").removeClass("hidden");
-    }
-    else {
+    } else {
       this.$("#publisher_spinner").addClass("hidden");
     }
   },
@@ -475,15 +474,14 @@ app.views.Publisher = Backbone.View.extend({
   _beforeUnload: function(e) {
     if (this._submittable() && this.inputEl.val() !== this.prefillText) {
       var confirmationMessage = Diaspora.I18n.t("confirm_unload");
-      (e || window.event).returnValue = confirmationMessage;       //Gecko + IE
-      return confirmationMessage;                                  //Webkit, Safari, Chrome, etc.
+      (e || window.event).returnValue = confirmationMessage; // Gecko + IE
+      return confirmationMessage; // Webkit, Safari, Chrome, etc.
     }
   }
 });
 
 // jQuery helper for serializing a <form> into JSON
-$.fn.serializeObject = function()
-{
+$.fn.serializeObject = function() {
   var o = {};
   var a = this.serializeArray();
   $.each(a, function() {
