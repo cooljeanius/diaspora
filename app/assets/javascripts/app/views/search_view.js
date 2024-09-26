@@ -19,12 +19,12 @@ app.views.Search = app.views.SearchBase.extend({
   toggleSearchActive: function(evt) {
     // jQuery produces two events for focus/blur (for bubbling)
     // don't rely on which event arrives first, by allowing for both variants
-    var isActive = (_.indexOf(["focus","focusin"], evt.type) !== -1);
+    var isActive = (_.indexOf(["focus", "focusin"], evt.type) !== -1);
     $(evt.target).toggleClass("active", isActive);
   },
 
   inputKeypress: function(evt) {
-    if(evt.which === Keycodes.ENTER && $(".tt-suggestion.tt-cursor").length === 0) {
+    if (evt.which === Keycodes.ENTER && $(".tt-suggestion.tt-cursor").length === 0) {
       $(evt.target).closest("form").submit();
     }
   },

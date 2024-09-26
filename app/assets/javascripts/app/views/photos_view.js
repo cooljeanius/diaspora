@@ -2,9 +2,9 @@
 
 app.views.Photos = app.views.InfScroll.extend({
   className: "clearfix row",
-  postClass : app.views.Photo,
+  postClass: app.views.Photo,
 
-  initialize : function() {
+  initialize: function() {
     this.stream = this.model;
     this.collection = this.stream.items;
     new app.views.Gallery({el: this.$el});

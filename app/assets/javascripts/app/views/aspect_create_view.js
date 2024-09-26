@@ -17,7 +17,7 @@ app.views.AspectCreate = app.views.Base.extend({
 
   presenter: function() {
     return _.extend(this.defaultPresenter(), {
-      personId : this._personId
+      personId: this._personId
     });
   },
 
@@ -26,7 +26,7 @@ app.views.AspectCreate = app.views.Base.extend({
   },
 
   inputKeypress: function(evt) {
-    if(evt.which === Keycodes.ENTER) {
+    if (evt.which === Keycodes.ENTER) {
       evt.preventDefault();
       this.createAspect();
     }

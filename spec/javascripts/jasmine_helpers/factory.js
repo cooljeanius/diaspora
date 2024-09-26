@@ -1,21 +1,21 @@
 var factory = {
-  id : {
-    current : 0,
-    next : function(){
+  id: {
+    current: 0,
+    next: function() {
       return factory.id.current += 1;
     }
   },
 
-  guid : function(){
-    return 'omGUID' + this.id.next();
+  guid: function() {
+    return "omGUID" + this.id.next();
   },
 
-  like : function(overrides){
+  like: function(overrides) {
     var defaultAttrs = {
-      "created_at" : "2012-01-04T00:55:30Z",
-      "author" : this.author(),
-      "guid" : this.guid(),
-      "id" : this.id.next()
+      "created_at": "2012-01-04T00:55:30Z",
+      "author": this.author(),
+      "guid": this.guid(),
+      "id": this.id.next()
     };
 
     return _.extend(defaultAttrs, overrides);
@@ -41,7 +41,7 @@ var factory = {
     return _.extend(defaultAttrs, overrides);
   },
 
-  comment : function(overrides) {
+  comment: function(overrides) {
     var defaultAttrs = {
       "created_at": "2012-01-04T00:55:30Z",
       "author": this.author(),
@@ -84,47 +84,47 @@ var factory = {
     return new app.models.Notification(_.extend(defaultAttrs, overrides));
   },
 
-  user : function(overrides) {
+  user: function(overrides) {
     return new app.models.User(factory.userAttrs(overrides));
   },
 
-  userAttrs : function(overrides){
+  userAttrs: function(overrides) {
     var id = this.id.next();
     var defaultAttrs = {
-      "name":"Awesome User" + id,
+      "name": "Awesome User" + id,
       "id": id,
       "diaspora_id": "bob@bob.com",
-      "avatar":{
-        "large":"http://localhost:3000/assets/user/default.png",
-        "medium":"http://localhost:3000/assets/user/default.png",
-        "small":"http://localhost:3000/assets/user/default.png"}
+      "avatar": {
+        "large": "http://localhost:3000/assets/user/default.png",
+        "medium": "http://localhost:3000/assets/user/default.png",
+        "small": "http://localhost:3000/assets/user/default.png"}
     };
 
     return _.extend(defaultAttrs, overrides);
   },
 
-  postAttrs : function(){
-    return  {
+  postAttrs: function() {
+    return {
       "author": {},
-      "provider_display_name" : null,
-      "created_at" : "2012-01-03T19:53:13Z",
-      "interacted_at" : '2012-01-03T19:53:13Z',
-      "public" : false,
-      "guid" : this.guid(),
-      "o_embed_cache" : null,
+      "provider_display_name": null,
+      "created_at": "2012-01-03T19:53:13Z",
+      "interacted_at": "2012-01-03T19:53:13Z",
+      "public": false,
+      "guid": this.guid(),
+      "o_embed_cache": null,
       "open_graph_cache": null,
-      "photos" : [],
-      "text" : "jasmine is bomb",
-      "id" : this.id.next(),
-      "root" : null,
-      "post_type" : "StatusMessage",
-      "interactions" : {
-        "reshares_count" : 0,
-        "likes_count" : 0,
-        "comments_count" : 0,
-        "comments" : [],
-        "likes" : [],
-        "reshares" : []
+      "photos": [],
+      "text": "jasmine is bomb",
+      "id": this.id.next(),
+      "root": null,
+      "post_type": "StatusMessage",
+      "interactions": {
+        "reshares_count": 0,
+        "likes_count": 0,
+        "comments_count": 0,
+        "comments": [],
+        "likes": [],
+        "reshares": []
       }
     };
   },
@@ -155,7 +155,7 @@ var factory = {
     return _.extend({}, defaults, overrides);
   },
 
-  profile : function(overrides) {
+  profile: function(overrides) {
     return new app.models.Profile(factory.profileAttrs(overrides));
   },
 
@@ -186,7 +186,7 @@ var factory = {
     return factory.person(_.extend({}, defaults, overrides));
   },
 
-  photoAttrs : function(overrides){
+  photoAttrs: function(overrides) {
     var id = this.id.next();
     return _.extend({
       author: factory.userAttrs(),
@@ -194,14 +194,14 @@ var factory = {
       guid: "8b0db16a4c4307b2" + id,
       id: id,
       sizes: {
-          large: "http://localhost:3000/uploads/images/scaled_full_d85410bd19db1016894c.jpg",
-          medium: "http://localhost:3000/uploads/images/thumb_medium_d85410bd19db1016894c.jpg",
-          small: "http://localhost:3000/uploads/images/thumb_small_d85410bd19db1016894c.jpg"
-        }
+        large: "http://localhost:3000/uploads/images/scaled_full_d85410bd19db1016894c.jpg",
+        medium: "http://localhost:3000/uploads/images/thumb_medium_d85410bd19db1016894c.jpg",
+        small: "http://localhost:3000/uploads/images/thumb_small_d85410bd19db1016894c.jpg"
+      }
     }, overrides);
   },
 
-  location : function() {
+  location: function() {
     return {
       address: "Starco Mart, Mission Street, San Francisco, Kalifornien, 94103, Vereinigte Staaten von Amerika",
       lat: 37.78,
@@ -209,12 +209,12 @@ var factory = {
     };
   },
 
-  post :  function(overrides) {
-    var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
+  post: function(overrides) {
+    var defaultAttrs = _.extend(factory.postAttrs(), {"author": this.author()});
     return new app.models.Post(_.extend(defaultAttrs, overrides));
   },
 
-  postWithPoll :  function(overrides) {
+  postWithPoll: function(overrides) {
     var defaultAttrs = _.extend(factory.postAttrs(), {"author": this.author()});
     defaultAttrs = _.extend(defaultAttrs, {"poll_participation_answer_id": null});
     defaultAttrs = _.extend(defaultAttrs, {"poll": factory.poll()});
@@ -239,29 +239,29 @@ var factory = {
     return new app.models.Post(_.extend(defaultAttrs, overrides));
   },
 
-  statusMessage : function(overrides){
-    //intentionally doesn't have an author to mirror creation process, maybe we should change the creation process
+  statusMessage: function(overrides) {
+    // intentionally doesn't have an author to mirror creation process, maybe we should change the creation process
     return new app.models.StatusMessage(_.extend(factory.postAttrs(), overrides));
   },
 
-  poll: function(){
+  poll: function() {
     return {
-      "question" : "This is an awesome question",
-      "created_at" : "2012-01-03T19:53:13Z",
-      "author" : this.author(),
-      "post_id" : 1,
-      "poll_answers" : [{"answer" : "yes", "id" : 1, "vote_count" : 9}, {"answer" : "no", "id" : 2, "vote_count" : 1}],
-      "guid" : this.guid(),
+      "question": "This is an awesome question",
+      "created_at": "2012-01-03T19:53:13Z",
+      "author": this.author(),
+      "post_id": 1,
+      "poll_answers": [{"answer": "yes", "id": 1, "vote_count": 9}, {"answer": "no", "id": 2, "vote_count": 1}],
+      "guid": this.guid(),
       "poll_id": this.id.next(),
-      "participation_count" : 10
+      "participation_count": 10
     };
   },
 
   aspectAttrs: function(overrides) {
-    var names = ['Work','School','Family','Friends','Just following','People','Interesting'];
+    var names = ["Work", "School", "Family", "Friends", "Just following", "People", "Interesting"];
     var defaultAttrs = {
       id: this.id.next(),
-      name: names[Math.floor(Math.random()*names.length)]+' '+Math.floor(Math.random()*100),
+      name: names[Math.floor(Math.random() * names.length)] + " " + Math.floor(Math.random() * 100),
       selected: false
     };
 
@@ -281,7 +281,7 @@ var factory = {
       aspect_ids: []
     };
 
-    window.gon = { preloads: {} };
+    window.gon = {preloads: {}};
     _.extend(window.gon.preloads, defaults, overrides);
   },
 

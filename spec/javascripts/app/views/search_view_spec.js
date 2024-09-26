@@ -22,7 +22,7 @@ describe("app.views.Search", function() {
 
   describe("toggleSearchActive", function() {
     beforeEach(function() {
-      this.view = new app.views.Search({ el: "#search_people_form" });
+      this.view = new app.views.Search({el: "#search_people_form"});
       this.typeaheadInput = this.view.$("#q");
     });
 

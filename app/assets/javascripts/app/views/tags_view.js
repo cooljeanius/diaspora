@@ -2,8 +2,8 @@
 
 app.views.Tags = app.views.Base.extend({
   initialize: function(opts) {
-    if(app.publisher) {
-      app.publisher.setText("#"+ opts.hashtagName + " ");
+    if (app.publisher) {
+      app.publisher.setText("#" + opts.hashtagName + " ");
     }
     // add avatar fallback if it can't be loaded
     this.setupAvatarFallback($("#tags_show"));
