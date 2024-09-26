@@ -31,7 +31,8 @@
     "node-sass": "^9.0.0",
     "perfect-scrollbar": "1.5.5",
     "pica": "9.0.1",
-    "sass": "^1.79.3"
+    "sass": "^1.79.3",
+    "striptags": "^3.2.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.18.0",
