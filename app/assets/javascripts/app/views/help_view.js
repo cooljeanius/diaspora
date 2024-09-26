@@ -1,9 +1,9 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.Help = app.views.StaticContentView.extend({
-  templateName : "help",
+  templateName: "help",
 
-  events : {
+  events: {
     "click .faq-link": "sectionClicked",
     "click .faq-link-getting-help": "gettingHelp",
     "click .faq-link-sharing": "sharing",
@@ -13,7 +13,7 @@ app.views.Help = app.views.StaticContentView.extend({
   },
 
   /* eslint-disable camelcase */
-  initialize : function() {
+  initialize: function() {
     this.GETTING_HELP_SUBS = {
       getting_started_a: {tutorial_series: this.linkHtml("https://diasporafoundation.org/getting_started/sign_up", Diaspora.I18n.t("getting_started_tutorial"))},
       get_support_a_website: {link: this.linkHtml("https://diasporafoundation.org/", Diaspora.I18n.t("foundation_website"))},
@@ -23,7 +23,7 @@ app.views.Help = app.views.StaticContentView.extend({
       get_support_a_faq: {faq: this.linkHtml("https://wiki.diasporafoundation.org/FAQ_for_users", Diaspora.I18n.t("faq"))},
       get_support_a_hashtag: {question: this.linkHtml("/tags/question", "#question")},
       get_support_a_discourse: {discourse: this.linkHtml("https://discourse.diasporafoundation.org/c/support", "discussions & support")}
-	};
+    };
 
     this.POSTS_AND_POSTING_SUBS = {
       post_report_a: {community_guidelines: this.linkHtml("https://diasporafoundation.org/community_guidelines", Diaspora.I18n.t("community_guidelines"))},
@@ -32,11 +32,11 @@ app.views.Help = app.views.StaticContentView.extend({
         here: this.linkHtml("https://daringfireball.net/projects/markdown/syntax", Diaspora.I18n.t("here"))
       }
     };
-  /* eslint-enable camelcase */
+    /* eslint-enable camelcase */
 
     this.TAGS_SUBS = {
       filter_tags_a: {
-        third_party_tools: this.linkHtml("https://wiki.diasporafoundation.org/Tools_to_use_with_Diaspora", Diaspora.I18n.t( 'third_party_tools' ))
+        third_party_tools: this.linkHtml("https://wiki.diasporafoundation.org/Tools_to_use_with_Diaspora", Diaspora.I18n.t("third_party_tools"))
       }
     };
 
@@ -61,7 +61,7 @@ app.views.Help = app.views.StaticContentView.extend({
     return this;
   },
 
-  render: function(section){
+  render: function(section) {
     var html = app.views.Base.prototype.render.apply(this, arguments);
 
     // After render actions
@@ -69,46 +69,46 @@ app.views.Help = app.views.StaticContentView.extend({
     this.renderStaticSection("getting_help", "faq_getting_help", this.GETTING_HELP_SUBS);
 
     var elTarget = this.findSection(section);
-    if(elTarget !== null){ $(elTarget).click(); }
+    if (elTarget !== null) { $(elTarget).click(); }
 
     return html;
   },
 
   showItems: function(el) {
     this.clearItems();
-    var section = el.data('section');
-    var items = el.data('items').split(" ");
+    var section = el.data("section");
+    var items = el.data("items").split(" ");
     var self = this;
 
-    $.each(items, function(i, item){
+    $.each(items, function(i, item) {
       var qa = {
         className: "faq_question_" + section,
         question: self.getText(section, item, true),
         answer: self.getText(section, item, false)
       };
       item = new app.views.FaqQuestionView(qa);
-      self.$('#faq').append(item.render().el);
+      self.$("#faq").append(item.render().el);
     });
 
     this.setInitialVisibility();
   },
 
-  getText: function(section, name, question){
+  getText: function(section, name, question) {
     var q = question ? "_q" : "_a";
-    return Diaspora.I18n.t( section + '.' + name + q);
+    return Diaspora.I18n.t(section + "." + name + q);
   },
 
   setInitialVisibility: function() {
-    this.$('#faq .question.collapsible :first').addClass('opened').removeClass('collapsed');
-    this.$('#faq .question.collapsible .answer :first').show();
+    this.$("#faq .question.collapsible :first").addClass("opened").removeClass("collapsed");
+    this.$("#faq .question.collapsible .answer :first").show();
   },
 
   resetMenu: function(initial) {
-  	$('#faq_nav').find('.section-unselected').show();
-    $('#faq_nav').find('.section-selected').hide();
-    if(initial){
-      $('#faq_nav').find('.section-unselected :first').hide();
-      $('#faq_nav').find('.section-selected :first').show();
+  	$("#faq_nav").find(".section-unselected").show();
+    $("#faq_nav").find(".section-selected").hide();
+    if (initial) {
+      $("#faq_nav").find(".section-unselected :first").hide();
+      $("#faq_nav").find(".section-selected :first").show();
     }
   },
 
@@ -118,15 +118,15 @@ app.views.Help = app.views.StaticContentView.extend({
     $(e.target).hide();
     $(e.target).next().show();
 
-    var data = $(e.target).data('section');
-    app.router.navigate('help/' + data);
+    var data = $(e.target).data("section");
+    app.router.navigate("help/" + data);
   },
 
   clearItems: function() {
-    this.$('#faq').empty();
+    this.$("#faq").empty();
   },
 
-  sectionClicked : function(e) {
+  sectionClicked: function(e) {
     this.menuClicked(e);
     this.showItems($(e.target));
 
@@ -135,13 +135,13 @@ app.views.Help = app.views.StaticContentView.extend({
 
   renderStaticSection: function(section, template, subs) {
     this.clearItems();
-    var data = $.extend(Diaspora.I18n.resolve(section), { className: section });
+    var data = $.extend(Diaspora.I18n.resolve(section), {className: section});
     var help_section = new app.views.HelpSectionView({
       template: template,
       data: data,
       subs: subs
     });
-    this.$('#faq').append(help_section.render().el);
+    this.$("#faq").append(help_section.render().el);
   },
 
   /**
@@ -150,9 +150,9 @@ app.views.Help = app.views.StaticContentView.extend({
    * @param data Value for the data-section to find
    * @returns {jQuery}
    */
-  findSection: function(data){
-    var res = this.$('a[data-section=' + data + ']');
-    if(res.length === 0){ return null; }
+  findSection: function(data) {
+    var res = this.$("a[data-section=" + data + "]");
+    if (res.length === 0) { return null; }
     return res;
   },
 
