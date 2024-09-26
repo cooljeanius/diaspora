@@ -321,7 +321,7 @@ const striptags = require("striptags");
           }
           selections_holder.removeClass("loading");
           if (matchCount <= 0) {
-            resultsUL.html('<li class="as-message">' + opts.emptyText + "</li>");
+            resultsUL.html('<li class="as-message">' + striptags(opts.emptyText) + "</li>");
           }
           resultsUL.css("width", selections_holder.outerWidth());
           results_holder.show();
