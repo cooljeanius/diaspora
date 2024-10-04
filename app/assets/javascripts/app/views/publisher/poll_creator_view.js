@@ -2,7 +2,7 @@
 
 app.views.PublisherPollCreator = app.views.Base.extend({
   templateName: "poll_creator",
-  
+
   events: {
     'keypress input:last': 'addAnswer',
     'click .remove-answer': 'removeAnswer',
@@ -10,7 +10,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
     'input input': 'validate'
   },
 
-  postRenderTemplate: function(){
+  postRenderTemplate: function() {
     this.$pollAnswers = this.$('.poll-answers');
     this.inputCount = 2;
     this.trigger('change');
