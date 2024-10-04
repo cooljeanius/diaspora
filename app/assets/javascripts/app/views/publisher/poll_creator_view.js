@@ -98,7 +98,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
       // question field and two options
       if( i !== inputs.length - 1 || inputs.length <= 3) {
         if(_this.validateInput($(input)) === false) pollValid = false;
-      }      
+      }
     });
 
     return pollValid;
