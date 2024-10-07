@@ -26,7 +26,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 
 gem "acts_as_api", "1.0.1"
 gem "json",        "2.7.2"
-gem "json-schema", "5.0.0"
+gem "json-schema", "5.0.1"
 gem "yajl-ruby",   "1.4.3"
 
 # Authentication
@@ -97,7 +97,7 @@ gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.0"
 gem "jquery-ui-rails",   "7.0.0"
 gem "js_image_paths",    "0.2.0"
-gem "js-routes",         "2.2.8"
+gem "js-routes",         "2.2.10"
 
 # Localization
 
@@ -242,7 +242,7 @@ group :test do
   gem "factory_bot_rails", "6.4.3"
   gem "shoulda-matchers",  "6.4.0"
   gem "timecop",           "0.9.10"
-  gem "webmock",           "3.23.1", require: false
+  gem "webmock",           "3.24.0", require: false
 
   gem "diaspora_federation-test", "1.1.0"
 end

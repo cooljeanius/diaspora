@@ -351,7 +351,7 @@ GEM
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
-    hashdiff (1.1.0)
+    hashdiff (1.1.1)
     hashie (5.0.0)
     http (5.1.1)
       addressable (~> 2.8)
@@ -372,7 +372,7 @@ GEM
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     io-console (0.7.2)
-    irb (1.14.0)
+    irb (1.14.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     jasmine (3.99.0)
@@ -404,8 +404,9 @@ GEM
     jquery-ui-redmond (0.0.1)
     jquery-ui-themes (0.0.12)
       httparty
-    js-routes (2.2.8)
+    js-routes (2.2.10)
       railties (>= 4)
+      sorbet-runtime
     js_image_paths (0.2.0)
       rails (>= 4.0, < 8.0)
       sprockets (>= 3.0.0)
@@ -417,7 +418,7 @@ GEM
       bindata
       faraday (~> 2.0)
       faraday-follow_redirects
-    json-schema (5.0.0)
+    json-schema (5.0.1)
       addressable (~> 2.8)
     jsonapi-renderer (0.2.2)
     jsonpath (1.1.3)
@@ -669,8 +670,7 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.3.6)
-      strscan
+    rexml (3.3.8)
     rotp (6.3.0)
     rqrcode (2.2.0)
       chunky_png (~> 1.0)
@@ -767,6 +767,7 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
+    sorbet-runtime (0.5.11597)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -778,7 +779,6 @@ GEM
     state_machines (0.5.0)
     string-direction (1.2.2)
     stringio (3.1.1)
-    strscan (3.1.0)
     swd (2.0.3)
       activesupport (>= 3)
       attr_required (>= 0.0.5)
@@ -844,7 +844,7 @@ GEM
       activesupport
       faraday (~> 2.0)
       faraday-follow_redirects
-    webmock (3.23.1)
+    webmock (3.24.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -916,10 +916,10 @@ DEPENDENCIES
   jquery-ui-rails-test (~> 6.0)
   jquery-ui-redmond (~> 0.0.1)
   jquery-ui-themes (~> 0.0.12)
-  js-routes (= 2.2.8)
+  js-routes (= 2.2.10)
   js_image_paths (= 0.2.0)
   json (= 2.7.2)
-  json-schema (= 5.0.0)
+  json-schema (= 5.0.1)
   leaflet-rails (= 1.9.5)
   listen (= 3.9.0)
   logging-rails (= 0.6.0)
@@ -988,7 +988,7 @@ DEPENDENCIES
   typhoeus (= 1.4.1)
   uuid (= 2.3.9)
   versionist (= 2.0.1)
-  webmock (= 3.23.1)
+  webmock (= 3.24.0)
   will_paginate (= 4.0.1)
   yajl-ruby (= 1.4.3)
 
