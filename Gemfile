@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "7.2.1"
+gem "rails", "7.2.1.1"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -84,7 +84,7 @@ gem "activerecord-import", "1.8.1"
 # File uploading
 
 gem "carrierwave", "3.0.7"
-gem "fog-aws",     "3.27.0"
+gem "fog-aws",     "3.28.0"
 gem "mini_magick", "4.13.2"
 
 # GUID generation
@@ -121,7 +121,7 @@ gem "string-direction", "1.2.2"
 
 # Security Headers
 
-gem "secure_headers", "6.7.0"
+gem "secure_headers", "7.0.0"
 
 # Services
 
@@ -133,7 +133,7 @@ gem "omniauth-wordpress",             "0.2.2"
 gem "twitter",                        "8.0.1"
 
 # OpenID Connect
-gem "openid_connect", "2.3.0"
+gem "openid_connect", "2.3.1"
 
 # Serializers
 
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.66.1", require: false
+  gem "rubocop",        "1.67.0", require: false
   gem "rubocop-rails",  "2.26.2", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
