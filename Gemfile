@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "7.2.1.1"
+gem "rails", "7.2.1.2"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.7.2"
+gem "json",        "2.7.4"
 gem "json-schema", "5.0.1"
 gem "yajl-ruby",   "1.4.3"
 
@@ -43,7 +43,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 # Background processing
 
 gem "redis", "5.3.0"
-gem "sidekiq", "7.3.2"
+gem "sidekiq", "7.3.4"
 
 # Scheduled processing
 
@@ -76,7 +76,7 @@ group :mysql, optional: true do
   gem "mysql2", "0.5.6"
 end
 group :postgresql, optional: true do
-  gem "pg",     "1.5.8"
+  gem "pg",     "1.5.9"
 end
 
 gem "activerecord-import", "1.8.1"
@@ -84,7 +84,7 @@ gem "activerecord-import", "1.8.1"
 # File uploading
 
 gem "carrierwave", "3.0.7"
-gem "fog-aws",     "3.28.0"
+gem "fog-aws",     "3.29.0"
 gem "mini_magick", "4.13.2"
 
 # GUID generation
@@ -206,7 +206,7 @@ group :development do
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
   gem "rubocop",        "1.67.0", require: false
-  gem "rubocop-rails",  "2.26.2", require: false
+  gem "rubocop-rails",  "2.27.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
@@ -239,7 +239,7 @@ group :test do
 
   # General helpers
 
-  gem "factory_bot_rails", "6.4.3"
+  gem "factory_bot_rails", "6.4.4"
   gem "shoulda-matchers",  "6.4.0"
   gem "timecop",           "0.9.10"
   gem "webmock",           "3.24.0", require: false
