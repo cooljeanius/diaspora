@@ -69,13 +69,13 @@ jobs:
           fi
           if test -x "$(which snap)"; then \
             echo "attempting to use $(which snap) to install go"; \
-            sudo snap install --classic go; \
+            (sudo snap install --classic go) || (sudo snap install --classic --channel=1.20/stable go); \
           else \
             echo "skipping attempting using snap to install go"; \
           fi
           if test -x "$(which go)"; then \
             echo "attempting to use $(which go) to install actionlint"; \
-            go install github.com/rhysd/actionlint/cmd/actionlint@latest; \
+            go install github.com/rhysd/actionlint/cmd/actionlint@latest || go install github.com/rhysd/actionlint/cmd/actionlint; \
           else \
             echo "skipping attempting to use go to install actionlint"; \
           fi
