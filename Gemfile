@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "7.2.1.2"
+gem "rails", "7.2.2"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.7.4"
+gem "json",        "2.7.5"
 gem "json-schema", "5.0.1"
 gem "yajl-ruby",   "1.4.3"
 
@@ -102,7 +102,7 @@ gem "js-routes",         "2.2.10"
 # Localization
 
 gem "http_accept_language", "2.1.1"
-gem "rails-i18n",           "7.0.9"
+gem "rails-i18n",           "7.0.10"
 
 # Map
 gem "leaflet-rails", "1.9.5"
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.67.0", require: false
+  gem "rubocop",        "1.68.0", require: false
   gem "rubocop-rails",  "2.27.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
