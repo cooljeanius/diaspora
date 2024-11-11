@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.7.5"
+gem "json",        "2.8.1"
 gem "json-schema", "5.0.1"
 gem "yajl-ruby",   "1.4.3"
 
@@ -43,7 +43,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 # Background processing
 
 gem "redis", "5.3.0"
-gem "sidekiq", "7.3.4"
+gem "sidekiq", "7.3.5"
 
 # Scheduled processing
 
@@ -249,10 +249,10 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "7.0.1"
+  gem "rspec-rails", "7.1.0"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "3.0.0", require: false
+  gem "cucumber-rails", "3.0.1", require: false
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"
