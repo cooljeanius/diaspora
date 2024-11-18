@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.8.1"
+gem "json",        "2.8.2"
 gem "json-schema", "5.0.1"
 gem "yajl-ruby",   "1.4.3"
 
@@ -33,7 +33,7 @@ gem "yajl-ruby",   "1.4.3"
 
 gem "devise", "4.9.4"
 gem "devise_lastseenable", "0.0.6"
-gem "devise-two-factor", "6.0.0"
+gem "devise-two-factor", "6.1.0"
 gem "rqrcode", "2.2.0"
 
 # Captcha
@@ -47,7 +47,7 @@ gem "sidekiq", "7.3.5"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "1.12.0"
+gem "sidekiq-cron", "2.0.1"
 
 # Compression
 
@@ -97,7 +97,7 @@ gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.0"
 gem "jquery-ui-rails",   "7.0.0"
 gem "js_image_paths",    "0.2.0"
-gem "js-routes",         "2.2.10"
+gem "js-routes",         "2.3.0"
 
 # Localization
 
@@ -146,7 +146,7 @@ gem "acts-as-taggable-on", "11.0.0"
 # URIs and HTTP
 
 gem "addressable",              "2.8.7", require: "addressable/uri"
-gem "faraday",                  "2.12.0"
+gem "faraday",                  "2.12.1"
 gem "faraday-cookie_jar",       "0.0.7"
 gem "faraday-follow_redirects", "0.3.0"
 gem "faraday-typhoeus",         "1.1.0", require: false
