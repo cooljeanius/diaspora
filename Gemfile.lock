@@ -174,6 +174,9 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
+    cronex (0.15.0)
+      tzinfo
+      unicode (>= 0.4.4.5)
     cucumber (9.2.0)
       builder (~> 3.2)
       cucumber-ci-environment (> 9, < 11)
@@ -220,10 +223,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-two-factor (6.0.0)
-      activesupport (~> 7.0)
+    devise-two-factor (6.1.0)
+      activesupport (>= 7.0, < 8.1)
       devise (~> 4.0)
-      railties (~> 7.0)
+      railties (>= 7.0, < 8.1)
       rotp (~> 6.0)
     devise_lastseenable (0.0.6)
       devise
@@ -273,8 +276,8 @@ GEM
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
-    faraday (2.12.0)
-      faraday-net_http (>= 2.0, < 3.4)
+    faraday (2.12.1)
+      faraday-net_http (>= 2.0, < 3.5)
       json
       logger
     faraday-cookie_jar (0.0.7)
@@ -282,8 +285,8 @@ GEM
       http-cookie (~> 1.0.0)
     faraday-follow_redirects (0.3.0)
       faraday (>= 1, < 3)
-    faraday-net_http (3.3.0)
-      net-http
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
     faraday-retry (2.2.1)
       faraday (~> 2.0)
     faraday-typhoeus (1.1.0)
@@ -407,13 +410,13 @@ GEM
     jquery-ui-redmond (0.0.1)
     jquery-ui-themes (0.0.12)
       httparty
-    js-routes (2.2.10)
-      railties (>= 4)
+    js-routes (2.3.0)
+      railties (>= 5)
       sorbet-runtime
     js_image_paths (0.2.0)
       rails (>= 4.0, < 8.0)
       sprockets (>= 3.0.0)
-    json (2.8.1)
+    json (2.8.2)
     json-jwt (1.16.7)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -466,7 +469,7 @@ GEM
     mime-types-data (3.2024.1001)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.7)
+    mini_portile2 (2.8.8)
     minitest (5.25.1)
     mobile-fu (1.4.0)
       rack-mobile-detect
@@ -477,7 +480,7 @@ GEM
     multipart-post (2.3.0)
     mysql2 (0.5.6)
     naught (1.1.0)
-    net-http (0.4.1)
+    net-http (0.5.0)
       uri
     net-imap (0.5.1)
       date
@@ -742,7 +745,7 @@ GEM
     scss_lint (0.60.0)
       sass (~> 3.5, >= 3.5.5)
     secure_headers (7.0.0)
-    securerandom (0.3.1)
+    securerandom (0.3.2)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
     sidekiq (7.3.5)
@@ -750,10 +753,11 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sidekiq-cron (1.12.0)
-      fugit (~> 1.8)
+    sidekiq-cron (2.0.1)
+      cronex (>= 0.13.0)
+      fugit (~> 1.8, >= 1.11.1)
       globalid (>= 1.0.1)
-      sidekiq (>= 6)
+      sidekiq (>= 6.5.0)
     simple_captcha2 (0.5.0)
       rails (>= 4.1)
     simple_oauth (0.3.1)
@@ -770,7 +774,7 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
-    sorbet-runtime (0.5.11597)
+    sorbet-runtime (0.5.11647)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -827,8 +831,9 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.9.1)
+    unicode (0.4.4.5)
     unicode-display_width (2.6.0)
-    uri (0.13.1)
+    uri (1.0.2)
     useragent (0.16.10)
     uuid (2.3.9)
       macaddr (~> 1.0)
@@ -886,14 +891,14 @@ DEPENDENCIES
   cuprite (= 0.15.1)
   database_cleaner-active_record (= 2.2.0)
   devise (= 4.9.4)
-  devise-two-factor (= 6.0.0)
+  devise-two-factor (= 6.1.0)
   devise_lastseenable (= 0.0.6)
   diaspora_federation-json_schema (= 1.1.0)
   diaspora_federation-rails (= 1.1.0)
   diaspora_federation-test (= 1.1.0)
   eye (= 0.10.0)
   factory_bot_rails (= 6.4.4)
-  faraday (= 2.12.0)
+  faraday (= 2.12.1)
   faraday-cookie_jar (= 0.0.7)
   faraday-follow_redirects (= 0.3.0)
   faraday-retry
@@ -919,9 +924,9 @@ DEPENDENCIES
   jquery-ui-rails-test (~> 6.0)
   jquery-ui-redmond (~> 0.0.1)
   jquery-ui-themes (~> 0.0.12)
-  js-routes (= 2.2.10)
+  js-routes (= 2.3.0)
   js_image_paths (= 0.2.0)
-  json (= 2.8.1)
+  json (= 2.8.2)
   json-schema (= 5.0.1)
   leaflet-rails (= 1.9.5)
   listen (= 3.9.0)
@@ -975,7 +980,7 @@ DEPENDENCIES
   secure_headers (= 7.0.0)
   shoulda-matchers (= 6.4.0)
   sidekiq (= 7.3.5)
-  sidekiq-cron (= 1.12.0)
+  sidekiq-cron (= 2.0.1)
   simple_captcha2 (= 0.5.0)
   simplecov (= 0.22.0)
   sinon-rails (= 1.15.0)
