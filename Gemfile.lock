@@ -424,7 +424,7 @@ GEM
       bindata
       faraday (~> 2.0)
       faraday-follow_redirects
-    json-schema (5.0.1)
+    json-schema (5.1.0)
       addressable (~> 2.8)
     jsonapi-renderer (0.2.2)
     jsonpath (1.1.3)
@@ -470,7 +470,7 @@ GEM
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     mini_portile2 (2.8.8)
-    minitest (5.25.1)
+    minitest (5.25.2)
     mobile-fu (1.4.0)
       rack-mobile-detect
       rails
@@ -584,7 +584,7 @@ GEM
     psych (5.2.0)
       stringio
     public_suffix (6.0.1)
-    puma (6.4.3)
+    puma (6.5.0)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
@@ -748,7 +748,7 @@ GEM
     securerandom (0.3.2)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
-    sidekiq (7.3.5)
+    sidekiq (7.3.6)
       connection_pool (>= 2.3.0)
       logger
       rack (>= 2.2.4)
@@ -927,12 +927,12 @@ DEPENDENCIES
   js-routes (= 2.3.0)
   js_image_paths (= 0.2.0)
   json (= 2.8.2)
-  json-schema (= 5.0.1)
+  json-schema (= 5.1.0)
   leaflet-rails (= 1.9.5)
   listen (= 3.9.0)
   logging-rails (= 0.6.0)
   mini_magick (= 4.13.2)
-  minitest (= 5.25.1)
+  minitest (= 5.25.2)
   mobile-fu (= 1.4.0)
   mysql2 (= 0.5.6)
   net-imap
@@ -954,7 +954,7 @@ DEPENDENCIES
   pronto-scss (= 0.11.0)
   pry
   pry-byebug
-  puma (= 6.4.3)
+  puma (= 6.5.0)
   rack-cors (= 2.0.2)
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
@@ -979,7 +979,7 @@ DEPENDENCIES
   sassc-rails (= 2.1.2)
   secure_headers (= 7.0.0)
   shoulda-matchers (= 6.4.0)
-  sidekiq (= 7.3.5)
+  sidekiq (= 7.3.6)
   sidekiq-cron (= 2.0.1)
   simple_captcha2 (= 0.5.0)
   simplecov (= 0.22.0)

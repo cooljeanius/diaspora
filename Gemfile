@@ -15,7 +15,7 @@ gem "responders", "3.1.1"
 
 # Appserver
 
-gem "puma", "6.4.3", require: false
+gem "puma", "6.5.0", require: false
 
 # Federation
 
@@ -26,7 +26,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 
 gem "acts_as_api", "1.0.1"
 gem "json",        "2.8.2"
-gem "json-schema", "5.0.1"
+gem "json-schema", "5.1.0"
 gem "yajl-ruby",   "1.4.3"
 
 # Authentication
@@ -43,7 +43,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 # Background processing
 
 gem "redis", "5.3.0"
-gem "sidekiq", "7.3.5"
+gem "sidekiq", "7.3.6"
 
 # Scheduled processing
 
@@ -173,7 +173,7 @@ gem "rubyzip", "2.3.2", require: "zip"
 # https://github.com/gitlabhq/gitlabhq/issues/3826
 # https://github.com/gitlabhq/gitlabhq/pull/3852
 # https://github.com/discourse/discourse/pull/238
-gem "minitest", "5.25.1"
+gem "minitest", "5.25.2"
 
 gem "versionist", "2.0.1"
 
