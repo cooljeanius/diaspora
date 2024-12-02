@@ -97,7 +97,7 @@ gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.0"
 gem "jquery-ui-rails",   "7.0.0"
 gem "js_image_paths",    "0.2.0"
-gem "js-routes",         "2.3.0"
+gem "js-routes",         "2.3.1"
 
 # Localization
 
@@ -112,7 +112,7 @@ gem "leaflet-rails", "1.9.5"
 gem "nokogiri",          "1.16.7"
 gem "open_graph_reader", "0.7.2" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.6.0"
-gem "ruby-oembed",       "0.18.0"
+gem "ruby-oembed",       "0.18.1"
 gem "twitter-text",      "3.1.0"
 
 # RTL support
@@ -137,7 +137,7 @@ gem "openid_connect", "2.3.1"
 
 # Serializers
 
-gem "active_model_serializers", "0.10.14"
+gem "active_model_serializers", "0.10.15"
 
 # Tags
 
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.68.0", require: false
+  gem "rubocop",        "1.69.0", require: false
   gem "rubocop-rails",  "2.27.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
@@ -252,7 +252,7 @@ group :development, :test do
   gem "rspec-rails", "7.1.0"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "3.0.1", require: false
+  gem "cucumber-rails", "3.1.0", require: false
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"
