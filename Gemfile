@@ -25,8 +25,8 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.8.2"
-gem "json-schema", "5.1.0"
+gem "json",        "2.9.0"
+gem "json-schema", "5.1.1"
 gem "yajl-ruby",   "1.4.3"
 
 # Authentication
@@ -97,7 +97,7 @@ gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.0"
 gem "jquery-ui-rails",   "7.0.0"
 gem "js_image_paths",    "0.2.0"
-gem "js-routes",         "2.3.1"
+gem "js-routes",         "2.3.3"
 
 # Localization
 
@@ -109,7 +109,7 @@ gem "leaflet-rails", "1.9.5"
 
 # Parsing
 
-gem "nokogiri",          "1.16.7"
+gem "nokogiri",          "1.17.0"
 gem "open_graph_reader", "0.7.2" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.6.0"
 gem "ruby-oembed",       "0.18.1"
@@ -173,7 +173,7 @@ gem "rubyzip", "2.3.2", require: "zip"
 # https://github.com/gitlabhq/gitlabhq/issues/3826
 # https://github.com/gitlabhq/gitlabhq/pull/3852
 # https://github.com/discourse/discourse/pull/238
-gem "minitest", "5.25.2"
+gem "minitest", "5.25.4"
 
 gem "versionist", "2.0.1"
 
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.69.0", require: false
+  gem "rubocop",        "1.69.1", require: false
   gem "rubocop-rails",  "2.27.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
