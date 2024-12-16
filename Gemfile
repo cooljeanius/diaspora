@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "7.2.2"
+gem "rails", "7.2.2.1"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -79,11 +79,11 @@ group :postgresql, optional: true do
   gem "pg",     "1.5.9"
 end
 
-gem "activerecord-import", "1.8.1"
+gem "activerecord-import", "2.0.0"
 
 # File uploading
 
-gem "carrierwave", "3.0.7"
+gem "carrierwave", "3.1.0"
 gem "fog-aws",     "3.29.0"
 gem "mini_magick", "4.13.2"
 
@@ -109,7 +109,7 @@ gem "leaflet-rails", "1.9.5"
 
 # Parsing
 
-gem "nokogiri",          "1.17.0"
+gem "nokogiri",          "1.17.2"
 gem "open_graph_reader", "0.7.2" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.6.0"
 gem "ruby-oembed",       "0.18.1"
@@ -146,7 +146,7 @@ gem "acts-as-taggable-on", "11.0.0"
 # URIs and HTTP
 
 gem "addressable",              "2.8.7", require: "addressable/uri"
-gem "faraday",                  "2.12.1"
+gem "faraday",                  "2.12.2"
 gem "faraday-cookie_jar",       "0.0.7"
 gem "faraday-follow_redirects", "0.3.0"
 gem "faraday-typhoeus",         "1.1.0", require: false
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.5", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.69.1", require: false
+  gem "rubocop",        "1.69.2", require: false
   gem "rubocop-rails",  "2.27.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
