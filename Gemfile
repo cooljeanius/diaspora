@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.9.0"
+gem "json",        "2.9.1"
 gem "json-schema", "5.1.1"
 gem "yajl-ruby",   "1.4.3"
 
@@ -43,7 +43,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 # Background processing
 
 gem "redis", "5.3.0"
-gem "sidekiq", "7.3.6"
+gem "sidekiq", "7.3.7"
 
 # Scheduled processing
 
@@ -84,7 +84,7 @@ gem "activerecord-import", "2.0.0"
 # File uploading
 
 gem "carrierwave", "3.1.0"
-gem "fog-aws",     "3.29.0"
+gem "fog-aws",     "3.30.0"
 gem "mini_magick", "4.13.2"
 
 # GUID generation
@@ -97,7 +97,7 @@ gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.0"
 gem "jquery-ui-rails",   "7.0.0"
 gem "js_image_paths",    "0.2.0"
-gem "js-routes",         "2.3.3"
+gem "js-routes",         "2.3.4"
 
 # Localization
 
@@ -121,7 +121,7 @@ gem "string-direction", "1.2.2"
 
 # Security Headers
 
-gem "secure_headers", "7.0.0"
+gem "secure_headers", "7.1.0"
 
 # Services
 
