@@ -253,7 +253,7 @@ GEM
     email_validator (2.2.4)
       activemodel
     equalizer (0.0.11)
-    erubi (1.13.0)
+    erubi (1.13.1)
     eslintrb (2.1.0)
       execjs
       multi_json (>= 1.3)
@@ -262,7 +262,7 @@ GEM
       tzinfo
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    excon (1.0.0)
+    excon (1.2.2)
     execjs (2.9.1)
     eye (0.10.0)
       celluloid (~> 0.17.3)
@@ -305,7 +305,7 @@ GEM
       activerecord (>= 2)
       activesupport (>= 2)
       hashdiff
-    fog-aws (3.29.0)
+    fog-aws (3.30.0)
       base64 (~> 0.2.0)
       fog-core (~> 2.6)
       fog-json (~> 1.1)
@@ -378,7 +378,7 @@ GEM
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     io-console (0.8.0)
-    irb (1.14.2)
+    irb (1.14.3)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     jasmine (3.99.0)
@@ -410,13 +410,13 @@ GEM
     jquery-ui-redmond (0.0.1)
     jquery-ui-themes (0.0.12)
       httparty
-    js-routes (2.3.3)
+    js-routes (2.3.4)
       railties (>= 5)
       sorbet-runtime
     js_image_paths (0.2.0)
       rails (>= 4.0, < 8.0)
       sprockets (>= 3.0.0)
-    json (2.9.0)
+    json (2.9.1)
     json-jwt (1.16.7)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -443,7 +443,7 @@ GEM
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
-    logger (1.6.3)
+    logger (1.6.4)
     logging (2.3.1)
       little-plugger (~> 1.1)
       multi_json (~> 1.14)
@@ -467,7 +467,7 @@ GEM
     mime-types (3.6.0)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2024.1001)
+    mime-types-data (3.2024.1203)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     mini_portile2 (2.8.8)
@@ -483,7 +483,7 @@ GEM
     naught (1.1.0)
     net-http (0.6.0)
       uri
-    net-imap (0.5.1)
+    net-imap (0.5.4)
       date
       net-protocol
     net-pop (0.1.2)
@@ -582,7 +582,7 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
-    psych (5.2.1)
+    psych (5.2.2)
       date
       stringio
     public_suffix (6.0.1)
@@ -664,15 +664,15 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rdoc (6.9.0)
+    rdoc (6.10.0)
       psych (>= 4.0.0)
     redcarpet (3.6.0)
     redis (5.3.0)
       redis-client (>= 0.22.0)
-    redis-client (0.22.2)
+    redis-client (0.23.0)
       connection_pool
     regexp_parser (2.9.3)
-    reline (0.5.12)
+    reline (0.6.0)
       io-console (~> 0.5)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -747,11 +747,11 @@ GEM
       faraday (>= 0.17.3, < 3)
     scss_lint (0.60.0)
       sass (~> 3.5, >= 3.5.5)
-    secure_headers (7.0.0)
+    secure_headers (7.1.0)
     securerandom (0.4.1)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
-    sidekiq (7.3.6)
+    sidekiq (7.3.7)
       connection_pool (>= 2.3.0)
       logger
       rack (>= 2.2.4)
@@ -777,7 +777,7 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
-    sorbet-runtime (0.5.11690)
+    sorbet-runtime (0.5.11708)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -907,7 +907,7 @@ DEPENDENCIES
   faraday-retry
   faraday-typhoeus (= 1.1.0)
   fixture_builder (= 0.5.2)
-  fog-aws (= 3.29.0)
+  fog-aws (= 3.30.0)
   fuubar (= 2.5.1)
   gon (= 6.4.0)
   haml_lint (= 0.59.0)
@@ -927,9 +927,9 @@ DEPENDENCIES
   jquery-ui-rails-test (~> 6.0)
   jquery-ui-redmond (~> 0.0.1)
   jquery-ui-themes (~> 0.0.12)
-  js-routes (= 2.3.3)
+  js-routes (= 2.3.4)
   js_image_paths (= 0.2.0)
-  json (= 2.9.0)
+  json (= 2.9.1)
   json-schema (= 5.1.1)
   leaflet-rails (= 1.9.5)
   listen (= 3.9.0)
@@ -980,9 +980,9 @@ DEPENDENCIES
   rubyzip (= 2.3.2)
   sassc (~> 2.4)
   sassc-rails (= 2.1.2)
-  secure_headers (= 7.0.0)
+  secure_headers (= 7.1.0)
   shoulda-matchers (= 6.4.0)
-  sidekiq (= 7.3.6)
+  sidekiq (= 7.3.7)
   sidekiq-cron (= 2.0.1)
   simple_captcha2 (= 0.5.0)
   simplecov (= 0.22.0)
