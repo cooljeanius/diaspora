@@ -51,10 +51,10 @@ jobs:
             libssl-dev libxml2-dev libxslt1-dev yarnpkg libjs-angularjs npm \
             coreutils python3-flake8 python3-pyflakes pyflakes3 flake8 pipx \
             golang golang-go libssh2-1-dev idn libjs-es5-shim coffeescript \
-            python3-pycurl cl-asdf asdftool python3-asdf dh-golang python2-dev \
+            python3-pycurl cl-asdf asdftool python3-asdf dh-golang \
             libjs-coffeescript dh-make pipsi pipenv rake ruby-bundler bundler \
             rubygems-integration shellcheck yamllint
-          sudo apt-get -qq install -y python-pip || sudo apt-get install -y python3-pip || sudo apt-get install -y python2-pip-whl || sudo apt-get install -y python3-pip-whl || sudo apt-get install -y pip-check-reqs || sudo apt-get install -y virtualenv || sudo apt-get install -y python3-wheel || sudo apt-get install -y python3-virtualenv
+          sudo apt-get -qq install -y python-pip || sudo apt-get install -y python3-pip || sudo apt-get install -y python3-pip-whl || sudo apt-get install -y pip-check-reqs || sudo apt-get install -y virtualenv || sudo apt-get install -y python3-wheel || sudo apt-get install -y python3-virtualenv
           if test -x "$(which pip)"; then \
             echo "attempting to use $(which pip) to install pyflakes"; \
             pip install pyflakes; \
