@@ -83,7 +83,7 @@ gem "activerecord-import", "2.0.0"
 
 # File uploading
 
-gem "carrierwave", "3.1.0"
+gem "carrierwave", "3.1.1"
 gem "fog-aws",     "3.30.0"
 gem "mini_magick", "4.13.2"
 
@@ -200,12 +200,12 @@ end
 group :development do
   # Linters
   gem "haml_lint",      "0.59.0", require: false
-  gem "pronto",         "0.11.2", require: false
+  gem "pronto",         "0.11.3", require: false
   gem "pronto-eslint",  "0.11.1", require: false
   gem "pronto-haml",    "0.11.1", require: false
-  gem "pronto-rubocop", "0.11.5", require: false
+  gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.69.2", require: false
+  gem "rubocop",        "1.70.0", require: false
   gem "rubocop-rails",  "2.28.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
