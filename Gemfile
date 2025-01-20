@@ -109,7 +109,7 @@ gem "leaflet-rails", "1.9.5"
 
 # Parsing
 
-gem "nokogiri",          "1.18.1"
+gem "nokogiri",          "1.18.2"
 gem "open_graph_reader", "0.7.2" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.6.0"
 gem "ruby-oembed",       "0.18.1"
@@ -206,7 +206,7 @@ group :development do
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
   gem "rubocop",        "1.70.0", require: false
-  gem "rubocop-rails",  "2.28.0", require: false
+  gem "rubocop-rails",  "2.29.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
