@@ -43,15 +43,15 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 # Background processing
 
 gem "redis", "5.3.0"
-gem "sidekiq", "7.3.7"
+gem "sidekiq", "7.3.8"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "2.0.1"
+gem "sidekiq-cron", "2.1.0"
 
 # Compression
 
-gem "terser", "1.2.4"
+gem "terser", "1.2.5"
 
 # Configuration
 
@@ -110,7 +110,7 @@ gem "leaflet-rails", "1.9.5"
 # Parsing
 
 gem "nokogiri",          "1.18.2"
-gem "open_graph_reader", "0.7.2" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
+gem "open_graph_reader", "0.8.0" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.6.0"
 gem "ruby-oembed",       "0.18.1"
 gem "twitter-text",      "3.1.0"
@@ -205,8 +205,8 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.70.0", require: false
-  gem "rubocop-rails",  "2.29.0", require: false
+  gem "rubocop",        "1.71.0", require: false
+  gem "rubocop-rails",  "2.29.1", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
