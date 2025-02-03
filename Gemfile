@@ -15,7 +15,7 @@ gem "responders", "3.1.1"
 
 # Appserver
 
-gem "puma", "6.5.0", require: false
+gem "puma", "6.6.0", require: false
 
 # Federation
 
@@ -199,13 +199,13 @@ end
 
 group :development do
   # Linters
-  gem "haml_lint",      "0.59.0", require: false
+  gem "haml_lint",      "0.60.0", require: false
   gem "pronto",         "0.11.3", require: false
   gem "pronto-eslint",  "0.11.1", require: false
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.71.0", require: false
+  gem "rubocop",        "1.71.1", require: false
   gem "rubocop-rails",  "2.29.1", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
@@ -252,7 +252,7 @@ group :development, :test do
   gem "rspec-rails", "7.1.0"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "3.1.0", require: false
+  gem "cucumber-rails", "3.1.1", require: false
 
   # Jasmine (client side application tests (JS))
   gem "chrome_remote",             "0.3.0"
