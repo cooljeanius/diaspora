@@ -79,7 +79,7 @@ group :postgresql, optional: true do
   gem "pg",     "1.5.9"
 end
 
-gem "activerecord-import", "2.0.0"
+gem "activerecord-import", "2.1.0"
 
 # File uploading
 
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.71.1", require: false
+  gem "rubocop",        "1.71.2", require: false
   gem "rubocop-rails",  "2.29.1", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
@@ -242,14 +242,14 @@ group :test do
   gem "factory_bot_rails", "6.4.4"
   gem "shoulda-matchers",  "6.4.0"
   gem "timecop",           "0.9.10"
-  gem "webmock",           "3.24.0", require: false
+  gem "webmock",           "3.25.0", require: false
 
   gem "diaspora_federation-test", "1.1.0"
 end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "7.1.0"
+  gem "rspec-rails", "7.1.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "3.1.1", require: false
