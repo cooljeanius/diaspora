@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.9.1"
+gem "json",        "2.10.1"
 gem "json-schema", "5.1.1"
 gem "yajl-ruby",   "1.4.3"
 
@@ -43,7 +43,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 # Background processing
 
 gem "redis", "5.3.0"
-gem "sidekiq", "7.3.8"
+gem "sidekiq", "7.3.9"
 
 # Scheduled processing
 
@@ -85,7 +85,7 @@ gem "activerecord-import", "2.1.0"
 
 gem "carrierwave", "3.1.1"
 gem "fog-aws",     "3.30.0"
-gem "mini_magick", "4.13.2"
+gem "mini_magick", "5.1.2"
 
 # GUID generation
 gem "uuid", "2.3.9"
@@ -97,7 +97,7 @@ gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.0"
 gem "jquery-ui-rails",   "7.0.0"
 gem "js_image_paths",    "0.2.0"
-gem "js-routes",         "2.3.4"
+gem "js-routes",         "2.3.5"
 
 # Localization
 
@@ -205,8 +205,8 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.71.2", require: false
-  gem "rubocop-rails",  "2.29.1", require: false
+  gem "rubocop",        "1.72.1", require: false
+  gem "rubocop-rails",  "2.30.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
