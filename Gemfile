@@ -42,7 +42,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 
 # Background processing
 
-gem "redis", "5.3.0"
+gem "redis", "5.4.0"
 gem "sidekiq", "7.3.9"
 
 # Scheduled processing
@@ -85,7 +85,7 @@ gem "activerecord-import", "2.1.0"
 
 gem "carrierwave", "3.1.1"
 gem "fog-aws",     "3.30.0"
-gem "mini_magick", "5.1.2"
+gem "mini_magick", "5.2.0"
 
 # GUID generation
 gem "uuid", "2.3.9"
@@ -205,8 +205,8 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.72.1", require: false
-  gem "rubocop-rails",  "2.30.0", require: false
+  gem "rubocop",        "1.72.2", require: false
+  gem "rubocop-rails",  "2.30.1", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
