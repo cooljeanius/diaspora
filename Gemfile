@@ -111,7 +111,7 @@ gem "leaflet-rails", "1.9.5"
 
 gem "nokogiri",          "1.18.3"
 gem "open_graph_reader", "0.8.0" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
-gem "redcarpet",         "3.6.0"
+gem "redcarpet",         "3.6.1"
 gem "ruby-oembed",       "0.18.1"
 gem "twitter-text",      "3.1.0"
 
@@ -125,7 +125,7 @@ gem "secure_headers", "7.1.0"
 
 # Services
 
-gem "omniauth",                       "2.1.2"
+gem "omniauth",                       "2.1.3"
 gem "omniauth-rails_csrf_protection", "1.0.2"
 gem "omniauth-tumblr",                "1.2"
 gem "omniauth-twitter",               "1.4.0"
@@ -199,14 +199,14 @@ end
 
 group :development do
   # Linters
-  gem "haml_lint",      "0.60.0", require: false
+  gem "haml_lint",      "0.61.0", require: false
   gem "pronto",         "0.11.3", require: false
   gem "pronto-eslint",  "0.11.1", require: false
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.72.2", require: false
-  gem "rubocop-rails",  "2.30.1", require: false
+  gem "rubocop",        "1.73.2", require: false
+  gem "rubocop-rails",  "2.30.3", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
@@ -242,7 +242,7 @@ group :test do
   gem "factory_bot_rails", "6.4.4"
   gem "shoulda-matchers",  "6.4.0"
   gem "timecop",           "0.9.10"
-  gem "webmock",           "3.25.0", require: false
+  gem "webmock",           "3.25.1", require: false
 
   gem "diaspora_federation-test", "1.1.0"
 end
