@@ -47,7 +47,7 @@ gem "sidekiq", "7.3.9"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "2.1.0"
+gem "sidekiq-cron", "2.2.0"
 
 # Compression
 
@@ -109,7 +109,7 @@ gem "leaflet-rails", "1.9.5"
 
 # Parsing
 
-gem "nokogiri",          "1.18.4"
+gem "nokogiri",          "1.18.5"
 gem "open_graph_reader", "0.8.0" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.6.1"
 gem "ruby-oembed",       "0.18.1"
@@ -199,7 +199,7 @@ end
 
 group :development do
   # Linters
-  gem "haml_lint",      "0.61.0", require: false
+  gem "haml_lint",      "0.61.1", require: false
   gem "pronto",         "0.11.3", require: false
   gem "pronto-eslint",  "0.11.1", require: false
   gem "pronto-haml",    "0.11.1", require: false
