@@ -64,7 +64,7 @@ gem "rack-cors", "2.0.2", require: "rack/cors"
 
 # CSS
 
-gem "autoprefixer-rails",     "10.4.19.0"
+gem "autoprefixer-rails",     "10.4.21.0"
 gem "bootstrap-sass",         "3.4.1"
 gem "bootstrap-switch-rails", "3.3.5" # 3.3.4 and 3.3.5 is broken, see https://github.com/Bttstrp/bootstrap-switch/issues/691
 gem "sassc-rails",            "2.1.2"
@@ -83,7 +83,7 @@ gem "activerecord-import", "2.1.0"
 
 # File uploading
 
-gem "carrierwave", "3.1.1"
+gem "carrierwave", "3.1.2"
 gem "fog-aws",     "3.30.0"
 gem "mini_magick", "5.2.0"
 
@@ -146,7 +146,7 @@ gem "acts-as-taggable-on", "11.0.0"
 # URIs and HTTP
 
 gem "addressable",              "2.8.7", require: "addressable/uri"
-gem "faraday",                  "2.12.2"
+gem "faraday",                  "2.13.0"
 gem "faraday-cookie_jar",       "0.0.7"
 gem "faraday-follow_redirects", "0.3.0"
 gem "faraday-typhoeus",         "1.1.0", require: false
@@ -199,7 +199,7 @@ end
 
 group :development do
   # Linters
-  gem "haml_lint",      "0.61.1", require: false
+  gem "haml_lint",      "0.62.0", require: false
   gem "pronto",         "0.11.3", require: false
   gem "pronto-eslint",  "0.11.1", require: false
   gem "pronto-haml",    "0.11.1", require: false
