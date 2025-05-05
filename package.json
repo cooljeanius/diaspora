@@ -36,8 +36,8 @@
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "eslint": "^9.25.1",
-    "jasmine": "^5.7.0",
+    "eslint": "^9.26.0",
+    "jasmine": "^5.7.1",
     "jasmine-ajax": "4.0.0",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3",
