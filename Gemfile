@@ -34,7 +34,7 @@ gem "yajl-ruby",   "1.4.3"
 gem "devise", "4.9.4"
 gem "devise_lastseenable", "0.0.6"
 gem "devise-two-factor", "6.1.0"
-gem "rqrcode", "3.0.0"
+gem "rqrcode", "3.1.0"
 
 # Captcha
 
@@ -95,7 +95,7 @@ gem "uuid", "2.3.9"
 gem "babel-transpiler",  "0.7.0"
 gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.0"
-gem "jquery-ui-rails",   "7.0.0"
+gem "jquery-ui-rails",   "8.0.0"
 gem "js_image_paths",    "0.2.0"
 gem "js-routes",         "2.3.5"
 
@@ -200,12 +200,12 @@ end
 group :development do
   # Linters
   gem "haml_lint",      "0.62.0", require: false
-  gem "pronto",         "0.11.3", require: false
+  gem "pronto",         "0.11.4", require: false
   gem "pronto-eslint",  "0.11.1", require: false
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.75.3", require: false
+  gem "rubocop",        "1.75.5", require: false
   gem "rubocop-rails",  "2.31.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
@@ -249,7 +249,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "7.1.1"
+  gem "rspec-rails", "8.0.0"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "3.1.1", require: false
