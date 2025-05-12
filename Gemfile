@@ -232,7 +232,7 @@ group :test do
   # Cucumber (integration tests)
 
   gem "capybara",         "3.40.0"
-  gem "cuprite",          "0.15.1"
+  gem "cuprite",          "0.17"
   gem "database_cleaner-active_record", "2.2.0"
 
   gem "cucumber-api-steps", "0.14", require: false
