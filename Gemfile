@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.11.3"
+gem "json",        "2.12.0"
 gem "json-schema", "5.1.1"
 gem "yajl-ruby",   "1.4.3"
 
@@ -47,7 +47,7 @@ gem "sidekiq", "7.3.9"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "2.2.0"
+gem "sidekiq-cron", "2.3.0"
 
 # Compression
 
@@ -60,7 +60,7 @@ gem "toml-rb", "4.0.0"
 
 # Cross-origin resource sharing
 
-gem "rack-cors", "2.0.2", require: "rack/cors"
+gem "rack-cors", "3.0.0", require: "rack/cors"
 
 # CSS
 
@@ -205,8 +205,8 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.75.5", require: false
-  gem "rubocop-rails",  "2.31.0", require: false
+  gem "rubocop",        "1.75.6", require: false
+  gem "rubocop-rails",  "2.32.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
@@ -233,7 +233,7 @@ group :test do
 
   gem "capybara",         "3.40.0"
   gem "cuprite",          "0.17"
-  gem "database_cleaner-active_record", "2.2.0"
+  gem "database_cleaner-active_record", "2.2.1"
 
   gem "cucumber-api-steps", "0.14", require: false
 
