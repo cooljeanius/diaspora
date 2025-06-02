@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.12.0"
+gem "json",        "2.12.2"
 gem "json-schema", "5.1.1"
 gem "yajl-ruby",   "1.4.3"
 
@@ -79,12 +79,12 @@ group :postgresql, optional: true do
   gem "pg",     "1.5.9"
 end
 
-gem "activerecord-import", "2.1.0"
+gem "activerecord-import", "2.2.0"
 
 # File uploading
 
 gem "carrierwave", "3.1.2"
-gem "fog-aws",     "3.31.0"
+gem "fog-aws",     "3.32.0"
 gem "mini_magick", "5.2.0"
 
 # GUID generation
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.75.6", require: false
+  gem "rubocop",        "1.75.8", require: false
   gem "rubocop-rails",  "2.32.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
