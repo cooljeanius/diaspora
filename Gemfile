@@ -51,7 +51,7 @@ gem "sidekiq-cron", "2.3.0"
 
 # Compression
 
-gem "terser", "1.2.5"
+gem "terser", "1.2.6"
 
 # Configuration
 
@@ -110,7 +110,7 @@ gem "leaflet-rails", "1.9.5"
 # Parsing
 
 gem "nokogiri",          "1.18.8"
-gem "open_graph_reader", "0.8.0" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
+gem "open_graph_reader", "0.9.1" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.6.1"
 gem "ruby-oembed",       "0.18.1"
 gem "twitter-text",      "3.1.0"
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.76.1", require: false
+  gem "rubocop",        "1.77.0", require: false
   gem "rubocop-rails",  "2.32.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
@@ -249,7 +249,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "8.0.0"
+  gem "rspec-rails", "8.0.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "3.1.1", require: false
