@@ -39,7 +39,7 @@
     "eslint": "^9.29.0",
     "jasmine": "^5.8.0",
     "jasmine-ajax": "4.0.0",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^7.0.1"
   }
