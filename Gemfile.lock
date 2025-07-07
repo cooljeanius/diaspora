@@ -281,7 +281,7 @@ GEM
     factory_bot_rails (6.5.0)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
-    faraday (2.13.1)
+    faraday (2.13.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -926,7 +926,7 @@ DEPENDENCIES
   diaspora_federation-test (= 1.1.0)
   eye (= 0.10.0)
   factory_bot_rails (= 6.5.0)
-  faraday (= 2.13.1)
+  faraday (= 2.13.2)
   faraday-cookie_jar (= 0.0.7)
   faraday-follow_redirects (= 0.3.0)
   faraday-retry
