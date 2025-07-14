@@ -26,7 +26,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 
 gem "acts_as_api", "1.0.1"
 gem "json",        "2.12.2"
-gem "json-schema", "5.1.1"
+gem "json-schema", "5.2.1"
 gem "yajl-ruby",   "1.4.3"
 
 # Authentication
@@ -85,7 +85,7 @@ gem "activerecord-import", "2.2.0"
 
 gem "carrierwave", "3.1.2"
 gem "fog-aws",     "3.32.0"
-gem "mini_magick", "5.2.0"
+gem "mini_magick", "5.3.0"
 
 # GUID generation
 gem "uuid", "2.3.9"
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.77.0", require: false
+  gem "rubocop",        "1.78.0", require: false
   gem "rubocop-rails",  "2.32.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
