@@ -432,7 +432,7 @@ GEM
       bindata
       faraday (~> 2.0)
       faraday-follow_redirects
-    json-schema (5.1.1)
+    json-schema (5.2.1)
       addressable (~> 2.8)
       bigdecimal (~> 3.1)
     jsonapi-renderer (0.2.2)
@@ -477,8 +477,7 @@ GEM
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
     mime-types-data (3.2025.0527)
-    mini_magick (5.2.0)
-      benchmark
+    mini_magick (5.3.0)
       logger
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
@@ -721,7 +720,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.4)
-    rubocop (1.77.0)
+    rubocop (1.78.0)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -955,11 +954,11 @@ DEPENDENCIES
   js-routes (= 2.3.5)
   js_image_paths (= 0.2.0)
   json (= 2.12.2)
-  json-schema (= 5.1.1)
+  json-schema (= 5.2.1)
   leaflet-rails (= 1.9.5)
   listen (= 3.9.0)
   logging-rails (= 0.6.0)
-  mini_magick (= 5.2.0)
+  mini_magick (= 5.3.0)
   minitest (= 5.25.5)
   mobile-fu (= 1.4.0)
   mysql2 (= 0.5.6)
@@ -999,7 +998,7 @@ DEPENDENCIES
   rqrcode (= 3.1.0)
   rspec-json_expectations (~> 2.1)
   rspec-rails (= 8.0.1)
-  rubocop (= 1.77.0)
+  rubocop (= 1.78.0)
   rubocop-rails (= 2.32.0)
   ruby-oembed (= 0.18.1)
   rubyzip (= 2.4.1)
