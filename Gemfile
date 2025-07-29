@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.12.2"
+gem "json",        "2.13.2"
 gem "json-schema", "5.2.1"
 gem "yajl-ruby",   "1.4.3"
 
@@ -42,7 +42,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 
 # Background processing
 
-gem "redis", "5.4.0"
+gem "redis", "5.4.1"
 gem "sidekiq", "7.3.9"
 
 # Scheduled processing
@@ -76,7 +76,7 @@ group :mysql, optional: true do
   gem "mysql2", "0.5.6"
 end
 group :postgresql, optional: true do
-  gem "pg",     "1.5.9"
+  gem "pg",     "1.6.0"
 end
 
 gem "activerecord-import", "2.2.0"
@@ -109,7 +109,7 @@ gem "leaflet-rails", "1.9.5"
 
 # Parsing
 
-gem "nokogiri",          "1.18.8"
+gem "nokogiri",          "1.18.9"
 gem "open_graph_reader", "0.9.1" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.6.1"
 gem "ruby-oembed",       "0.18.1"
@@ -146,7 +146,7 @@ gem "acts-as-taggable-on", "11.0.0"
 # URIs and HTTP
 
 gem "addressable",              "2.8.7", require: "addressable/uri"
-gem "faraday",                  "2.13.2"
+gem "faraday",                  "2.13.4"
 gem "faraday-cookie_jar",       "0.0.7"
 gem "faraday-follow_redirects", "0.3.0"
 gem "faraday-typhoeus",         "1.1.0", require: false
@@ -199,13 +199,13 @@ end
 
 group :development do
   # Linters
-  gem "haml_lint",      "0.64.0", require: false
+  gem "haml_lint",      "0.65.1", require: false
   gem "pronto",         "0.11.4", require: false
   gem "pronto-eslint",  "0.11.1", require: false
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.78.0", require: false
+  gem "rubocop",        "1.79.0", require: false
   gem "rubocop-rails",  "2.32.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
