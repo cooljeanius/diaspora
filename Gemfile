@@ -47,7 +47,7 @@ gem "sidekiq", "7.3.9"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "2.3.0"
+gem "sidekiq-cron", "2.3.1"
 
 # Compression
 
@@ -84,7 +84,7 @@ gem "activerecord-import", "2.2.0"
 # File uploading
 
 gem "carrierwave", "3.1.2"
-gem "fog-aws",     "3.32.0"
+gem "fog-aws",     "3.33.0"
 gem "mini_magick", "5.3.0"
 
 # GUID generation
@@ -166,7 +166,7 @@ gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "3.0.0", require: "zip"
+gem "rubyzip", "3.0.1", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
@@ -205,8 +205,8 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.79.1", require: false
-  gem "rubocop-rails",  "2.32.0", require: false
+  gem "rubocop",        "1.79.2", require: false
+  gem "rubocop-rails",  "2.33.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
