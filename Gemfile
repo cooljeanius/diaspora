@@ -85,7 +85,7 @@ gem "activerecord-import", "2.2.0"
 
 gem "carrierwave", "3.1.2"
 gem "fog-aws",     "3.33.0"
-gem "mini_magick", "5.3.0"
+gem "mini_magick", "5.3.1"
 
 # GUID generation
 gem "uuid", "2.3.9"
@@ -154,7 +154,7 @@ gem "typhoeus",                 "1.4.1"
 
 # Views
 
-gem "gon",                     "6.4.0"
+gem "gon",                     "6.5.0"
 gem "hamlit",                  "3.0.3"
 gem "mobile-fu",               "1.4.0"
 gem "rails-timeago",           "2.20.0"
@@ -166,7 +166,7 @@ gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "3.0.1", require: "zip"
+gem "rubyzip", "3.0.2", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.79.2", require: false
+  gem "rubocop",        "1.80.0", require: false
   gem "rubocop-rails",  "2.33.3", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
