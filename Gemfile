@@ -150,7 +150,7 @@ gem "faraday",                  "2.13.4"
 gem "faraday-cookie_jar",       "0.0.7"
 gem "faraday-follow_redirects", "0.3.0"
 gem "faraday-typhoeus",         "1.1.0", require: false
-gem "typhoeus",                 "1.4.1"
+gem "typhoeus",                 "1.5.0"
 
 # Views
 
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.80.0", require: false
+  gem "rubocop",        "1.80.1", require: false
   gem "rubocop-rails",  "2.33.3", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
