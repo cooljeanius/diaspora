@@ -15,7 +15,7 @@ gem "responders", "3.1.1"
 
 # Appserver
 
-gem "puma", "6.6.1", require: false
+gem "puma", "7.0.1", require: false
 
 # Federation
 
@@ -76,7 +76,7 @@ group :mysql, optional: true do
   gem "mysql2", "0.5.6"
 end
 group :postgresql, optional: true do
-  gem "pg",     "1.6.1"
+  gem "pg",     "1.6.2"
 end
 
 gem "activerecord-import", "2.2.0"
@@ -166,7 +166,7 @@ gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "3.0.2", require: "zip"
+gem "rubyzip", "3.1.0", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.80.1", require: false
+  gem "rubocop",        "1.80.2", require: false
   gem "rubocop-rails",  "2.33.3", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
@@ -239,7 +239,7 @@ group :test do
 
   # General helpers
 
-  gem "factory_bot_rails", "6.5.0"
+  gem "factory_bot_rails", "6.5.1"
   gem "shoulda-matchers",  "6.5.0"
   gem "timecop",           "0.9.10"
   gem "webmock",           "3.25.1", require: false
