@@ -15,7 +15,7 @@ gem "responders", "3.1.1"
 
 # Appserver
 
-gem "puma", "7.0.1", require: false
+gem "puma", "7.0.3", require: false
 
 # Federation
 
@@ -109,7 +109,7 @@ gem "leaflet-rails", "1.9.5"
 
 # Parsing
 
-gem "nokogiri",          "1.18.9"
+gem "nokogiri",          "1.18.10"
 gem "open_graph_reader", "0.9.1" # also update User-Agent in features/support/webmock.rb and open_graph_cache_spec.rb
 gem "redcarpet",         "3.6.1"
 gem "ruby-oembed",       "0.18.1"
