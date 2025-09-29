@@ -15,7 +15,7 @@ gem "responders", "3.1.1"
 
 # Appserver
 
-gem "puma", "7.0.3", require: false
+gem "puma", "7.0.4", require: false
 
 # Federation
 
@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.13.2"
+gem "json",        "2.15.0"
 gem "json-schema", "5.2.2"
 gem "yajl-ruby",   "1.4.3"
 
@@ -73,7 +73,7 @@ gem "sprockets-rails",        "3.5.2"
 # Database
 
 group :mysql, optional: true do
-  gem "mysql2", "0.5.6"
+  gem "mysql2", "0.5.7"
 end
 group :postgresql, optional: true do
   gem "pg",     "1.6.2"
@@ -146,7 +146,7 @@ gem "acts-as-taggable-on", "11.0.0"
 # URIs and HTTP
 
 gem "addressable",              "2.8.7", require: "addressable/uri"
-gem "faraday",                  "2.13.4"
+gem "faraday",                  "2.14.0"
 gem "faraday-cookie_jar",       "0.0.7"
 gem "faraday-follow_redirects", "0.3.0"
 gem "faraday-typhoeus",         "1.1.0", require: false
@@ -166,7 +166,7 @@ gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "3.1.0", require: "zip"
+gem "rubyzip", "3.1.1", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
@@ -205,8 +205,8 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.80.2", require: false
-  gem "rubocop-rails",  "2.33.3", require: false
+  gem "rubocop",        "1.81.1", require: false
+  gem "rubocop-rails",  "2.33.4", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
