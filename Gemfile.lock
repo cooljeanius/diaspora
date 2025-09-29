@@ -281,7 +281,7 @@ GEM
     factory_bot_rails (6.5.1)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
-    faraday (2.13.4)
+    faraday (2.14.0)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -425,7 +425,7 @@ GEM
     js_image_paths (0.2.0)
       rails (>= 4.0, < 8.0)
       sprockets (>= 3.0.0)
-    json (2.13.2)
+    json (2.15.0)
     json-jwt (1.16.7)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -490,7 +490,8 @@ GEM
     multi_test (1.1.0)
     multi_xml (0.6.0)
     multipart-post (2.3.0)
-    mysql2 (0.5.6)
+    mysql2 (0.5.7)
+      bigdecimal
     naught (1.1.0)
     net-http (0.6.0)
       uri
@@ -570,7 +571,7 @@ GEM
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
-    prism (1.4.0)
+    prism (1.5.1)
     pronto (0.11.4)
       gitlab (>= 4.4.0, < 5.0)
       httparty (>= 0.13.7, < 1.0)
@@ -601,7 +602,7 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-    puma (7.0.3)
+    puma (7.0.4)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
@@ -689,7 +690,7 @@ GEM
       redis-client (>= 0.22.0)
     redis-client (0.25.2)
       connection_pool
-    regexp_parser (2.11.2)
+    regexp_parser (2.11.3)
     reline (0.6.2)
       io-console (~> 0.5)
     request_store (1.7.0)
@@ -721,7 +722,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.4)
-    rubocop (1.80.2)
+    rubocop (1.81.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -729,13 +730,13 @@ GEM
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 2.9.3, < 3.0)
-      rubocop-ast (>= 1.46.0, < 2.0)
+      rubocop-ast (>= 1.47.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.46.0)
+    rubocop-ast (1.47.1)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
-    rubocop-rails (2.33.3)
+    rubocop-rails (2.33.4)
       activesupport (>= 4.2.0)
       lint_roller (~> 1.1)
       rack (>= 1.1)
@@ -746,7 +747,7 @@ GEM
     ruby-vips (2.2.3)
       ffi (~> 1.12)
       logger
-    rubyzip (3.1.0)
+    rubyzip (3.1.1)
     rugged (1.9.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -857,9 +858,9 @@ GEM
       unf_ext
     unf_ext (0.0.9.1)
     unicode (0.4.4.5)
-    unicode-display_width (3.1.5)
-      unicode-emoji (~> 4.0, >= 4.0.4)
-    unicode-emoji (4.0.4)
+    unicode-display_width (3.2.0)
+      unicode-emoji (~> 4.1)
+    unicode-emoji (4.1.0)
     uri (1.0.3)
     useragent (0.16.11)
     uuid (2.3.9)
@@ -926,7 +927,7 @@ DEPENDENCIES
   diaspora_federation-test (= 1.1.0)
   eye (= 0.10.0)
   factory_bot_rails (= 6.5.1)
-  faraday (= 2.13.4)
+  faraday (= 2.14.0)
   faraday-cookie_jar (= 0.0.7)
   faraday-follow_redirects (= 0.3.0)
   faraday-retry
@@ -954,7 +955,7 @@ DEPENDENCIES
   jquery-ui-themes (~> 0.0.12)
   js-routes (= 2.3.5)
   js_image_paths (= 0.2.0)
-  json (= 2.13.2)
+  json (= 2.15.0)
   json-schema (= 5.2.2)
   leaflet-rails (= 1.9.5)
   listen (= 3.9.0)
@@ -962,7 +963,7 @@ DEPENDENCIES
   mini_magick (= 5.3.1)
   minitest (= 5.25.5)
   mobile-fu (= 1.4.0)
-  mysql2 (= 0.5.6)
+  mysql2 (= 0.5.7)
   net-imap
   net-pop
   net-smtp
@@ -982,7 +983,7 @@ DEPENDENCIES
   pronto-scss (= 0.11.0)
   pry
   pry-byebug
-  puma (= 7.0.3)
+  puma (= 7.0.4)
   rack-cors (= 3.0.0)
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
@@ -999,10 +1000,10 @@ DEPENDENCIES
   rqrcode (= 3.1.0)
   rspec-json_expectations (~> 2.1)
   rspec-rails (= 8.0.2)
-  rubocop (= 1.80.2)
-  rubocop-rails (= 2.33.3)
+  rubocop (= 1.81.1)
+  rubocop-rails (= 2.33.4)
   ruby-oembed (= 0.18.1)
-  rubyzip (= 3.1.0)
+  rubyzip (= 3.1.1)
   sassc (~> 2.4)
   sassc-rails (= 2.1.2)
   secure_headers (= 7.1.0)
