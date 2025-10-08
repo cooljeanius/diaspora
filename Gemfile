@@ -125,7 +125,7 @@ gem "secure_headers", "7.1.0"
 
 # Services
 
-gem "omniauth",                       "2.1.3"
+gem "omniauth",                       "2.1.4"
 gem "omniauth-rails_csrf_protection", "1.0.2"
 gem "omniauth-tumblr",                "1.2"
 gem "omniauth-twitter",               "1.4.0"
@@ -148,7 +148,7 @@ gem "acts-as-taggable-on", "11.0.0"
 gem "addressable",              "2.8.7", require: "addressable/uri"
 gem "faraday",                  "2.14.0"
 gem "faraday-cookie_jar",       "0.0.7"
-gem "faraday-follow_redirects", "0.3.0"
+gem "faraday-follow_redirects", "0.4.0"
 gem "faraday-typhoeus",         "1.1.0", require: false
 gem "typhoeus",                 "1.5.0"
 
