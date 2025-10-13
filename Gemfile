@@ -11,7 +11,7 @@ gem "net-smtp", require: false
 
 # Legacy Rails features, remove me!
 # responders (class level)
-gem "responders", "3.1.1"
+gem "responders", "3.2.0"
 
 # Appserver
 
@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.15.0"
+gem "json",        "2.15.1"
 gem "json-schema", "5.2.2"
 gem "yajl-ruby",   "1.4.3"
 
@@ -173,7 +173,7 @@ gem "rubyzip", "3.1.1", require: "zip"
 # https://github.com/gitlabhq/gitlabhq/issues/3826
 # https://github.com/gitlabhq/gitlabhq/pull/3852
 # https://github.com/discourse/discourse/pull/238
-gem "minitest", "5.25.5"
+gem "minitest", "5.26.0"
 
 gem "versionist", "2.0.1"
 
