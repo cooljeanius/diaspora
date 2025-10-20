@@ -603,7 +603,7 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-    puma (7.0.4)
+    puma (7.1.0)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
@@ -749,7 +749,7 @@ GEM
     ruby-vips (2.2.3)
       ffi (~> 1.12)
       logger
-    rubyzip (3.1.1)
+    rubyzip (3.2.0)
     rugged (1.9.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -986,7 +986,7 @@ DEPENDENCIES
   pronto-scss (= 0.11.0)
   pry
   pry-byebug
-  puma (= 7.0.4)
+  puma (= 7.1.0)
   rack-cors (= 3.0.0)
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
@@ -1006,7 +1006,7 @@ DEPENDENCIES
   rubocop (= 1.81.1)
   rubocop-rails (= 2.33.4)
   ruby-oembed (= 0.18.1)
-  rubyzip (= 3.1.1)
+  rubyzip (= 3.2.0)
   sassc (~> 2.4)
   sassc-rails (= 2.1.2)
   secure_headers (= 7.1.0)
