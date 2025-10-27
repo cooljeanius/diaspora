@@ -15,7 +15,7 @@ gem "responders", "3.2.0"
 
 # Appserver
 
-gem "puma", "7.0.4", require: false
+gem "puma", "7.1.0", require: false
 
 # Federation
 
@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.15.1"
+gem "json",        "2.15.2"
 gem "json-schema", "5.2.2"
 gem "yajl-ruby",   "1.4.3"
 
@@ -33,7 +33,7 @@ gem "yajl-ruby",   "1.4.3"
 
 gem "devise", "4.9.4"
 gem "devise_lastseenable", "0.0.6"
-gem "devise-two-factor", "6.1.0"
+gem "devise-two-factor", "6.2.0"
 gem "rqrcode", "3.1.0"
 
 # Captcha
@@ -94,7 +94,7 @@ gem "uuid", "2.3.9"
 
 gem "babel-transpiler",  "0.7.0"
 gem "handlebars_assets", "0.23.9"
-gem "jquery-rails",      "4.6.0"
+gem "jquery-rails",      "4.6.1"
 gem "jquery-ui-rails",   "8.0.0"
 gem "js_image_paths",    "0.2.0"
 gem "js-routes",         "2.3.5"
@@ -166,7 +166,7 @@ gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "3.1.1", require: "zip"
+gem "rubyzip", "3.2.1", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
@@ -205,7 +205,7 @@ group :development do
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.81.1", require: false
+  gem "rubocop",        "1.81.6", require: false
   gem "rubocop-rails",  "2.33.4", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
@@ -242,7 +242,7 @@ group :test do
   gem "factory_bot_rails", "6.5.1"
   gem "shoulda-matchers",  "6.5.0"
   gem "timecop",           "0.9.10"
-  gem "webmock",           "3.25.1", require: false
+  gem "webmock",           "3.26.0", require: false
 
   gem "diaspora_federation-test", "1.1.0"
 end
