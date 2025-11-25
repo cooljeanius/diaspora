@@ -126,7 +126,7 @@ gem "secure_headers", "7.1.0"
 # Services
 
 gem "omniauth",                       "2.1.4"
-gem "omniauth-rails_csrf_protection", "1.0.2"
+gem "omniauth-rails_csrf_protection", "2.0.0"
 gem "omniauth-tumblr",                "1.2"
 gem "omniauth-twitter",               "1.4.0"
 gem "omniauth-wordpress",             "0.2.2"
@@ -147,14 +147,14 @@ gem "acts-as-taggable-on", "13.0.0"
 
 gem "addressable",              "2.8.7", require: "addressable/uri"
 gem "faraday",                  "2.14.0"
-gem "faraday-cookie_jar",       "0.0.7"
+gem "faraday-cookie_jar",       "0.0.8"
 gem "faraday-follow_redirects", "0.4.0"
 gem "faraday-typhoeus",         "1.1.0", require: false
 gem "typhoeus",                 "1.5.0"
 
 # Views
 
-gem "gon",                     "6.5.0"
+gem "gon",                     "6.6.0"
 gem "hamlit",                  "3.0.3"
 gem "mobile-fu",               "1.4.0"
 gem "rails-timeago",           "2.20.0"
@@ -173,7 +173,7 @@ gem "rubyzip", "3.2.2", require: "zip"
 # https://github.com/gitlabhq/gitlabhq/issues/3826
 # https://github.com/gitlabhq/gitlabhq/pull/3852
 # https://github.com/discourse/discourse/pull/238
-gem "minitest", "5.26.1"
+gem "minitest", "5.26.2"
 
 gem "versionist", "2.0.1"
 
@@ -206,7 +206,7 @@ group :development do
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
   gem "rubocop",        "1.81.7", require: false
-  gem "rubocop-rails",  "2.33.4", require: false
+  gem "rubocop-rails",  "2.34.0", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
