@@ -41,7 +41,7 @@ jobs:
             gsfonts imagemagick libcurl4-openssl-dev libidn11-dev \
             libmagickwand-dev libssl-dev libxml2-dev libxslt1-dev yarnpkg
       - name: Checkout Target branch
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.base_ref }}
           fetch-depth: 0
