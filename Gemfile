@@ -34,7 +34,7 @@ gem "yajl-ruby",   "1.4.3"
 gem "devise", "4.9.4"
 gem "devise_lastseenable", "0.0.6"
 gem "devise-two-factor", "6.2.0"
-gem "rqrcode", "3.1.0"
+gem "rqrcode", "3.1.1"
 
 # Captcha
 
@@ -145,7 +145,7 @@ gem "acts-as-taggable-on", "13.0.0"
 
 # URIs and HTTP
 
-gem "addressable",              "2.8.7", require: "addressable/uri"
+gem "addressable",              "2.8.8", require: "addressable/uri"
 gem "faraday",                  "2.14.0"
 gem "faraday-cookie_jar",       "0.0.8"
 gem "faraday-follow_redirects", "0.4.0"
@@ -206,7 +206,7 @@ group :development do
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
   gem "rubocop",        "1.81.7", require: false
-  gem "rubocop-rails",  "2.34.0", require: false
+  gem "rubocop-rails",  "2.34.2", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
