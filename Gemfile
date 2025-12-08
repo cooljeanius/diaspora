@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.16.0"
+gem "json",        "2.17.1"
 gem "json-schema", "5.2.2"
 gem "yajl-ruby",   "1.4.3"
 
@@ -200,7 +200,7 @@ end
 group :development do
   # Linters
   gem "haml_lint",      "0.67.0", require: false
-  gem "pronto",         "0.11.4", require: false
+  gem "pronto",         "0.11.5", require: false
   gem "pronto-eslint",  "0.11.1", require: false
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
