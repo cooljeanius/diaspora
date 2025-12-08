@@ -1877,18 +1877,18 @@ jasmine-browser-runner@^3.0.0:
     glob "^10.0.0"
     selenium-webdriver "^4.12.0"
 
-jasmine-core@~5.12.0:
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-5.12.0.tgz#a0cd016483756e9537ba354c52a4ec6d8e9e7951"
-  integrity sha512-QqO4pX33GEML5JoGQU6BM5NHKPgEsg+TXp3jCIDek9MbfEp2JUYEFBo9EF1+hegWy/bCHS1m5nP0BOp18G6rVA==
+jasmine-core@~5.13.0:
+  version "5.13.0"
+  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-5.13.0.tgz#3ff5765a93a23bac0728ae87ad82ce0569a5f7a8"
+  integrity sha512-vsYjfh7lyqvZX5QgqKc4YH8phs7g96Z8bsdIFNEU3VqXhlHaq+vov/Fgn/sr6MiUczdZkyXRC3TX369Ll4Nzbw==
 
-jasmine@^5.12.0:
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/jasmine/-/jasmine-5.12.0.tgz#dc84b0caf8500b920faf13d6e611b0144513b480"
-  integrity sha512-KmKeTNuH8rgAuPRL5AUsXWSdJVlDu+pgqi2dLXoZUSH/g3kR+7Ho8B7hEhwDu0fu1PLuiXZtfaxmQ/mB5wqihw==
+jasmine@^5.13.0:
+  version "5.13.0"
+  resolved "https://registry.yarnpkg.com/jasmine/-/jasmine-5.13.0.tgz#9d43bf91cd6a2930b879fac67dc7448f5e24b96a"
+  integrity sha512-oLCXIhEb5e0zzjn9GyuvcuisvLBwUjmgz7a0RNGWKwQtJCDld4m+vwKUpAIJVLB5vbmQFdtKhT86/tIZlJ5gYw==
   dependencies:
     glob "^10.2.2"
-    jasmine-core "~5.12.0"
+    jasmine-core "~5.13.0"
 
 jquery-placeholder@2.3.1:
   version "2.3.1"
@@ -2690,10 +2690,10 @@ prelude-ls@^1.2.1:
   resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prettier@^3.7.3:
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.7.3.tgz#99a8891f6c990cfa54bcff2a0d276e6f845e59ab"
-  integrity sha512-QgODejq9K3OzoBbuyobZlUhznP5SKwPqp+6Q6xw6o8gnhr4O85L2U915iM2IDcfF2NPXVaM9zlo9tdwipnYwzg==
+prettier@^3.7.4:
+  version "3.7.4"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.7.4.tgz#d2f8335d4b1cec47e1c8098645411b0c9dff9c0f"
+  integrity sha512-v6UNi1+3hSlVvv8fSaoUbggEM5VErKmmpGA7Pl3HF8V6uKY7rvClBOJlH6yNwQtfTueNkGVpOv/mtWL9L4bgRA==
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
