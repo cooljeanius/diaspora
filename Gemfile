@@ -25,7 +25,7 @@ gem "diaspora_federation-rails",       "1.1.0"
 # API and JSON
 
 gem "acts_as_api", "1.0.1"
-gem "json",        "2.17.1"
+gem "json",        "2.18.0"
 gem "json-schema", "5.2.2"
 gem "yajl-ruby",   "1.4.3"
 
@@ -43,7 +43,7 @@ gem "simple_captcha2", "0.5.0", require: "simple_captcha"
 # Background processing
 
 gem "redis", "5.4.1"
-gem "sidekiq", "7.3.9"
+gem "sidekiq", "7.3.10"
 
 # Scheduled processing
 
@@ -126,7 +126,7 @@ gem "secure_headers", "7.1.0"
 # Services
 
 gem "omniauth",                       "2.1.4"
-gem "omniauth-rails_csrf_protection", "2.0.0"
+gem "omniauth-rails_csrf_protection", "2.0.1"
 gem "omniauth-tumblr",                "1.2"
 gem "omniauth-twitter",               "1.4.0"
 gem "omniauth-wordpress",             "0.2.2"
@@ -137,7 +137,7 @@ gem "openid_connect", "2.3.1"
 
 # Serializers
 
-gem "active_model_serializers", "0.10.15"
+gem "active_model_serializers", "0.10.16"
 
 # Tags
 
@@ -173,7 +173,7 @@ gem "rubyzip", "3.2.2", require: "zip"
 # https://github.com/gitlabhq/gitlabhq/issues/3826
 # https://github.com/gitlabhq/gitlabhq/pull/3852
 # https://github.com/discourse/discourse/pull/238
-gem "minitest", "5.26.2"
+gem "minitest", "5.27.0"
 
 gem "versionist", "2.0.1"
 
