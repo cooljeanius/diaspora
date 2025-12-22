@@ -97,7 +97,7 @@ gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.1"
 gem "jquery-ui-rails",   "8.0.0"
 gem "js_image_paths",    "0.2.0"
-gem "js-routes",         "2.3.5"
+gem "js-routes",         "2.3.6"
 
 # Localization
 
@@ -199,13 +199,13 @@ end
 
 group :development do
   # Linters
-  gem "haml_lint",      "0.67.0", require: false
+  gem "haml_lint",      "0.68.0", require: false
   gem "pronto",         "0.11.5", require: false
   gem "pronto-eslint",  "0.11.1", require: false
   gem "pronto-haml",    "0.11.1", require: false
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
-  gem "rubocop",        "1.81.7", require: false
+  gem "rubocop",        "1.82.0", require: false
   gem "rubocop-rails",  "2.34.2", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
