@@ -76,7 +76,7 @@ group :mysql, optional: true do
   gem "mysql2", "0.5.7"
 end
 group :postgresql, optional: true do
-  gem "pg",     "1.6.2"
+  gem "pg",     "1.6.3"
 end
 
 gem "activerecord-import", "2.2.0"
@@ -206,7 +206,7 @@ group :development do
   gem "pronto-rubocop", "0.11.6", require: false
   gem "pronto-scss",    "0.11.0", require: false
   gem "rubocop",        "1.82.1", require: false
-  gem "rubocop-rails",  "2.34.2", require: false
+  gem "rubocop-rails",  "2.34.3", require: false
 
   gem "faraday-retry", require: false # used by pronto/octokit
 
