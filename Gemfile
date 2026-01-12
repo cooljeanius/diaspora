@@ -33,7 +33,7 @@ gem "yajl-ruby",   "1.4.3"
 
 gem "devise", "4.9.4"
 gem "devise_lastseenable", "0.0.6"
-gem "devise-two-factor", "6.2.0"
+gem "devise-two-factor", "6.3.0"
 gem "rqrcode", "3.1.1"
 
 # Captcha
@@ -154,7 +154,7 @@ gem "typhoeus",                 "1.5.0"
 
 # Views
 
-gem "gon",                     "6.6.0"
+gem "gon",                     "7.0.0"
 gem "hamlit",                  "3.0.3"
 gem "mobile-fu",               "1.4.0"
 gem "rails-timeago",           "2.20.0"
@@ -194,7 +194,7 @@ group :production do # we skip installing these on travis to speed up test runs
 
   # Third party asset hosting
 
-  gem "asset_sync", "2.19.2", require: false
+  gem "asset_sync", "2.19.3", require: false
 end
 
 group :development do
