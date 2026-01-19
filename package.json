@@ -14,8 +14,8 @@
     "cropperjs": "2.1.0",
     "fine-uploader": "5.16.2",
     "highlightjs": "9.16.2",
-    "jasmine-browser-runner": "^3.0.0",
-    "jquery": "3.7.1",
+    "jasmine-browser-runner": "^4.0.0",
+    "jquery": "4.0.0",
     "jquery-placeholder": "2.3.1",
     "jquery-ui": "^1.14.1",
     "jquery.are-you-sure": "1.9.0",
@@ -37,9 +37,9 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "eslint": "^9.39.2",
-    "jasmine": "^5.13.0",
+    "jasmine": "^6.0.0",
     "jasmine-ajax": "4.0.0",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^7.0.1"
   }
