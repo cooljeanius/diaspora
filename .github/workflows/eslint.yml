@@ -42,7 +42,7 @@ jobs:
           CXXFLAGS: "-Wno-overloaded-virtual"
         run: |
           npm install eslint@8.10.0 || npm install eslint || sudo apt-get install eslint || which eslint
-          npm install @microsoft/eslint-formatter-sarif@3.1.0
+          npm install --force @microsoft/eslint-formatter-sarif@3.1.0
 
       - name: Run ESLint
         env:
