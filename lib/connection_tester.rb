@@ -129,7 +129,8 @@ class ConnectionTester
 
       version, url = ni_urls.max
       if valid_url?(url)
-        find_software_version(version, http.get(url).body)
+        request_target = safe_nodeinfo_request_target(url)
+        find_software_version(version, http.get(request_target).body)
       else
         raise NodeInfoFailure, "Invalid URL: #{url}"
       end
@@ -164,6 +165,28 @@ class ConnectionTester
 
   def http_uri?(uri)
     uri.is_a?(URI::HTTP) || uri.is_a?(URI::HTTPS)
+  end
+
+  # Restrict NodeInfo fetches to same origin to avoid SSRF via remote-controlled JRD links.
+  # Returns a relative request target suitable for Faraday#get.
+  # @raise [NodeInfoFailure] if URL is invalid or points to a different origin
+  def safe_nodeinfo_request_target(url)
+    uri = URI.parse(url)
+    raise NodeInfoFailure, "Invalid URL: #{url}" unless http_uri?(uri)
+
+    if uri.host
+      same_scheme = (uri.scheme == @uri.scheme)
+      same_host = (uri.host == @uri.host)
+      same_port = (uri.port == @uri.port)
+      raise NodeInfoFailure, "Invalid URL: #{url}" unless same_scheme && same_host && same_port
+    end
+
+    path = uri.path.to_s
+    path = "/" if path.empty?
+    query = uri.query ? "?#{uri.query}" : ""
+    "#{path}#{query}"
+  rescue URI::InvalidURIError
+    raise NodeInfoFailure, "Invalid URL: #{url}"
   end
 
   # request root path, measure response time
