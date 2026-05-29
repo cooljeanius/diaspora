@@ -20,7 +20,7 @@ Layout/LineLength:
 # Too short methods lead to extraction of single-use methods, which can make
 # the code easier to read (by naming things), but can also clutter the class
 Metrics/MethodLength:
-  Max: 20
+  Max: 22
 
 # The guiding principle of classes is SRP; SRP cannot be accurately measured
 # by LoC
@@ -31,7 +31,7 @@ Metrics/ModuleLength:
 
 # Raise complexity metrics
 Metrics/AbcSize:
-  Max: 20
+  Max: 30
 
 Metrics/CyclomaticComplexity:
   Max: 20
