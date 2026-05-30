@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
   # We need to take a raw POST from an omniauth provider with no authenticity token.
   # See https://github.com/intridea/omniauth/issues/203
   # See also http://www.communityguides.eu/articles/16
-  skip_before_action :verify_authenticity_token, :only => :create
+  before_action :verify_authenticity_or_oauth_token, :only => :create
   before_action :authenticate_user!
   before_action :abort_if_already_authorized, :abort_if_read_only_access, :only => :create
 
@@ -96,5 +96,15 @@ class ServicesController < ApplicationController
   #https://gist.github.com/oliverbarnes/6096959 #=> hash with twitter specific extra
   def twitter_access_level
     twitter_access_token.response.header['x-access-level']
+  end
+
+  def verify_authenticity_or_oauth_token
+    unless verified_request? || valid_oauth_request?
+      render plain: "Forbidden", status: :forbidden
+    end
+  end
+
+  def valid_oauth_request?
+    omniauth_hash.present? && omniauth_hash['provider'].present? && omniauth_hash['uid'].present?
   end
 end
