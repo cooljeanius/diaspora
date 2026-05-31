@@ -105,6 +105,6 @@ class ServicesController < ApplicationController
   end
 
   def valid_oauth_request?
-    omniauth_hash.present? && omniauth_hash['provider'].present? && omniauth_hash['uid'].present?
+    omniauth_hash.present? && omniauth_hash["provider"].present? && omniauth_hash["uid"].present?
   end
 end
