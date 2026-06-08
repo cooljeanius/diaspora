@@ -5,7 +5,7 @@
 
 class ActionView::Base
   def json_escape(s)
-    result = s.to_s.gsub('/', '\/')
+    result = s.to_s.gsub('\\', '\\\\').gsub('/', '\/')
     s.html_safe? ? result.html_safe : result
   end
 
