@@ -19,7 +19,7 @@
     "jquery-placeholder": "2.3.1",
     "jquery-ui": "^1.14.2",
     "jquery.are-you-sure": "1.9.0",
-    "markdown-it": "14.2.0",
+    "markdown-it": "14.3.0",
     "markdown-it-diaspora-mention": "^1.2.0",
     "markdown-it-footnote": "4.0.0",
     "markdown-it-for-inline": "2.0.1",
@@ -39,7 +39,7 @@
     "eslint": "^10.6.0",
     "jasmine": "^6.3.0",
     "jasmine-ajax": "5.0.0",
-    "prettier": "^3.9.1",
+    "prettier": "^3.9.4",
     "typescript": "^6.0.3",
     "typescript-eslint": "^7.0.1"
   }
