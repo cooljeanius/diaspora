@@ -31,15 +31,15 @@
     "node-sass": "^9.0.0",
     "perfect-scrollbar": "1.5.6",
     "pica": "10.0.2",
-    "sass": "^1.101.0",
+    "sass": "^1.102.0",
     "striptags": "^3.2.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "eslint": "^10.7.0",
+    "eslint": "^10.8.0",
     "jasmine": "^6.3.0",
     "jasmine-ajax": "5.0.0",
-    "prettier": "^3.9.5",
+    "prettier": "^3.9.6",
     "typescript": "^7.0.2",
     "typescript-eslint": "^7.0.1"
   }
