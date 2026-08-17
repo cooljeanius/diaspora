@@ -16,6 +16,8 @@ updates:
       actions:
         patterns:
           - "*"
+    cooldown:
+      default-days: 7
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
@@ -28,6 +30,8 @@ updates:
       bundler:
         patterns:
           - "*"
+    cooldown:
+      default-days: 7
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -38,6 +42,8 @@ updates:
       npm:
         patterns:
           - "*"
+    cooldown:
+      default-days: 7
   - package-ecosystem: "docker"
     directory: "/docker/develop/"
     schedule:
@@ -48,3 +54,5 @@ updates:
       docker:
         patterns:
           - "*"
+    cooldown:
+      default-days: 7
