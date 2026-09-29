@@ -36,10 +36,10 @@
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "eslint": "^10.10.0",
+    "eslint": "^10.11.0",
     "jasmine": "^7.0.0",
     "jasmine-ajax": "5.0.0",
-    "prettier": "^3.9.6",
+    "prettier": "^3.9.8",
     "typescript": "^7.0.2",
     "typescript-eslint": "^7.0.1"
   }
