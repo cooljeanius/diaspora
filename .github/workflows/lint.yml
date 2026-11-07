@@ -50,7 +50,7 @@ jobs:
           ruby-version: "3.1"
           bundler-cache: true
         env:
-          CFLAGS: -Wno-discarded-qualifiers -Wno-implicit-function-declaration
+          CPPFLAGS: -Wno-discarded-qualifiers -Wno-implicit-function-declaration
       - name: Checkout PR HEAD
         run: |
           git fetch -q origin \
