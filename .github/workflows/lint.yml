@@ -49,6 +49,8 @@ jobs:
         with:
           ruby-version: "3.1"
           bundler-cache: true
+        env:
+          CFLAGS: "-Wno-discarded-qualifiers"
       - name: Checkout PR HEAD
         run: |
           git fetch -q origin \
