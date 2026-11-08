@@ -33,7 +33,7 @@ permissions:
 
 jobs:
   pronto:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Install system dependencies
         run: |
@@ -49,6 +49,8 @@ jobs:
         with:
           ruby-version: "3.1"
           bundler-cache: true
+        env:
+          CPPFLAGS: -Wno-discarded-qualifiers -Wno-implicit-function-declaration
       - name: Checkout PR HEAD
         run: |
           git fetch -q origin \
